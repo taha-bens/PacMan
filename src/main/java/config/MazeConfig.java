@@ -58,6 +58,33 @@ public class MazeConfig {
 
     // simple example with a square shape
     // TODO: mazes should be loaded from a text file
+    
+    public static MazeConfig makeExample1() {
+        return new MazeConfig(new Cell[][]{
+                {seVee(DOT), hPipe(DOT), hPipe(DOT), hPipe(DOT), swVee(DOT) , open(NOTHING), seVee(DOT), hPipe(DOT), hPipe(DOT), hPipe(DOT), swVee(DOT)},
+                {vPipe(DOT), open(NOTHING), open(NOTHING), open(NOTHING), vPipe(DOT), open(NOTHING),vPipe(DOT), open(NOTHING), open(NOTHING), open(NOTHING), vPipe(DOT)},
+                {neVee(DOT), nTee(DOT), hPipe(DOT), nTee(DOT), sTee(DOT), hPipe(DOT), sTee(DOT), nTee(DOT), hPipe(DOT), nTee(DOT), nwVee(DOT)},
+                {open(NOTHING), vPipe(DOT), open(NOTHING), vPipe(DOT), open(NOTHING), open(NOTHING), open(NOTHING), vPipe(DOT), open(NOTHING), vPipe(DOT), open(NOTHING)},
+                {open(NOTHING), vPipe(DOT), open(NOTHING), wTee(DOT), hPipe(DOT), nTee(DOT), hPipe(DOT), eTee(DOT), open(NOTHING), vPipe(DOT), open(NOTHING)},
+                {hPipe (NOTHING), open(DOT), hPipe(DOT), eTee(DOT), eU(NOTHING), sTee(NOTHING), wU(NOTHING), wTee(DOT), hPipe(DOT), open(DOT), hPipe(NOTHING)},
+                {open(NOTHING), vPipe(DOT), open(NOTHING), wTee(DOT), hPipe(DOT), hPipe(DOT), hPipe(DOT), eTee(DOT), open(NOTHING), vPipe(DOT), open(NOTHING)},
+                {open(NOTHING), vPipe(DOT), open(NOTHING), vPipe(DOT), open(NOTHING), open(NOTHING), open(NOTHING), vPipe(DOT), open(NOTHING), vPipe(DOT), open(NOTHING)},
+                {seVee(DOT), sTee(DOT), hPipe(DOT), sTee(DOT), swVee(DOT), open(NOTHING),seVee(DOT), sTee(DOT), hPipe(DOT), sTee(DOT), swVee(DOT)},
+                {vPipe(DOT), open(NOTHING), open(NOTHING), open(NOTHING), vPipe(DOT), open(NOTHING),vPipe(DOT), open(NOTHING), open(NOTHING), open(NOTHING), vPipe(DOT)},
+                {neVee(DOT), hPipe(DOT), hPipe(DOT), hPipe(DOT), sTee(DOT), hPipe(DOT), sTee(DOT), hPipe(DOT), hPipe(DOT), hPipe(DOT), neVee(DOT)}
+                
+                
+        },
+                new IntCoordinates(5, 6),
+                new IntCoordinates(4, 5),
+                new IntCoordinates(5, 5),
+                new IntCoordinates(6, 5),
+                new IntCoordinates(5, 4)
+        );
+    }
+    
+    /*
+    
     public static MazeConfig makeExample1() {
         return new MazeConfig(new Cell[][]{
                 {nTee(DOT),    hPipe(DOT),     hPipe(DOT),     hPipe(DOT),     hPipe(DOT),     nTee(DOT)},
@@ -74,4 +101,5 @@ public class MazeConfig {
                 new IntCoordinates(5, 1)
         );
     }
+    */
 }
