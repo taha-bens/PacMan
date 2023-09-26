@@ -71,7 +71,7 @@ public class MazeConfig {
                 {open(NOTHING), vPipe(DOT), open(NOTHING), vPipe(DOT), open(NOTHING), open(NOTHING), open(NOTHING), vPipe(DOT), open(NOTHING), vPipe(DOT), open(NOTHING)},
                 {seVee(DOT), sTee(DOT), hPipe(DOT), sTee(DOT), swVee(DOT), open(NOTHING),seVee(DOT), sTee(DOT), hPipe(DOT), sTee(DOT), swVee(DOT)},
                 {vPipe(DOT), open(NOTHING), open(NOTHING), open(NOTHING), vPipe(DOT), open(NOTHING),vPipe(DOT), open(NOTHING), open(NOTHING), open(NOTHING), vPipe(DOT)},
-                {neVee(DOT), hPipe(DOT), hPipe(DOT), hPipe(DOT), sTee(DOT), hPipe(DOT), sTee(DOT), hPipe(DOT), hPipe(DOT), hPipe(DOT), neVee(DOT)}
+                {neVee(DOT), hPipe(DOT), hPipe(DOT), hPipe(DOT), sTee(DOT), hPipe(DOT), sTee(DOT), hPipe(DOT), hPipe(DOT), hPipe(DOT), nwVee(DOT)}
                 
                 
         },
