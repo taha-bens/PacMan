@@ -23,13 +23,13 @@ public class App extends Application {
          * une scène dans laquelle les différents éléments sont placés,
          * une configuration de labyrinthe (pour ensuite créer le labyrinthe),
          * */
-        var root = new Pane(); //organisateur de la fenêtre (stage)
-        var gameScene = new Scene(root); //scène (comme caneva dans python tkinter)
-        var pacmanController = new PacmanController();
+        Pane root = new Pane(); //organisateur de la fenêtre (stage)
+        Scene gameScene = new Scene(root); //scène (comme caneva dans python tkinter)
+        PacmanController pacmanController = new PacmanController();
         gameScene.setOnKeyPressed(pacmanController::keyPressedHandler); //ajoute l'event pression sur la scene
         gameScene.setOnKeyReleased(pacmanController::keyReleasedHandler); //ajoute l'event relachement sur la scene
-        var maze = new MazeState(MazeConfig.makeExample1()); //données du labyrinthe
-        var gameView = new GameView(maze, root, 70.0); //apparance graphique du précédent labyrinthe
+        MazeState maze = new MazeState(MazeConfig.makeExample1()); //données du labyrinthe
+        GameView gameView = new GameView(maze, root, 70.0); //apparance graphique du précédent labyrinthe
         primaryStage.setScene(gameScene); //place la scèene dans la fenêtre "primaryStage"
         primaryStage.show(); //affiche la fenêtre
         gameView.animate(); //méthode de la classe "gameView" qui sert probablement à actualiser en continue le jeu
