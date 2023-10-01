@@ -3,6 +3,7 @@ package config;
 public record Cell(boolean northWall, boolean eastWall, boolean southWall, boolean westWall, Cell.Content initialContent) {
     public enum Content { NOTHING, DOT, ENERGIZER}
     // FIXME: all these factories are convenient, but it is not very "economic" to have so many methods!
+    //Tout les types de cellules possibles
     public static Cell open(Content c) { return new Cell(false, false, false, false, c); }
     public static Cell closed(Content c) { return new Cell(true, true, false, false, c); }
     // straight pipes

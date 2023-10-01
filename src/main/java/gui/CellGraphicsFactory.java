@@ -10,6 +10,9 @@ import model.MazeState;
 
 import static config.Cell.Content.DOT;
 
+//Imports ajoutés
+import config.Cell;
+import gui.GraphicsUpdater;
 public class CellGraphicsFactory {
     private final double scale;
 
@@ -18,18 +21,18 @@ public class CellGraphicsFactory {
     }
 
     public GraphicsUpdater makeGraphics(MazeState state, IntCoordinates pos) {
-        var group = new Group();
+        Group group = new Group();
         group.setTranslateX(pos.x()*scale);
         group.setTranslateY(pos.y()*scale);
-        var cell = state.getConfig().getCell(pos);
-        var dot = new Circle();
+        Cell cell = state.getConfig().getCell(pos);
+        Circle dot = new Circle();
         group.getChildren().add(dot);
         dot.setRadius(switch (cell.initialContent()) { case DOT -> scale/15; case ENERGIZER -> scale/5; case NOTHING -> 0; });
         dot.setCenterX(scale/2);
         dot.setCenterY(scale/2);
         dot.setFill(Color.YELLOW);
         if (cell.northWall()) {
-            var nWall = new Rectangle();
+            Rectangle nWall = new Rectangle();
             nWall.setHeight(scale/10);
             nWall.setWidth(scale);
             nWall.setY(0);
@@ -38,7 +41,7 @@ public class CellGraphicsFactory {
             group.getChildren().add(nWall);
         }
         if (cell.eastWall()) {
-            var nWall = new Rectangle();
+            Rectangle nWall = new Rectangle();
             nWall.setHeight(scale);
             nWall.setWidth(scale/10);
             nWall.setY(0);
@@ -47,7 +50,7 @@ public class CellGraphicsFactory {
             group.getChildren().add(nWall);
         }
         if (cell.southWall()) {
-            var nWall = new Rectangle();
+            Rectangle nWall = new Rectangle();
             nWall.setHeight(scale/10);
             nWall.setWidth(scale);
             nWall.setY(9*scale/10);
@@ -56,7 +59,7 @@ public class CellGraphicsFactory {
             group.getChildren().add(nWall);
         }
         if (cell.westWall()) {
-            var nWall = new Rectangle();
+            Rectangle nWall = new Rectangle();
             nWall.setHeight(scale);
             nWall.setWidth(scale/10);
             nWall.setY(0);

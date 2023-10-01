@@ -4,6 +4,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+//Import ajouté
+import geometry.IntCoordinates;
+
+/*On défini des coordonnées réelles pour représenter les positions qui se
+ * situe entre chaque coordonnées (par ex : entre 1.0 et 2.0 -> 1.57 ou 1.69)
+ * cela permet de rendre fluide les déplacement des créature par exemple
+ * (si on c'était uniquement contanté de "IntCoordinates", les créatures
+ * se téléporteraient de 1 coordonnée à chaque fois, ça ne serai pas fluide)*/
+
 public record RealCoordinates(double x, double y) {
 
     public static final RealCoordinates ZERO = new RealCoordinates(0, 0);
@@ -26,6 +35,10 @@ public record RealCoordinates(double x, double y) {
      * @return the coordinates of all integer squares that a unit square with current coordinates would intersect
       */
     public Set<IntCoordinates> intNeighbours() {
+        //Méthode : intNeighbours
+        //Input : rien
+        //OutPut : Set<IntCoordinate> (ensemble immuable)
+        /*Description : donne les case voisine par rapport à this.x et this.y*/
         return new HashSet<>(List.of(
                 new IntCoordinates((int) Math.floor(x), (int) Math.floor(y)),
                 new IntCoordinates((int) Math.floor(x), (int) Math.ceil(y)),

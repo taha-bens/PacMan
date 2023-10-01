@@ -8,6 +8,12 @@ import model.MazeState;
 import java.util.ArrayList;
 import java.util.List;
 
+//Imports ajoutés
+import model.Critter;
+import gui.GraphicsUpdater;
+import gui.CritterGraphicsFactory;
+import gui.CellGraphicsFactory;
+
 public class GameView {
     // class parameters
     private final MazeState maze;
@@ -32,10 +38,10 @@ public class GameView {
         root.setMinWidth(maze.getWidth() * scale);
         root.setMinHeight(maze.getHeight() * scale);
         root.setStyle("-fx-background-color: #000000");
-        var critterFactory = new CritterGraphicsFactory(scale);
-        var cellFactory = new CellGraphicsFactory(scale);
+        CritterGraphicsFactory critterFactory = new CritterGraphicsFactory(scale);
+        CellGraphicsFactory cellFactory = new CellGraphicsFactory(scale);
         graphicsUpdaters = new ArrayList<>();
-        for (var critter : maze.getCritters()) addGraphics(critterFactory.makeGraphics(critter));
+        for (Critter critter : maze.getCritters()) addGraphics(critterFactory.makeGraphics(critter));
         for (int x = 0; x < maze.getWidth(); x++)
             for (int y = 0; y < maze.getHeight(); y++)
                 addGraphics(cellFactory.makeGraphics(maze, new IntCoordinates(x, y)));

@@ -5,7 +5,7 @@ import geometry.RealCoordinates;
 /**
  * Implements Pac-Man character using singleton pattern. FIXME: check whether singleton is really a good idea.
  */
-public final class PacMan implements Critter {
+public final class PacMan implements Critter { //final car il n'y a qu'une seule instance de cette classe
     private Direction direction = Direction.NONE;
     private RealCoordinates pos;
     private boolean energized;

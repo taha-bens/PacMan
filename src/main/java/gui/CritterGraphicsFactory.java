@@ -7,6 +7,9 @@ import model.Critter;
 import model.Ghost;
 import model.PacMan;
 
+//Import ajouté
+import gui.GraphicsUpdater;
+
 
 public final class CritterGraphicsFactory {
     private final double scale;

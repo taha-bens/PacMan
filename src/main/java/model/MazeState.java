@@ -9,6 +9,9 @@ import java.util.Map;
 
 import static model.Ghost.*;
 
+import java.util.Set;
+import model.Critter;
+import model.Direction;
 public final class MazeState {
     private final MazeConfig config;
     private final int height;
@@ -53,35 +56,35 @@ public final class MazeState {
     public void update(long deltaTns) {
         // FIXME: too many things in this method. Maybe some responsibilities can be delegated to other methods or classes?
         for  (var critter: critters) {
-            var curPos = critter.getPos();
-            var nextPos = critter.nextPos(deltaTns);
-            var curNeighbours = curPos.intNeighbours();
-            var nextNeighbours = nextPos.intNeighbours();
+            RealCoordinates curPos = critter.getPos();
+            RealCoordinates nextPos = critter.nextPos(deltaTns);
+            Set<IntCoordinates> curNeighbours = curPos.intNeighbours();
+            Set<IntCoordinates> nextNeighbours = nextPos.intNeighbours();
             if (!curNeighbours.containsAll(nextNeighbours)) { // the critter would overlap new cells. Do we allow it?
                 switch (critter.getDirection()) {
                     case NORTH -> {
-                        for (var n: curNeighbours) if (config.getCell(n).northWall()) {
+                        for (IntCoordinates n: curNeighbours) if (config.getCell(n).northWall()) {
                             nextPos = curPos.floorY();
                             critter.setDirection(Direction.NONE);
                             break;
                         }
                     }
                     case EAST -> {
-                        for (var n: curNeighbours) if (config.getCell(n).eastWall()) {
+                        for (IntCoordinates n: curNeighbours) if (config.getCell(n).eastWall()) {
                             nextPos = curPos.ceilX();
                             critter.setDirection(Direction.NONE);
                             break;
                         }
                     }
                     case SOUTH -> {
-                        for (var n: curNeighbours) if (config.getCell(n).southWall()) {
+                        for (IntCoordinates n: curNeighbours) if (config.getCell(n).southWall()) {
                             nextPos = curPos.ceilY();
                             critter.setDirection(Direction.NONE);
                             break;
                         }
                     }
                     case WEST -> {
-                        for (var n: curNeighbours) if (config.getCell(n).westWall()) {
+                        for (IntCoordinates n: curNeighbours) if (config.getCell(n).westWall()) {
                             nextPos = curPos.floorX();
                             critter.setDirection(Direction.NONE);
                             break;
@@ -94,12 +97,12 @@ public final class MazeState {
             critter.setPos(nextPos.warp(width, height));
         }
         // FIXME Pac-Man rules should somehow be in Pacman class
-        var pacPos = PacMan.INSTANCE.getPos().round();
+        IntCoordinates pacPos = PacMan.INSTANCE.getPos().round();
         if (!gridState[pacPos.y()][pacPos.x()]) {
             addScore(1);
             gridState[pacPos.y()][pacPos.x()] = true;
         }
-        for (var critter : critters) {
+        for (Critter critter : critters) {
             if (critter instanceof Ghost && critter.getPos().round().equals(pacPos)) {
                 if (PacMan.INSTANCE.isEnergized()) {
                     addScore(10);
@@ -139,7 +142,7 @@ public final class MazeState {
     }
 
     private void resetCritters() {
-        for (var critter: critters) resetCritter(critter);
+        for (Critter critter: critters) resetCritter(critter);
     }
 
     public MazeConfig getConfig() {
