@@ -25,4 +25,26 @@ public record Cell(boolean northWall, boolean eastWall, boolean southWall, boole
     public static Cell sTee(Content c) { return new Cell(false, false, true, false, c); }
     public static Cell wTee(Content c) { return new Cell(false, false, false, true, c); }
 
+    /*
+    Nouveaux constructeurs pour afin d'economiser le nbre de methodes
+    si ils sont mis en place il faudra refaire le labyrinthe
+    */
+    /*
+     public static Cell UCell(char direction, Content c){
+         return new Cell(direction!='n',direction!='e',direction!='s',direction!='w',c);
+     }
+     public static Cell TCell(char direction, Content c){
+         return new Cell(direction=='n',direction=='n',direction=='n',direction=='n',c);
+     }
+     public static Cell CornerCell(String coin, content c){
+         return new Cell(coin.contains('n'),coin.contains('e'),coin.contains('s'),coin.contains('w'),c);
+     }
+     public static Cell PipeCell(char orientation, content c){
+         return new Cell(orientation=='h', orientation=='v',orientation=='h', orientation=='v',c);
+     }
+     public static Cell EntierCell(boolean b, content c){
+         return new Cell(b, b, b, b, c);
+     }
+    */
+
 }
