@@ -4,6 +4,8 @@ import geometry.RealCoordinates;
 
 /**
  * Implements Pac-Man character using singleton pattern. FIXME: check whether singleton is really a good idea.
+ * Thibault: Pour l'instant, le caractère de PacMan n'est pas implémenté en tant que singleton pattern puisque l'on souhaite garder
+ * l'oeil de pacman. Si problème de pattern, implémenter Pacman en singleton pattern serait une bonne idée.
  */
 public final class PacMan implements Critter { //final car il n'y a qu'une seule instance de cette classe
     private Direction direction = Direction.NONE;
