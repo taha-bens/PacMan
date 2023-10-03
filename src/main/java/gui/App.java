@@ -28,7 +28,7 @@ public class App extends Application {
         PacmanController pacmanController = new PacmanController();
         gameScene.setOnKeyPressed(pacmanController::keyPressedHandler); //ajoute l'event pression sur la scene
         gameScene.setOnKeyReleased(pacmanController::keyReleasedHandler); //ajoute l'event relachement sur la scene
-        MazeState maze = new MazeState(MazeConfig.makeExample1()); //données du labyrinthe
+        MazeState maze = new MazeState(MazeConfig.makeMaze1()); //données du labyrinthe
         GameView gameView = new GameView(maze, root, 70.0); //apparance graphique du précédent labyrinthe
         primaryStage.setScene(gameScene); //place la scèene dans la fenêtre "primaryStage"
         primaryStage.show(); //affiche la fenêtre

@@ -1,10 +1,12 @@
 package config;
 
+import com.sun.scenario.effect.impl.prism.ps.PPSBlend_ADDPeer;
 import geometry.IntCoordinates;
 
-import static config.Cell.Content.DOT;
+import java.nio.channels.Pipe;
+
 import static config.Cell.*;
-import static config.Cell.Content.NOTHING;
+import static config.Cell.Content.*;
 
 public class MazeConfig {
     public MazeConfig(Cell[][] grid, IntCoordinates pacManPos, IntCoordinates blinkyPos, IntCoordinates pinkyPos,
@@ -58,7 +60,8 @@ public class MazeConfig {
 
     // simple example with a square shape
     // TODO: mazes should be loaded from a text file
-    
+
+    /*
     public static MazeConfig makeExample1() {
         return new MazeConfig(new Cell[][]{
                 {seVee(DOT), hPipe(DOT), hPipe(DOT), hPipe(DOT), swVee(DOT) , open(NOTHING), seVee(DOT), hPipe(DOT), hPipe(DOT), hPipe(DOT), swVee(DOT)},
@@ -82,24 +85,39 @@ public class MazeConfig {
                 new IntCoordinates(5, 4)
         );
     }
-    
+
+    */
+
+
     /*
-    
-    public static MazeConfig makeExample1() {
+    Creation du 1er labyrinthe avec les nouveaux constructeurs (Cell.java)
+     tableau de Cell
+    */
+
+    public static MazeConfig makeMaze1() {
         return new MazeConfig(new Cell[][]{
-                {nTee(DOT),    hPipe(DOT),     hPipe(DOT),     hPipe(DOT),     hPipe(DOT),     nTee(DOT)},
-                {vPipe(DOT),    seVee(NOTHING), nTee(NOTHING),  nTee(NOTHING),  swVee(NOTHING), vPipe(DOT)},
-                {vPipe(DOT),     wTee(NOTHING),  open(NOTHING),  open(NOTHING),  eTee(NOTHING),  vPipe(DOT)},
-                {vPipe(DOT),    wTee(NOTHING),  open(NOTHING),  open(NOTHING),  eTee(NOTHING),  vPipe(DOT)},
-                {vPipe(DOT),    neVee(NOTHING), sTee(NOTHING),  sTee(NOTHING),   nwVee(NOTHING), vPipe(DOT)},
-                {neVee(DOT),    hPipe(DOT),     hPipe(DOT),     hPipe(DOT),     hPipe(DOT),     nwVee(DOT)}
+                {CornerCell("nw",ENERGIZER), PipeCell('h',DOT), PipeCell('h',DOT), PipeCell('h',DOT), CornerCell("ne",DOT), EntierCell(false, NOTHING), CornerCell("nw",DOT), PipeCell('h',DOT), PipeCell('h',DOT), PipeCell('h',DOT), CornerCell("ne",ENERGIZER)},
+                {PipeCell('v',DOT), EntierCell(false,NOTHING), EntierCell(false,NOTHING), EntierCell(false,NOTHING), PipeCell('v',DOT), EntierCell(false,NOTHING),PipeCell('v',DOT), EntierCell(false,NOTHING), EntierCell(false,NOTHING), EntierCell(false,NOTHING), PipeCell('v',DOT)},
+                {CornerCell("sw",DOT), TCell('n',DOT), PipeCell('h',DOT), TCell('n',DOT), TCell('s',DOT), PipeCell('h',DOT), TCell('s',DOT), TCell('n',DOT), PipeCell('h',DOT), TCell('n',DOT), CornerCell("se",DOT)},
+                {EntierCell(false,NOTHING), PipeCell('v',DOT), EntierCell(false,NOTHING), PipeCell('v',DOT), EntierCell(false,NOTHING), EntierCell(false,NOTHING), EntierCell(false,NOTHING), PipeCell('v',DOT), EntierCell(false,NOTHING), PipeCell('v',DOT), EntierCell(false,NOTHING)},
+                {EntierCell(false,NOTHING), PipeCell('v', DOT), EntierCell(false,NOTHING), TCell('w', DOT), PipeCell('h', DOT), PipeCell('h', NOTHING)/*TCell('n', NOTHING)*//*sortie spawn fantome*/, PipeCell('h', DOT), TCell('e', DOT), EntierCell(false,NOTHING), PipeCell('v', DOT), EntierCell(false,NOTHING)},
+                {PipeCell('h', NOTHING), EntierCell(false, DOT), PipeCell('h', DOT), TCell('e', DOT), UCell('e', NOTHING), TCell('s', NOTHING), UCell('w', NOTHING), TCell('w', DOT), PipeCell('h',DOT), EntierCell(false,DOT), PipeCell('h', NOTHING)},
+                {EntierCell(false, NOTHING), PipeCell('v', DOT), EntierCell(false, NOTHING), TCell('w', DOT), PipeCell('h', DOT), PipeCell('h', DOT), PipeCell('h', DOT), TCell('e', DOT), EntierCell(false, NOTHING), PipeCell('v', DOT), EntierCell(false, NOTHING)},
+                {EntierCell(false, NOTHING), PipeCell('v', DOT), EntierCell(false, NOTHING), PipeCell('v', DOT), EntierCell(false, NOTHING), EntierCell(false, NOTHING), EntierCell(false, NOTHING), PipeCell('v', DOT), EntierCell(false, NOTHING), PipeCell('v', DOT), EntierCell(false, NOTHING)},
+                {CornerCell("nw", DOT), TCell('s', DOT), PipeCell('h', DOT), TCell('s', DOT), CornerCell("ne", DOT), EntierCell(false, NOTHING), CornerCell("nw", DOT), TCell('s', DOT), PipeCell('h', DOT), TCell('s', DOT), CornerCell("ne", DOT)},
+                {PipeCell('v', DOT), EntierCell(false, NOTHING), EntierCell(false, NOTHING), EntierCell(false, NOTHING), PipeCell('v', DOT), EntierCell(false, NOTHING),PipeCell('v', DOT), EntierCell(false, NOTHING), EntierCell(false, NOTHING), EntierCell(false, NOTHING), PipeCell('v', DOT)},
+                {CornerCell("sw", ENERGIZER), PipeCell('h', DOT), PipeCell('h', DOT), PipeCell('h', DOT), TCell('s', DOT), PipeCell('h', DOT), TCell('s', DOT), PipeCell('h', DOT), PipeCell('h', DOT), PipeCell('h', DOT), CornerCell("se", ENERGIZER)}
+
+
         },
-                new IntCoordinates(3, 0),
-                new IntCoordinates(0, 3),
-                new IntCoordinates(3, 5),
-                new IntCoordinates(5, 5),
-                new IntCoordinates(5, 1)
+                new IntCoordinates(5, 6),//coords depart pacman
+                new IntCoordinates(4, 5),//coords depart fantome1
+                new IntCoordinates(5, 5),//coords depart fantome2
+                new IntCoordinates(6, 5),//coords depart fantome3
+                new IntCoordinates(5, 4) //coords depart fantome4
         );
     }
-    */
+
+
+
 }
