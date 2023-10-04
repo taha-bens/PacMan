@@ -1,131 +1,50 @@
-# Jeu de Pacman
 
-## Présentation
+![Logo](https://cdn.discordapp.com/attachments/741806766014201896/1159127007095959552/Sans_titre.png?ex=651ec0a6&is=651d6f26&hm=b9bdd826d797136d6d3a438e7861799a7c7a1aaf775fc374a40261ccb15e093e&)
 
-Ce Pacman est un jeu d'arcade programmé en Java 17 avec JavaFX. Le projet est configuré avec Gradle utilisant le plugin JavaFX. Ce jeu est largement inspiré du jeu [Pacman](https://fr.wikipedia.org/wiki/Pac-Man), un grand classique de 1980.
+## 📕 Présentation du projet
 
-Le principe est archi-connu et plutôt simple (se référer à la page Wikipédia).
- 
-Pour l'instant, seules quelques fonctionnalités basiques sont implémentées... et encore avec des bugs et des tonnes de maladresses. Il est temps de finir ce jeu !
+Nous sommes en deuxième année de Licence d'Informatique à l'Université Paris Cité. Dans le cadre de la matière appelée Pré-Professionnalisation (PP), nous avons repris un projet non abouti. Ce projet est un PacMan. Le but de ce projet est de découvrir et d'apprendre le fonctionnement de Git, mais aussi d'apprendre à travailler davantage en équipe sur des gros projets tels que celui-ci.
 
-Objectifs de développement :
+Ce Pacman est un jeu d'arcade programmé en Java 17 avec JavaFX. Le projet est configuré avec Gradle utilisant le plugin JavaFX. Ce jeu est largement inspiré du jeu Pacman, un grand classique de 1980.
+## 📜 Règles du jeu
 
-- déboguer
-- rationaliser et documenter le code
-- implémenter tout ce qu'on trouve dans tout PacMan de base: le labyrinthe classique, les stratégies des fantômes, les bonus à ramasser, l'effet des super pac-gommes, ...)
-- aller plus loin : plusieurs niveaux, 3D, multijoueur, ... (ce ne sont que des suggestions)
+- **Contrôle de Pac-Man** : Le joueur contrôle Pac-Man à travers un labyrinthe. L'objectif est de manger toutes les pac-gommes et les super pac-gommes.
 
-## Instructions
+- **Passage au niveau suivant** : Quand toutes les pac-gommes sont mangées, Pac-Man passe au niveau suivant.
 
-Dans les instructions ci-dessous, il faut remplacer `myteam` par
+- **Éviter les fantômes** : Quatre fantômes (Blinky, Pinky, Inky et Clyde) se déplacent autour du labyrinthe, essayant de capturer Pac-Man. Si l'un d'eux touche Pac-Man, une vie est perdue.
 
-- soit le nom de votre équipe dans gaufre, si le dépôt a été forké au nom de votre équipe,
-- soit le login du membre de votre equipe qui a forké le dépôt pour tout le monde,
-- soit `cproj`, si vous voulez cloner directement le dépôt de l'équipe enseignante.
+- **Fin de la partie** : Quand toutes les vies sont perdues, la partie est terminée.
 
-Notez que dans le dernier cas, vous pourrez compiler et exécuter le projet, mais pas faire de `git push`.
+- **Super pac-gommes** : Les super pac-gommes donnent à Pac-Man la capacité temporaire de manger les fantômes. Les fantômes deviennent bleus et se déplacent plus lentement lorsqu'une super pac-gomme est mangée.
 
-### Télécharger Pacman
+- **Manger les fantômes** : Les fantômes mangés retournent à la maison des fantômes et reviennent à leur couleur normale. Mais ils peuvent être mangés à nouveau une fois que Pac-Man mange une autre super pac-gomme.
 
-Le plus pratique pour télécharger Pacman afin de participer à son développement, c'est de cloner le dépôt. Depuis la console :
+- **Points supplémentaires** : Manger un fantôme rapporte des points supplémentaires.
 
-```bash
-$ git clone https://gaufre.informatique.univ-paris-diderot.fr/myteam/pacman
-```
+- **Fruits bonus** : Il y a aussi des fruits qui apparaissent de temps en temps, et Pac-Man peut les manger pour gagner plus de points.
 
-Le projet actuellement développé n'a pas encore eu de release. Ainsi pour l'instant tout est dans la branche `develop`. Donc avant de faire le reste, tapez :
-```bash
-$ git checkout develop
-```
+## 🔧 Installation
 
-#### Depuis une machine de TP de la Halle aux Farines
+- **Téléchargement du projet** : Vous avez deux options pour télécharger le projet :
+    - **Cloner le dépôt** : Si vous avez Git installé sur votre machine, vous pouvez cloner le dépôt en utilisant la commande suivante dans votre terminal :
+        ```bash
+        git clone https://gaufre.informatique.univ-paris-diderot.fr/hem/pacman.git
+        ```
+    - **Télécharger l'archive ZIP** : Vous pouvez également télécharger le projet sous forme d'archive ZIP en cliquant sur ce lien. Une fois le fichier téléchargé, vous devrez le décompresser.
 
-Il semble que l'installation de git sur les machines de TP refuse de reconnaître le certificat de gaufre. Heureusement, on peut demander à git d'ignorer la vérification du certificat :
+- **Installation des instances** : Si vous lancez le jeu pour la première fois et que les instances nécessaires ne sont pas déjà installées, elles seront automatiquement téléchargées. Pour ce faire, lancez le fichier `.bat` inclus dans le projet. Vous pouvez le faire en double-cliquant sur le fichier ou en exécutant la commande suivante dans votre terminal (en supposant que vous êtes dans le répertoire du projet) :
+    ```bash
+    ./gradlew.bat
+    ```
 
+- **Lancement du jeu** : Une fois les instances installées, le jeu se lancera automatiquement. Pour les lancements ultérieurs du jeu, vous n'aurez qu'à exécuter à nouveau le fichier `gradlew.bat`.
 
-```bash
-$ git clone -c http.sslVerify=false https://gaufre.informatique.univ-paris-diderot.fr/myteam/pacman
-```
+## 👦 Auteurs
 
-Ensuite, vous pouvez enregistrer de façon permanente votre choix d'ignorer la vérification pour ce dépôt :
-
-```bash
-$ cd pacman
-$ git config http.sslVerify false
-```
-(cela permettra de faire des `git push`, des `git pull` et des `git fetch` sans avoir à préciser à chaque fois `-c http.sslVerify=false`)
-
-## Exécution, compilation
-
-Après avoir téléchargé/cloné les sources, vous pouvez compiler et exécuter le projet à l'aide de gradle.
-Le principe c'est que le script `gradlew` dans le répertoire du projet téléchargera puis utilisera la version de gradle qui fonctionne avec le projet.
-
-Pour compiler, il suffit d'exécuter, depuis le répertoire `pacman` :
-
-```bash
-`./gradlew build`
-```
-
-Pour exécuter, il suffit d'exécuter, depuis le répertoire `pacman` :
-
-```bash
-`./gradlew run`
-```
-
-Le projet en lui-même a besoin de Java 17 pour être compilé et exécuté.
-
-### Cas particuliers
-
-#### Sur une machine de TP de la Halle aux Farines, depuis la console
-
-Si vous travaillez depuis une machine des salles de TP de la Halle aux Farines, vous devez d'abord passer certains paramètres à gradle via une variable d'environnement. Cela peut être fait en exécutant 
-
-```bash
-$ source SCRIPT/envsetup
-```
-
-avant de lancer toute commande gradle (notamment `build` et `run`.
-
-Pour être tranquille, vous pouvez insérer cette commande dans votre fichier `~/.bashrc`, cela vous évitera de devoir la taper à la main à chaque nouvelle session. Pensez à adapter la commande en donnant le chemin absolu vers `envsetup`.
-
-Pour information, les paramètres passés à gradle indiquent :
-
-- le fichier de certificats à utiliser pour télécharger les dépendances via HTTPS
-- les paramètres du proxy de la Halle aux Farines
-- le chemin vers Java 17
-
-#### Sur une machine de TP de la Halle aux Farines en utilisant Eclipse
-
-Eclipse installé sur les machines de TP contient une distribution de Java 17, et semble savoir passer la bonne configuration à Gradle. Pour travailler avec eclipse, il suffit donc de lancer Eclipse (commande `eclipse`), puis d'importer le projet :
-
-1. File > Import... > Gradle > Existing Gradle Project, Next >
-2. choisir le chemin de pacman et valider avec Finish
-
-Dans l'onglet "Gradle Tasks", vous trouverez notamment les tâches permettant de compiler et d'exécuter le projet.
-
-#### Sur une machine personnelle avec Java 11 à 16
-
-Si vous souhaitez/devez travailler avec une version ancienne de Java, il n'est pas très difficile de modifier la configuration : changez juste les numéros de version dans `build.gradle`.
-
-Ensuite, vous pouvez travailler comme avec Java 17 (le projet devrait pouvoir tourner tel quel).
-
-Important : faites un commit de `build.gradle` et poussez-le sur votre fork pour que toutes votre équipe travaille avec la même version de Java.
-
-#### Sur une machine personnelle avec Java 8 à 10 (DISCLAIMER : compliqué !)
-
-Je n'ai pas testé, mais pacman devrait pouvoir tourner (peut-être avec quelques modifications mineures). Malheureusement, ça peut être un peu compliqué.
-
-Dans les grandes lignes :
-
-- Commencez par désactiver le plugin JavaFX dans gradle (toujours dans `build.gradle`), car celui-ci ne fonctionne qu'à partir de Java 11. 
-- Désormais, gradle ne s'occupe plus de télécharger et installer JavaFX. Il faut donc s'assurer de l'avoir installé d'une autre façon. Si vous avez une distribution de Java sans JavaFX (à noter que Oracle Java 8 contient JavaFX), il faut le télécharger et l'installer séparément, en prenant soin de prendre le même numéro de version.
-- Si JavaFX a été installé séparément, il faut le faire savoir à gradle pour qu'il ajoute son répertoire au classpath.
-- Si vous utilisez Java 9 ou 10, il y a de la configuration de modules JPMS à faire à la main. Je ne vais expliquer, ni ce que c'est, ni en quoi ça consiste ici. Il est possible de trouver de l'aide dans les forums.
-
-Bref, il est grandement conseillé d'utiliser une version plus récente de Java. Néanmoins, si vous n'avez pas le choix et que vous êtes en difficulté, demandez de l'aide à vos enseignants.
-
-Important : là aussi, il faut ensuite que toute votre équipe travaille avec la même version de Java. Faites un commit de `build.gradle` et poussez-le sur votre fork pour que toutes votre équipe travaille avec la même version de Java.
-
-## Jouer
-
-Pacman est contrôlé par les 4 flèches de direction... et c'est tout.
+- [@afonsoj](https://gaufre.informatique.univ-paris-diderot.fr/afonsoj)
+- [@bensaad](https://gaufre.informatique.univ-paris-diderot.fr/bensaad)
+- [@bonnefoy](https://gaufre.informatique.univ-paris-diderot.fr/bonnefoy)
+- [@cellier](https://gaufre.informatique.univ-paris-diderot.fr/cellier)
+- [@dufosse](https://gaufre.informatique.univ-paris-diderot.fr/dufosse)
+- [@hem](https://gaufre.informatique.univ-paris-diderot.fr/hem)
