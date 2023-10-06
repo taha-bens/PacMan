@@ -1,0 +1,10 @@
+*.class
+*.jar
+.gradle/
+.idea/
+.vscode/
+bin/
+build/
+.DS_Store
+Thumbs.db
+.Trashes

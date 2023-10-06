@@ -55,11 +55,12 @@ public final class MazeState {
 
     public void update(long deltaTns) {
         // FIXME: too many things in this method. Maybe some responsibilities can be delegated to other methods or classes?
-        for  (var critter: critters) {
+        for(Critter critter: critters) {
             RealCoordinates curPos = critter.getPos();
             RealCoordinates nextPos = critter.nextPos(deltaTns);
             Set<IntCoordinates> curNeighbours = curPos.intNeighbours();
             Set<IntCoordinates> nextNeighbours = nextPos.intNeighbours();
+
             if (!curNeighbours.containsAll(nextNeighbours)) { // the critter would overlap new cells. Do we allow it?
                 switch (critter.getDirection()) {
                     case NORTH -> {
@@ -102,13 +103,14 @@ public final class MazeState {
             addScore(1);
             gridState[pacPos.y()][pacPos.x()] = true;
         }
+
         for (Critter critter : critters) {
             if (critter instanceof Ghost && critter.getPos().round().equals(pacPos)) {
-                if (PacMan.INSTANCE.isEnergized()) {
+                if (PacMan.INSTANCE.isEnergized()) { // PacMan energisé tue un fantome
                     addScore(10);
                     resetCritter(critter);
                 } else {
-                    playerLost();
+                    playerLost(); // PacMan touche un fantome
                     return;
                 }
             }
