@@ -6,6 +6,7 @@ import javafx.scene.layout.Pane;
 import misc.Debug;
 import model.MazeState;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 

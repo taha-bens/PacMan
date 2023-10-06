@@ -54,4 +54,8 @@ public final class PacMan implements Critter { //final car il n'y a qu'une seule
     public void setEnergized(boolean energized) {
         this.energized = energized;
     }
+
+    /**
+     *  TODO: faire les fruits, toucher un fantome tue pacman, manger un super pac gum
+     */
 }
