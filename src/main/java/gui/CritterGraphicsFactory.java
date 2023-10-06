@@ -19,12 +19,12 @@ public final class CritterGraphicsFactory {
 
     public GraphicsUpdater makeGraphics(Critter critter) {
         double size = 0.7;
-        String url = (critter instanceof PacMan) ? "pacman_left.png" : // PacmanController.changePacman('event')?
+        String url = (critter instanceof PacMan) ? "PacmanL1.png" : // PacmanController.changePacman('event')?
                 switch ((Ghost) critter) {
-                    case BLINKY -> "ghost_blinky.png";
-                    case CLYDE -> "ghost_clyde.png";
-                    case INKY -> "ghost_inky.png";
-                    case PINKY -> "ghost_pinky.png";
+                    case BLINKY -> "RedL1.png";
+                    case CLYDE -> "OrangeL1.png";
+                    case INKY -> "CyanL1.png";
+                    case PINKY -> "PinkL1.png";
                 };
         ImageView image = new ImageView(new Image(url, scale * size, scale * size, true, true));
 
