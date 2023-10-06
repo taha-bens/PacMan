@@ -1,6 +1,5 @@
 package gui;
 
-import misc.Debug;
 import model.Direction;
 import model.PacMan;
 
@@ -20,7 +19,7 @@ public class PacmanController {
             case RIGHT -> "pacman_right.png";
             case UP -> "pacman_up.png";
             case DOWN -> "pacman_down.png";
-            default -> "pacman_left.png";
+            default -> "pacman_right.png";
         };
     }
 
