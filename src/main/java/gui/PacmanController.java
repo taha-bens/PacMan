@@ -15,8 +15,8 @@ public class PacmanController {
      */
     public static String changePacman(KeyEvent event) {
         return switch(event.getCode()) {
-            case LEFT -> "pacman_right.png";
-            case RIGHT -> "pacman_left.png";
+            case LEFT -> "pacman_left.png";
+            case RIGHT -> "pacman_right.png";
             case UP -> "pacman_up.png";
             case DOWN -> "pacman_down.png";
             default -> "pacman_right.png";
