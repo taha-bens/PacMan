@@ -45,7 +45,7 @@ public final class MazeState {
         return critters;
     }
 
-    public double getWidth() {
+    public int getWidth() {
         return width;
     }
 

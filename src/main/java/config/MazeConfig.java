@@ -111,10 +111,10 @@ public class MazeConfig {
 
         },
                 new IntCoordinates(5, 6),//coords depart pacman
-                new IntCoordinates(4, 5),//coords depart fantome1
+                new IntCoordinates(5, 4),//coords depart fantome1
                 new IntCoordinates(5, 5),//coords depart fantome2
-                new IntCoordinates(6, 5),//coords depart fantome3
-                new IntCoordinates(5, 4) //coords depart fantome4
+                new IntCoordinates(4, 5),//coords depart fantome3
+                new IntCoordinates(6, 5) //coords depart fantome4
         );
     }
 

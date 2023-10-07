@@ -55,7 +55,7 @@ public class CellGraphicsFactory {
             nWall.setWidth(scale);
             nWall.setY(9*scale/10);
             nWall.setX(0);
-            nWall.setFill(Color.BLUEVIOLET);
+            nWall.setFill((pos.x() == state.getWidth()/2 && pos.y() == state.getHeight()/2-1) ? Color.rgb(255,217,179) : Color.BLUEVIOLET);
             group.getChildren().add(nWall);
         }
         if (cell.westWall()) {
