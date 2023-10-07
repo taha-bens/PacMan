@@ -37,7 +37,6 @@ public class CellGraphicsFactory {
             nWall.setWidth(scale);
             nWall.setY(0);
             nWall.setX(0);
-
             nWall.setFill(Color.BLUEVIOLET);
             group.getChildren().add(nWall);
         }
