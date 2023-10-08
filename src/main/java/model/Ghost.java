@@ -7,6 +7,9 @@ public enum Ghost implements Critter {
     // TODO: implement a different AI for each ghost, according to the description in Wikipedia's page
     BLINKY, INKY, PINKY, CLYDE;
 
+    private boolean Frightened;
+    private boolean Scatter;
+
     private RealCoordinates pos;
     private Direction direction = Direction.NONE;
     @Override
@@ -31,7 +34,7 @@ public enum Ghost implements Critter {
 
     @Override
     public double getSpeed() {
-        return 0;
+        return 4;
     }
 
 }
