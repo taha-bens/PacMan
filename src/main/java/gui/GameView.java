@@ -2,7 +2,10 @@ package gui;
 
 import geometry.IntCoordinates;
 import javafx.animation.AnimationTimer;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import misc.Debug;
 import model.MazeState;
 
@@ -22,6 +25,8 @@ public class GameView {
     private final Pane gameRoot; // main node of the game
 
     private final List<GraphicsUpdater> graphicsUpdaters;
+
+    private static Label scoreLabel;
 
     private void addGraphics(GraphicsUpdater updater) {
         gameRoot.getChildren().add(updater.getNode());
@@ -53,6 +58,12 @@ public class GameView {
                 addGraphics(cellFactory.makeGraphics(maze, new IntCoordinates(x, y)));
             }
         }
+        scoreLabel = new Label(String.valueOf(1));
+        scoreLabel.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 25));
+        scoreLabel.setTextFill(Color.WHITE);
+        this.gameRoot.getChildren().add(scoreLabel);
+        scoreLabel.setTranslateX(10.0);
+        scoreLabel.setTranslateY(10.0);
     }
 
     public void animate() {
@@ -67,6 +78,7 @@ public class GameView {
                 }
                 var deltaT = now - last;
                 maze.update(deltaT);
+                scoreLabel.setText(String.valueOf(maze.getScore()));
                 for (var updater : graphicsUpdaters) {
                     updater.update();
                 }

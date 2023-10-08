@@ -154,4 +154,6 @@ public final class MazeState {
     public boolean getGridState(IntCoordinates pos) {
         return gridState[pos.y()][pos.x()];
     }
+
+    public int getScore(){return this.score;}
 }
