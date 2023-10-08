@@ -12,6 +12,9 @@ import model.MazeState;
 import gui.GameView;
 import gui.PacmanController;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 //La classe App s'occupe du lancement du jeu, c'est la première classe à être appelée
 public class App extends Application {
     @Override
@@ -26,6 +29,21 @@ public class App extends Application {
         Pane root = new Pane(); //organisateur de la fenêtre (stage)
         Scene gameScene = new Scene(root); //scène (comme caneva dans python tkinter)
         PacmanController pacmanController = new PacmanController();
+        Blinky rouge = new Blinky();
+        Inky bleu = new Inky();
+        Pinky rose = new Pinky();
+        Clyde orange = new Clyde();
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                rouge.BlinkyMove();
+                bleu.InkyMove();
+                rose.PinkyMove();
+                orange.ClydeMove();
+
+            }
+        }, 5000, 100);
         gameScene.setOnKeyPressed(pacmanController::keyPressedHandler); //ajoute l'event pression sur la scene
         gameScene.setOnKeyReleased(pacmanController::keyReleasedHandler); //ajoute l'event relachement sur la scene
         MazeState maze = new MazeState(MazeConfig.makeMaze1(), 50.0, root); //données du labyrinthe
