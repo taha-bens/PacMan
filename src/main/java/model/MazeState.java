@@ -10,8 +10,13 @@ import java.util.Map;
 import static model.Ghost.*;
 
 import java.util.Set;
+
+import javafx.scene.image.Image;
 import model.Critter;
 import model.Direction;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+
 public final class MazeState {
     private final MazeConfig config;
     private final int height;
@@ -25,7 +30,10 @@ public final class MazeState {
     private final Map<Critter, RealCoordinates> initialPos;
     private int lives = 3;
 
-    public MazeState(MazeConfig config) {
+    private Pane root;
+    private ImageView l1, l2, l3;
+
+    public MazeState(MazeConfig config, double scale, Pane root) {
         this.config = config;
         height = config.getHeight();
         width = config.getWidth();
@@ -38,7 +46,18 @@ public final class MazeState {
                 CLYDE, config.getClydePos().toRealCoordinates(1.0),
                 PINKY, config.getPinkyPos().toRealCoordinates(1.0)
         );
+        this.root = root;
         resetCritters();
+        Image liveImage = new Image("pacman/PacmanL1.png",scale*0.7,scale*0.7,true,true);
+        l1 = new ImageView(new Image("pacman/PacmanL1.png",scale*0.7,scale*0.7,true,true));
+        l2 = new ImageView(new Image("pacman/PacmanL1.png",scale*0.7,scale*0.7,true,true));
+        l3 = new ImageView(new Image("pacman/PacmanL1.png",scale*0.7,scale*0.7,true,true));
+        ImageView[] liveImageTab = {l1,l2,l3};
+        for (int i = 1; i <= 3; i++){
+            this.root.getChildren().add(liveImageTab[i-1]);
+            liveImageTab[i-1].setX(scale*(i-1)+5);
+            liveImageTab[i-1].setY(710);
+        }
     }
 
     public List<Critter> getCritters() {
@@ -130,7 +149,10 @@ public final class MazeState {
     private void playerLost() {
         // FIXME: this should be displayed in the JavaFX view, not in the console. A game over screen would be nice too.
         lives--;
-        if (lives == 0) {
+        if (lives == 2) this.root.getChildren().remove(l3);
+        else if (lives == 1) this.root.getChildren().remove(l2);
+        else if (lives == 0) {
+            this.root.getChildren().remove(l1);
             System.out.println("Game over!");
             System.exit(0);
         }
