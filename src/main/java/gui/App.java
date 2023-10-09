@@ -1,6 +1,7 @@
 package gui;
 
 
+import config.MazeLoader;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -28,6 +29,7 @@ public class App extends Application {
          * */
         Pane root = new Pane(); //organisateur de la fenêtre (stage)
         Scene gameScene = new Scene(root); //scène (comme caneva dans python tkinter)
+        
         PacmanController pacmanController = new PacmanController();
         Blinky rouge = new Blinky();
         Inky bleu = new Inky();
@@ -46,9 +48,10 @@ public class App extends Application {
         }, 5000, 100);
         gameScene.setOnKeyPressed(pacmanController::keyPressedHandler); //ajoute l'event pression sur la scene
         gameScene.setOnKeyReleased(pacmanController::keyReleasedHandler); //ajoute l'event relachement sur la scene
-        MazeState maze = new MazeState(MazeConfig.makeMaze1(), 50.0, root); //données du labyrinthe
+        
+        MazeState maze = new MazeState(MazeConfig.makeMazeFINAL("src/main/resources/maze1.txt"), 50.0, root); //données du labyrinthe
         GameView gameView = new GameView(maze, root, 50.0); //apparance graphique du précédent labyrinthe
-
+        
         primaryStage.setScene(gameScene); //place la scène dans la fenêtre "primaryStage"
         primaryStage.show(); //affiche la fenêtre
         gameView.animate(); //méthode de la classe "gameView" qui sert à actualiser en continue le jeu
