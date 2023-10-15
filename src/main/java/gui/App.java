@@ -57,7 +57,7 @@ public class App extends Application {
         primaryStage.setScene(gameScene); //place la scène dans la fenêtre "primaryStage"
 
         primaryStage.setTitle("Pacman");
-        Image icon = new Image("Pacmanl1.png");
+        Image icon = new Image("pacman/PacmanL1.png");
         primaryStage.getIcons().add(icon);
 
         primaryStage.show(); //affiche la fenêtre
