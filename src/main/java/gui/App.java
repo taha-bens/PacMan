@@ -12,6 +12,7 @@ import model.MazeState;
 //Import ajoutés
 import gui.GameView;
 import gui.PacmanController;
+import javafx.scene.image.Image;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -29,6 +30,7 @@ public class App extends Application {
          * */
         Pane root = new Pane(); //organisateur de la fenêtre (stage)
         Scene gameScene = new Scene(root); //scène (comme caneva dans python tkinter)
+
         
         PacmanController pacmanController = new PacmanController();
         Blinky rouge = new Blinky();
@@ -53,6 +55,11 @@ public class App extends Application {
         GameView gameView = new GameView(maze, root, 50.0); //apparance graphique du précédent labyrinthe
         
         primaryStage.setScene(gameScene); //place la scène dans la fenêtre "primaryStage"
+
+        primaryStage.setTitle("Pacman");
+        Image icon = new Image("pacman/PacmanL1.png");
+        primaryStage.getIcons().add(icon);
+
         primaryStage.show(); //affiche la fenêtre
         gameView.animate(); //méthode de la classe "gameView" qui sert à actualiser en continue le jeu
     }
