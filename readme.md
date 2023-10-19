@@ -8,21 +8,18 @@ Nous sommes en deuxième année de Licence d'Informatique à l'Université Paris
 Ce Pacman est un jeu d'arcade programmé en Java 17 avec JavaFX. Le projet est configuré avec Gradle utilisant le plugin JavaFX. Ce jeu est largement inspiré du jeu Pacman, un grand classique de 1980.
 ## 📜 Règles du jeu
 
-- **Contrôle de Pac-Man** : Le joueur contrôle Pac-Man à travers un labyrinthe. L'objectif est de manger toutes les pac-gommes et les super pac-gommes.
+- **But du jeu** : Le joueur contrôle Pac-Man à travers un labyrinthe et a pour objectif de manger toutes les pac-gommes.
 
-- **Passage au niveau suivant** : Quand toutes les pac-gommes sont mangées, Pac-Man passe au niveau suivant.
+- **Difficultées** : Quatre fantômes (Blinky, Pinky, Inky et Clyde) se déplacent autour du labyrinthe, essayant de capturer Pac-Man. Si l'un d'eux attrape Pac-Man, PacMan perd une vie.
 
-- **Éviter les fantômes** : Quatre fantômes (Blinky, Pinky, Inky et Clyde) se déplacent autour du labyrinthe, essayant de capturer Pac-Man. Si l'un d'eux touche Pac-Man, une vie est perdue.
+- **Niveaux** : 
 
-- **Fin de la partie** : Quand toutes les vies sont perdues, la partie est terminée.
+- **Fin de la partie** : Quand toutes les pac-gommes sont mangées, Pac-Man passe au niveau suivant avec des fantômes plus compétent. Si PacMan perd toutes ses vies avant d'avoir mangé toutes les pac-gums, la partie se termine.
 
-- **Super pac-gommes** : Les super pac-gommes donnent à Pac-Man la capacité temporaire de manger les fantômes. Les fantômes deviennent bleus et se déplacent plus lentement lorsqu'une super pac-gomme est mangée.
+- **Super pac-gommes** : Les super pac-gommes rendent Pac-Man plus puissant temporairement, il se déplace plus rapidement et peut manger les fantômes. Quand Pacman mange un fantôme, il retourne dans la maison des fantômes.
 
-- **Manger les fantômes** : Les fantômes mangés retournent à la maison des fantômes et reviennent à leur couleur normale. Mais ils peuvent être mangés à nouveau une fois que Pac-Man mange une autre super pac-gomme.
+- **Bonus** : Manger un fantôme ou un fruit rapporte des points supplémentaires à PacMan. 
 
-- **Points supplémentaires** : Manger un fantôme rapporte des points supplémentaires.
-
-- **Fruits bonus** : Il y a aussi des fruits qui apparaissent de temps en temps, et Pac-Man peut les manger pour gagner plus de points.
 
 ## 🔧 Installation
 
