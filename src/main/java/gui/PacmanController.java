@@ -1,5 +1,6 @@
 package gui;
 
+import javafx.scene.input.KeyCode;
 import model.Direction;
 import model.PacMan;
 
@@ -28,19 +29,39 @@ public class PacmanController {
         //Input : event (KeyEvent)
         //Output : void
         /*Description : lance la méthode à chaque fois qu'une touche est préssée.
-         * Si la touche préssée est une flèche directionnelle, pacman prendra la
-         * direciton de la flèche préssée s'il n'y a pas de mur en face.*/
+         * Si PacMan peut aller dans cette direction , alors change sa direction
+         * Sinon, cette direction pour le moment impossible est stocké dans PacMan.INSTANCE.nextDirection */
 
-        PacMan.INSTANCE.setDirection(
-                switch (event.getCode()) {
-                    case LEFT -> Direction.WEST;
-                    case RIGHT -> Direction.EAST;
-                    case UP -> Direction.NORTH;
-                    case DOWN -> Direction.SOUTH;
+        if (event.getCode() == KeyCode.LEFT){
+            System.out.println("GAUCHE");
+            if ( PacMan.INSTANCE.getPos().getY() - Math.floor(PacMan.INSTANCE.getPos().getY()) == 0){
+                PacMan.INSTANCE.setNextDirection(Direction.NONE);
+                PacMan.INSTANCE.setDirection(Direction.WEST);
+            }
+            else {PacMan.INSTANCE.setNextDirection(Direction.WEST);}
+        }
+        if (event.getCode() == KeyCode.RIGHT){
+            if ( PacMan.INSTANCE.getPos().getY() - Math.floor(PacMan.INSTANCE.getPos().getY()) == 0){
+                PacMan.INSTANCE.setDirection(Direction.EAST);
+                PacMan.INSTANCE.setNextDirection(Direction.NONE);
+            }
+            else { PacMan.INSTANCE.setNextDirection(Direction.EAST); }
+        }
+        if (event.getCode() == KeyCode.UP){
+            if ( PacMan.INSTANCE.getPos().getX() - Math.floor(PacMan.INSTANCE.getPos().getX()) == 0 ){
+                PacMan.INSTANCE.setDirection(Direction.NORTH);
+                PacMan.INSTANCE.setNextDirection(Direction.NONE);
+            }
+            else { PacMan.INSTANCE.setNextDirection(Direction.NORTH); }
+        }
+        if (event.getCode() == KeyCode.DOWN){
+            if ( PacMan.INSTANCE.getPos().getX() - Math.floor(PacMan.INSTANCE.getPos().getX()) == 0 ){
+                PacMan.INSTANCE.setDirection(Direction.SOUTH);
+                PacMan.INSTANCE.setNextDirection(Direction.NONE);
+            }
+            else { PacMan.INSTANCE.setNextDirection(Direction.SOUTH); }
+        }
 
-                    default -> PacMan.INSTANCE.getDirection(); // do nothing
-                }
-        );
     }
 
     public void keyReleasedHandler(KeyEvent event) {

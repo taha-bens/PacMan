@@ -76,8 +76,10 @@ public class GameView {
                     last = now;
                     return;
                 }
+                //System.out.println(now/1000000000);
                 var deltaT = now - last;
                 maze.update(deltaT);
+                maze.upt();
                 scoreLabel.setText(String.valueOf(maze.getScore()));
                 for (var updater : graphicsUpdaters) {
                     updater.update();

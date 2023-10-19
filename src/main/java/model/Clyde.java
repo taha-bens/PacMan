@@ -1,4 +1,4 @@
-package gui;
+package model;
 
 import model.Direction;
 import model.Ghost;

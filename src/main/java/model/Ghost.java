@@ -10,8 +10,14 @@ public enum Ghost implements Critter {
     private boolean Frightened;
     private boolean Scatter;
 
+    private static boolean Chase;
+
     private RealCoordinates pos;
     private Direction direction = Direction.NONE;
+
+   public boolean getChase (){
+       return Chase;
+   }
     @Override
     public RealCoordinates getPos() {
         return pos;

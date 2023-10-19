@@ -30,6 +30,12 @@ public record RealCoordinates(double x, double y) {
         return new RealCoordinates(x * multiplier, y * multiplier);
     }
 
+    public double getX (){
+        return x;
+    }
+    public double getY (){
+        return y;
+    }
     /**
      *
      * @return the coordinates of all integer squares that a unit square with current coordinates would intersect
