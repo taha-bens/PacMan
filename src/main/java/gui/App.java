@@ -1,23 +1,24 @@
 package gui;
 
 
-import config.MazeLoader;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import config.MazeConfig;
-import model.MazeState;
+import model.*;
+//import geometry.RealCoordinates;
 
 //Import ajoutés
-import gui.GameView;
-import gui.PacmanController;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 //La classe App s'occupe du lancement du jeu, c'est la première classe à être appelée
 public class App extends Application {
+
+
+
     @Override
     public void start(Stage primaryStage) {
         //Méthode : start
@@ -39,13 +40,10 @@ public class App extends Application {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                rouge.BlinkyMove();
-                bleu.InkyMove();
-                rose.PinkyMove();
-                orange.ClydeMove();
+                //test
 
             }
-        }, 5000, 100);
+        }, 0, 50);
         gameScene.setOnKeyPressed(pacmanController::keyPressedHandler); //ajoute l'event pression sur la scene
         gameScene.setOnKeyReleased(pacmanController::keyReleasedHandler); //ajoute l'event relachement sur la scene
         

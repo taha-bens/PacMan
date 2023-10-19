@@ -74,7 +74,7 @@ public class MazeConfig {
         laby = MazeLoader.mazeLoader(txt);
         return new MazeConfig(laby,
 
-                new IntCoordinates(7, 8),//coords depart pacman
+                new IntCoordinates(8, 8),//coords depart pacman
                 new IntCoordinates(7, 6),//coords depart fantome1
                 new IntCoordinates(7, 7),//coords depart fantome2
                 new IntCoordinates(6, 7),//coords depart fantome3

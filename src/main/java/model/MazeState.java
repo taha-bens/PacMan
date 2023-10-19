@@ -178,4 +178,80 @@ public final class MazeState {
     }
 
     public int getScore(){return this.score;}
+
+    public void upt(){
+        if (PacMan.INSTANCE.getDirection() == Direction.EAST){
+            if (Math.ceil( PacMan.INSTANCE.getPos().getX() ) - PacMan.INSTANCE.getPos().getX() < 0.04  && PacMan.INSTANCE.getNextDirection() != Direction.NONE){
+                if (PacMan.INSTANCE.getNextDirection() == Direction.NORTH || PacMan.INSTANCE.getNextDirection() == Direction.SOUTH){
+                    System.out.println(" Avant tp : " + PacMan.INSTANCE.getPos());
+                    IntCoordinates co = new IntCoordinates((int)Math.ceil (PacMan.INSTANCE.getPos().getX()) , (int)PacMan.INSTANCE.getPos().getY()  );
+                    if (PacMan.INSTANCE.getNextDirection() == Direction.NORTH && !(config.getCell(co).northWall())){
+                        PacMan.INSTANCE.setPos(new RealCoordinates(co.x()  , co.y() - 0.001));
+                        System.out.println(" Apres tp : " + PacMan.INSTANCE.getPos());
+                        PacMan.INSTANCE.setDirection(Direction.NORTH);
+                        PacMan.INSTANCE.setNextDirection(Direction.NONE);
+                    }
+                    if (PacMan.INSTANCE.getNextDirection() == Direction.SOUTH && !(config.getCell(co).southWall())){
+                        PacMan.INSTANCE.setPos(new RealCoordinates(co.x()  , co.y()+ 0.001));
+                        PacMan.INSTANCE.setDirection(Direction.SOUTH);
+                        System.out.println(" Apres tp : " + PacMan.INSTANCE.getPos());
+                        PacMan.INSTANCE.setNextDirection(Direction.NONE);
+                    }
+                }
+            }
+        }
+        if (PacMan.INSTANCE.getDirection() == Direction.SOUTH){
+            if (Math.ceil( PacMan.INSTANCE.getPos().getX() ) - PacMan.INSTANCE.getPos().getX() < 0.04  && PacMan.INSTANCE.getNextDirection() != Direction.NONE){
+                if (PacMan.INSTANCE.getNextDirection() == Direction.EAST || PacMan.INSTANCE.getNextDirection() == Direction.WEST){
+                    IntCoordinates co = new IntCoordinates((int)PacMan.INSTANCE.getPos().getX() , (int)Math.ceil( PacMan.INSTANCE.getPos().getY() ) );
+                    if (PacMan.INSTANCE.getNextDirection() == Direction.EAST && !(config.getCell(co).eastWall())){
+                        PacMan.INSTANCE.setPos(new RealCoordinates(co.x() + 0.001 , co.y()));
+                        PacMan.INSTANCE.setDirection(Direction.EAST);
+                        PacMan.INSTANCE.setNextDirection(Direction.NONE);
+                    }
+                    if (PacMan.INSTANCE.getNextDirection() == Direction.WEST && !(config.getCell(co).westWall())){
+                        PacMan.INSTANCE.setPos(new RealCoordinates(co.x() - 0.001 , co.y()));
+                        PacMan.INSTANCE.setDirection(Direction.WEST);
+                        PacMan.INSTANCE.setNextDirection(Direction.NONE);
+                    }
+                }
+            }
+        }
+        if (PacMan.INSTANCE.getDirection() == Direction.WEST){
+            if ( PacMan.INSTANCE.getPos().getY() - Math.floor( PacMan.INSTANCE.getPos().getY() )  < 0.04  && PacMan.INSTANCE.getNextDirection() != Direction.NONE){
+                if (PacMan.INSTANCE.getNextDirection() == Direction.NORTH || PacMan.INSTANCE.getNextDirection() == Direction.SOUTH){
+                    IntCoordinates co = new IntCoordinates((int)Math.floor (PacMan.INSTANCE.getPos().getX()) , (int)PacMan.INSTANCE.getPos().getY()  );
+                    if (PacMan.INSTANCE.getNextDirection() == Direction.NORTH && !(config.getCell(co).northWall())){
+                        PacMan.INSTANCE.setPos(new RealCoordinates(co.x()  , co.y()- 0.001));
+                        PacMan.INSTANCE.setDirection(Direction.NORTH);
+                        PacMan.INSTANCE.setNextDirection(Direction.NONE);
+                    }
+                    if (PacMan.INSTANCE.getNextDirection() == Direction.SOUTH && !(config.getCell(co).southWall())){
+                        PacMan.INSTANCE.setPos(new RealCoordinates(co.x()  , co.y()+ 0.001));
+                        PacMan.INSTANCE.setDirection(Direction.SOUTH);
+                        PacMan.INSTANCE.setNextDirection(Direction.NONE);
+                    }
+                }
+            }
+        }
+        if (PacMan.INSTANCE.getDirection() == Direction.NORTH){
+            if ( PacMan.INSTANCE.getPos().getX() - Math.floor( PacMan.INSTANCE.getPos().getX() )  < 0.04  && PacMan.INSTANCE.getNextDirection() != Direction.NONE){
+                if (PacMan.INSTANCE.getNextDirection() == Direction.EAST || PacMan.INSTANCE.getNextDirection() == Direction.WEST){
+                    IntCoordinates co = new IntCoordinates((int)PacMan.INSTANCE.getPos().getX() , (int)Math.floor( PacMan.INSTANCE.getPos().getY() ) );
+                    if (PacMan.INSTANCE.getNextDirection() == Direction.WEST && !(config.getCell(co).westWall())){
+                        PacMan.INSTANCE.setPos(new RealCoordinates(co.x() - 0.001  , co.y()));
+                        PacMan.INSTANCE.setDirection(Direction.WEST);
+                        PacMan.INSTANCE.setNextDirection(Direction.NONE);
+                    }
+                    if (PacMan.INSTANCE.getNextDirection() == Direction.EAST && !(config.getCell(co).eastWall())){
+                        PacMan.INSTANCE.setPos(new RealCoordinates(co.x() + 0.001 , co.y()));
+                        PacMan.INSTANCE.setDirection(Direction.EAST);
+                        PacMan.INSTANCE.setNextDirection(Direction.NONE);
+                    }
+                }
+            }
+
+        }
+    }
+
 }
