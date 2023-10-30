@@ -7,7 +7,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import config.MazeConfig;
 import model.*;
-//import geometry.RealCoordinates;
+import geometry.*;
 
 //Import ajoutés
 import gui.GameView;
@@ -36,10 +36,7 @@ public class App extends Application {
 
         
         PacmanController pacmanController = new PacmanController();
-        Blinky rouge = new Blinky();
-        Inky bleu = new Inky();
-        Pinky rose = new Pinky();
-        Clyde orange = new Clyde();
+
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override

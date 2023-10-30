@@ -33,7 +33,6 @@ public class PacmanController {
          * Sinon, cette direction pour le moment impossible est stocké dans PacMan.INSTANCE.nextDirection */
 
         if (event.getCode() == KeyCode.LEFT){
-            System.out.println("GAUCHE");
             if ( PacMan.INSTANCE.getPos().getY() - Math.floor(PacMan.INSTANCE.getPos().getY()) == 0){
                 PacMan.INSTANCE.setNextDirection(Direction.NONE);
                 PacMan.INSTANCE.setDirection(Direction.WEST);

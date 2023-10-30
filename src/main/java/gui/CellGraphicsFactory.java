@@ -46,7 +46,7 @@ public class CellGraphicsFactory {
             nWall.setWidth(scale/10);
             nWall.setY(0);
             nWall.setX(9*scale/10);
-            nWall.setFill(Color.BLUEVIOLET);
+            nWall.setFill((pos.x() == 7 && pos.y() == 7) ? Color.rgb(0,0,0) : Color.BLUEVIOLET);
             group.getChildren().add(nWall);
         }
         if (cell.southWall()) {
@@ -64,7 +64,7 @@ public class CellGraphicsFactory {
             nWall.setWidth(scale/10);
             nWall.setY(0);
             nWall.setX(0);
-            nWall.setFill(Color.BLUEVIOLET);
+            nWall.setFill((pos.x() == 7 && pos.y() == 7) ? Color.rgb(0,0,0) : Color.BLUEVIOLET);
             group.getChildren().add(nWall);
         }
         return new GraphicsUpdater() {

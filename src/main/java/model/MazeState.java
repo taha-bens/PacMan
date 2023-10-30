@@ -179,46 +179,26 @@ public final class MazeState {
 
     public int getScore(){return this.score;}
 
-    public void upt(){
+    public void updatePacman(){
         if (PacMan.INSTANCE.getDirection() == Direction.EAST){
-            if (Math.ceil( PacMan.INSTANCE.getPos().getX() ) - PacMan.INSTANCE.getPos().getX() < 0.04  && PacMan.INSTANCE.getNextDirection() != Direction.NONE){
+            if (Math.ceil( PacMan.INSTANCE.getPos().getX() ) - PacMan.INSTANCE.getPos().getX() < 0.07  && PacMan.INSTANCE.getNextDirection() != Direction.NONE){
                 if (PacMan.INSTANCE.getNextDirection() == Direction.NORTH || PacMan.INSTANCE.getNextDirection() == Direction.SOUTH){
-                    System.out.println(" Avant tp : " + PacMan.INSTANCE.getPos());
                     IntCoordinates co = new IntCoordinates((int)Math.ceil (PacMan.INSTANCE.getPos().getX()) , (int)PacMan.INSTANCE.getPos().getY()  );
                     if (PacMan.INSTANCE.getNextDirection() == Direction.NORTH && !(config.getCell(co).northWall())){
                         PacMan.INSTANCE.setPos(new RealCoordinates(co.x()  , co.y() - 0.001));
-                        System.out.println(" Apres tp : " + PacMan.INSTANCE.getPos());
                         PacMan.INSTANCE.setDirection(Direction.NORTH);
                         PacMan.INSTANCE.setNextDirection(Direction.NONE);
                     }
                     if (PacMan.INSTANCE.getNextDirection() == Direction.SOUTH && !(config.getCell(co).southWall())){
                         PacMan.INSTANCE.setPos(new RealCoordinates(co.x()  , co.y()+ 0.001));
                         PacMan.INSTANCE.setDirection(Direction.SOUTH);
-                        System.out.println(" Apres tp : " + PacMan.INSTANCE.getPos());
-                        PacMan.INSTANCE.setNextDirection(Direction.NONE);
-                    }
-                }
-            }
-        }
-        if (PacMan.INSTANCE.getDirection() == Direction.SOUTH){
-            if (Math.ceil( PacMan.INSTANCE.getPos().getX() ) - PacMan.INSTANCE.getPos().getX() < 0.04  && PacMan.INSTANCE.getNextDirection() != Direction.NONE){
-                if (PacMan.INSTANCE.getNextDirection() == Direction.EAST || PacMan.INSTANCE.getNextDirection() == Direction.WEST){
-                    IntCoordinates co = new IntCoordinates((int)PacMan.INSTANCE.getPos().getX() , (int)Math.ceil( PacMan.INSTANCE.getPos().getY() ) );
-                    if (PacMan.INSTANCE.getNextDirection() == Direction.EAST && !(config.getCell(co).eastWall())){
-                        PacMan.INSTANCE.setPos(new RealCoordinates(co.x() + 0.001 , co.y()));
-                        PacMan.INSTANCE.setDirection(Direction.EAST);
-                        PacMan.INSTANCE.setNextDirection(Direction.NONE);
-                    }
-                    if (PacMan.INSTANCE.getNextDirection() == Direction.WEST && !(config.getCell(co).westWall())){
-                        PacMan.INSTANCE.setPos(new RealCoordinates(co.x() - 0.001 , co.y()));
-                        PacMan.INSTANCE.setDirection(Direction.WEST);
                         PacMan.INSTANCE.setNextDirection(Direction.NONE);
                     }
                 }
             }
         }
         if (PacMan.INSTANCE.getDirection() == Direction.WEST){
-            if ( PacMan.INSTANCE.getPos().getY() - Math.floor( PacMan.INSTANCE.getPos().getY() )  < 0.04  && PacMan.INSTANCE.getNextDirection() != Direction.NONE){
+            if ( PacMan.INSTANCE.getPos().getX() - Math.floor( PacMan.INSTANCE.getPos().getX()  )  < 0.07  && PacMan.INSTANCE.getNextDirection() != Direction.NONE){
                 if (PacMan.INSTANCE.getNextDirection() == Direction.NORTH || PacMan.INSTANCE.getNextDirection() == Direction.SOUTH){
                     IntCoordinates co = new IntCoordinates((int)Math.floor (PacMan.INSTANCE.getPos().getX()) , (int)PacMan.INSTANCE.getPos().getY()  );
                     if (PacMan.INSTANCE.getNextDirection() == Direction.NORTH && !(config.getCell(co).northWall())){
@@ -234,8 +214,25 @@ public final class MazeState {
                 }
             }
         }
+        if (PacMan.INSTANCE.getDirection() == Direction.SOUTH){
+            if (Math.ceil( PacMan.INSTANCE.getPos().getY() ) - PacMan.INSTANCE.getPos().getY() < 0.07  && PacMan.INSTANCE.getNextDirection() != Direction.NONE){
+                if (PacMan.INSTANCE.getNextDirection() == Direction.EAST || PacMan.INSTANCE.getNextDirection() == Direction.WEST){
+                    IntCoordinates co = new IntCoordinates((int)PacMan.INSTANCE.getPos().getX() , (int)Math.ceil( PacMan.INSTANCE.getPos().getY() ) );
+                    if (PacMan.INSTANCE.getNextDirection() == Direction.EAST && !(config.getCell(co).eastWall())){
+                        PacMan.INSTANCE.setPos(new RealCoordinates(co.x() + 0.001 , co.y()));
+                        PacMan.INSTANCE.setDirection(Direction.EAST);
+                        PacMan.INSTANCE.setNextDirection(Direction.NONE);
+                    }
+                    if (PacMan.INSTANCE.getNextDirection() == Direction.WEST && !(config.getCell(co).westWall())){
+                        PacMan.INSTANCE.setPos(new RealCoordinates(co.x() - 0.001 , co.y()));
+                        PacMan.INSTANCE.setDirection(Direction.WEST);
+                        PacMan.INSTANCE.setNextDirection(Direction.NONE);
+                    }
+                }
+            }
+        }
         if (PacMan.INSTANCE.getDirection() == Direction.NORTH){
-            if ( PacMan.INSTANCE.getPos().getX() - Math.floor( PacMan.INSTANCE.getPos().getX() )  < 0.04  && PacMan.INSTANCE.getNextDirection() != Direction.NONE){
+            if ( PacMan.INSTANCE.getPos().getY() - Math.floor( PacMan.INSTANCE.getPos().getY() )  < 0.07  && PacMan.INSTANCE.getNextDirection() != Direction.NONE){
                 if (PacMan.INSTANCE.getNextDirection() == Direction.EAST || PacMan.INSTANCE.getNextDirection() == Direction.WEST){
                     IntCoordinates co = new IntCoordinates((int)PacMan.INSTANCE.getPos().getX() , (int)Math.floor( PacMan.INSTANCE.getPos().getY() ) );
                     if (PacMan.INSTANCE.getNextDirection() == Direction.WEST && !(config.getCell(co).westWall())){
@@ -252,6 +249,306 @@ public final class MazeState {
             }
 
         }
+    }
+    public void updateGhost(){
+        Direction dir = Direction.NONE;
+        for (Ghost valeurs : Ghost.values()){
+            // Permet d'initialiser le premier mouvement de chaque fantome dans la direction qu'il faut
+            if (BLINKY.getPos().round().estEgal(new IntCoordinates(7,6))){
+                BLINKY.setDirection(Direction.WEST);
+            }
+            if (PINKY.getPos().round().estEgal(new IntCoordinates(7,7))){
+                PINKY.setDirection(Direction.NORTH);
+            }
+            if (CLYDE.getPos().round().estEgal(new IntCoordinates(8,7))){
+                CLYDE.setDirection(Direction.WEST);
+            }
+            if (INKY.getPos().round().estEgal(new IntCoordinates(6,7))){
+                INKY.setDirection(Direction.EAST);
+            }
+
+            if (valeurs.getDirection() == Direction.NORTH){  //Si le fantome se dirige vers le nord
+                if ( valeurs.getPos().getY() - Math.floor( valeurs.getPos().getY() )  < 0.1 ){ // Si le fantôme est dans le bout de sa case
+                    IntCoordinates co = new IntCoordinates((int)valeurs.getPos().getX() , (int)Math.floor( valeurs.getPos().getY() ) ); // On recupere les coordonnées de la case ou il va arriver
+                    if ( !config.getCell(co).northWall() && !config.getCell(co).westWall() && !config.getCell(co).eastWall() ) { // Si on peut aller tout droit, a droite ou a gauche
+                        IntCoordinates objectif = objectif(valeurs); //On recupere les coordonnee que le fantome actuel a pour objectif
+                        IntCoordinates vers = Manhattan(objectif , co.rightNeighbour() , co.upNeighbour(), co.leftNeighbour() ); // Dans "vers" se trouve les coordonnées de la case adjacentes a "co" la plus proche de l'objectif
+                        if (vers.estEgal(co.leftNeighbour())){  dir = Direction.WEST;} //Si vers est la case a gauche alors on recupere WEST
+                        if (vers.estEgal(co.upNeighbour())){  dir = Direction.NORTH;}  //Si vers est la case en haut alors on recupere NORTH
+                        if (vers.estEgal(co.rightNeighbour())){  dir = Direction.EAST;}  //Si vers est la case a droite alors on recupere EAST
+                        valeurs.setPos(teleporte (co, dir)); //teleporte trouve avec une coordonnees et un direction l'endroit le plus proche de "co" et place l'entité dans son axe nécéssaire
+                        valeurs.setDirection(dir); //On change la direction de l'entité
+                    }
+                    else if ( !config.getCell(co).northWall() && !config.getCell(co).westWall() ) {
+                        IntCoordinates objectif = objectif(valeurs);
+                        IntCoordinates vers = Manhattan(objectif , co.upNeighbour(), co.leftNeighbour() );
+                        if (vers.estEgal(co.leftNeighbour())){  dir = Direction.WEST;}
+                        if (vers.estEgal(co.upNeighbour())){  dir = Direction.NORTH;}
+                        valeurs.setPos(teleporte (co, dir));
+                        valeurs.setDirection(dir);
+                    }
+                    else if ( !config.getCell(co).northWall() && !config.getCell(co).eastWall() ) {
+                        IntCoordinates objectif = objectif(valeurs);
+                        IntCoordinates vers = Manhattan(objectif , co.rightNeighbour() , co.upNeighbour() ) ;
+                        if (vers.estEgal(co.rightNeighbour())){  dir = Direction.EAST;}
+                        if (vers.estEgal(co.upNeighbour())){  dir = Direction.NORTH;}
+                        valeurs.setPos(teleporte (co, dir));
+                        valeurs.setDirection(dir);
+                    }
+                    else if ( !config.getCell(co).westWall() && !config.getCell(co).eastWall() ) {
+                        IntCoordinates objectif = objectif(valeurs);
+                        IntCoordinates vers = Manhattan(objectif , co.rightNeighbour() , co.leftNeighbour() ) ;
+                        if (vers.estEgal(co.rightNeighbour())){  dir = Direction.EAST;}
+                        if (vers.estEgal(co.leftNeighbour())){  dir = Direction.WEST;}
+                        valeurs.setPos(teleporte (co, dir));
+                        valeurs.setDirection(dir);
+                    }
+                    else if ( !config.getCell(co).eastWall() ) {
+                        valeurs.setPos(teleporte (co, Direction.EAST));
+                        valeurs.setDirection(Direction.EAST);
+                    }
+                    else if ( !config.getCell(co).westWall() ) {
+                        valeurs.setPos(teleporte (co, Direction.WEST));
+                        valeurs.setDirection(Direction.WEST);
+                    }
+                }
+            }
+            else if (valeurs.getDirection() == Direction.SOUTH){
+                if ( Math.ceil( valeurs.getPos().getY() ) - valeurs.getPos().getY() < 0.08 ){
+                    IntCoordinates co = new IntCoordinates((int)valeurs.getPos().getX() , (int)Math.ceil( valeurs.getPos().getY() ) );
+                    if ( !config.getCell(co).southWall() && !config.getCell(co).westWall() && !config.getCell(co).eastWall() ) {
+                        IntCoordinates objectif = objectif(valeurs);
+                        IntCoordinates vers = Manhattan(objectif , co.rightNeighbour() , co.downNeighbour(), co.leftNeighbour() );
+                        if (vers.estEgal(co.leftNeighbour())){  dir = Direction.WEST;}
+                        if (vers.estEgal(co.downNeighbour())){  dir = Direction.SOUTH;}
+                        if (vers.estEgal(co.rightNeighbour())){  dir = Direction.EAST;}
+                        valeurs.setPos(teleporte (co, dir));
+                        valeurs.setDirection(dir);
+                    }
+                    else if ( !config.getCell(co).southWall() && !config.getCell(co).westWall() ) {
+                        IntCoordinates objectif = objectif(valeurs);
+                        IntCoordinates vers = Manhattan(objectif , co.downNeighbour(), co.leftNeighbour() );
+                        if (vers.estEgal(co.leftNeighbour())){  dir = Direction.WEST;}
+                        if (vers.estEgal(co.downNeighbour())){  dir = Direction.SOUTH;}
+                        valeurs.setPos(teleporte (co, dir));
+                        valeurs.setDirection(dir);
+                    }
+                    else if ( !config.getCell(co).southWall() && !config.getCell(co).eastWall() ) {
+                        IntCoordinates objectif = objectif(valeurs);
+                        IntCoordinates vers = Manhattan(objectif , co.rightNeighbour() , co.downNeighbour() );
+                        if (vers.estEgal(co.rightNeighbour())){  dir = Direction.EAST;}
+                        if (vers.estEgal(co.downNeighbour())){  dir = Direction.SOUTH;}
+                        valeurs.setPos(teleporte (co, dir));
+                        valeurs.setDirection(dir);
+                    }
+                    else if ( !config.getCell(co).westWall() && !config.getCell(co).eastWall() ) {
+                        IntCoordinates objectif = objectif(valeurs);
+                        IntCoordinates vers = Manhattan(objectif , co.rightNeighbour() , co.leftNeighbour() );
+                        if (vers.estEgal(co.rightNeighbour())){  dir = Direction.EAST;}
+                        if (vers.estEgal(co.leftNeighbour())){  dir = Direction.WEST;}
+                        valeurs.setPos(teleporte (co, dir));
+                        valeurs.setDirection(dir);
+                    }
+                    else if ( !config.getCell(co).westWall() ) {
+                        valeurs.setPos(teleporte (co, Direction.WEST));
+                        valeurs.setDirection(Direction.WEST);
+                    }
+                    else if (!config.getCell(co).eastWall() ) {
+                        valeurs.setPos(teleporte (co, Direction.EAST));
+                        valeurs.setDirection(Direction.EAST);
+                    }
+
+                }
+            }
+            else if (valeurs.getDirection() == Direction.EAST){
+                if ( Math.ceil( valeurs.getPos().getX() ) - valeurs.getPos().getX() < 0.08){
+                    IntCoordinates co = new IntCoordinates((int)Math.ceil (valeurs.getPos().getX()) , (int)valeurs.getPos().getY()  );
+                    if ( !config.getCell(co).southWall() && !config.getCell(co).eastWall() && !config.getCell(co).northWall() ) {
+                        IntCoordinates objectif = objectif(valeurs);
+                        IntCoordinates vers = Manhattan(objectif , co.rightNeighbour() , co.downNeighbour(), co.leftNeighbour() );
+                        if (vers.estEgal(co.leftNeighbour())){  dir = Direction.WEST;}
+                        if (vers.estEgal(co.downNeighbour())){  dir = Direction.SOUTH;}
+                        if (vers.estEgal(co.rightNeighbour())){  dir = Direction.EAST;}
+                        valeurs.setPos(teleporte (co, dir));
+                        valeurs.setDirection(dir);
+                    }
+                    else if ( !config.getCell(co).southWall() && !config.getCell(co).eastWall() ) {
+                        IntCoordinates objectif = objectif(valeurs);
+                        IntCoordinates vers = Manhattan(objectif , co.downNeighbour(), co.rightNeighbour() );
+                        if (vers.estEgal(co.rightNeighbour())){  dir = Direction.EAST;}
+                        if (vers.estEgal(co.downNeighbour())){  dir = Direction.SOUTH;}
+                        valeurs.setPos(teleporte (co, dir));
+                        valeurs.setDirection(dir);
+                    }
+                    else if ( !config.getCell(co).northWall() && !config.getCell(co).eastWall() ) {
+                        IntCoordinates objectif = objectif(valeurs);
+                        IntCoordinates vers = Manhattan(objectif , co.rightNeighbour() , co.upNeighbour() );
+                        if (vers.estEgal(co.rightNeighbour())){  dir = Direction.EAST;}
+                        if (vers.estEgal(co.upNeighbour())){  dir = Direction.NORTH;}
+                        valeurs.setPos(teleporte (co, dir));
+                        valeurs.setDirection(dir);
+                    }
+                    else if ( !config.getCell(co).northWall() && !config.getCell(co).southWall() ) {
+                        IntCoordinates objectif = objectif(valeurs);
+                        IntCoordinates vers = Manhattan(objectif , co.upNeighbour() , co.downNeighbour() );
+                        if (vers.estEgal(co.downNeighbour())){  dir = Direction.SOUTH;}
+                        if (vers.estEgal(co.upNeighbour())){  dir = Direction.NORTH;}
+                        valeurs.setPos(teleporte (co, dir));
+                        valeurs.setDirection(dir);
+                    }
+                    else if (!config.getCell(co).southWall() ) {
+                        valeurs.setPos(teleporte (co, Direction.SOUTH));
+                        valeurs.setDirection(Direction.SOUTH);
+                    }
+                    else if (!config.getCell(co).northWall() ) {
+                        valeurs.setPos(teleporte (co, Direction.NORTH));
+                        valeurs.setDirection(Direction.NORTH);
+                    }
+                }
+            }
+
+            if (valeurs.getDirection() == Direction.WEST){
+                if ( valeurs.getPos().getX() - Math.floor( valeurs.getPos().getX()  )  < 0.08){
+                    IntCoordinates co = new IntCoordinates((int)Math.floor (valeurs.getPos().getX()) , (int)valeurs.getPos().getY()  );
+                    if ( !config.getCell(co).southWall() && !config.getCell(co).westWall() && !config.getCell(co).northWall() ) {
+                        IntCoordinates objectif = objectif(valeurs);
+                        IntCoordinates vers = Manhattan(objectif , co.upNeighbour() , co.downNeighbour(), co.leftNeighbour() );
+                        if (vers.estEgal(co.leftNeighbour())){  dir = Direction.WEST;}
+                        if (vers.estEgal(co.downNeighbour())){  dir = Direction.SOUTH;}
+                        if (vers.estEgal(co.upNeighbour())){  dir = Direction.NORTH;}
+                        valeurs.setPos(teleporte (co, dir));
+                        valeurs.setDirection(dir);
+                    }
+                    else if ( !config.getCell(co).southWall() && !config.getCell(co).westWall() ) {
+                        IntCoordinates objectif = objectif(valeurs);
+                        IntCoordinates vers = Manhattan(objectif, co.downNeighbour(), co.leftNeighbour() );
+                        if (vers.estEgal(co.leftNeighbour())){  dir = Direction.WEST;}
+                        if (vers.estEgal(co.downNeighbour())){  dir = Direction.SOUTH;}
+                        valeurs.setPos(teleporte (co, dir));
+                        valeurs.setDirection(dir);
+                    }
+                    else if ( !config.getCell(co).northWall() && !config.getCell(co).westWall() ) {
+                        IntCoordinates objectif = objectif(valeurs);
+                        IntCoordinates vers = Manhattan(objectif, co.leftNeighbour() , co.upNeighbour() );
+                        if (vers.estEgal(co.leftNeighbour())){  dir = Direction.WEST;}
+                        if (vers.estEgal(co.upNeighbour())){  dir = Direction.NORTH;}
+                        valeurs.setPos(teleporte (co, dir));
+                        valeurs.setDirection(dir);
+                    }
+
+                    else if ( !config.getCell(co).northWall() && !config.getCell(co).southWall()) {
+                        IntCoordinates objectif = objectif(valeurs);
+                        IntCoordinates vers = Manhattan(objectif, co.upNeighbour() , co.downNeighbour() );
+                        if (vers.estEgal(co.downNeighbour())){ dir = Direction.SOUTH;}
+                        if (vers.estEgal(co.upNeighbour())){  dir = Direction.NORTH;}
+                        valeurs.setPos(teleporte (co, dir));
+                        valeurs.setDirection(dir);
+                    }
+                    else if ( !config.getCell(co).southWall()) {
+                        valeurs.setPos(teleporte (co, Direction.SOUTH));
+                        valeurs.setDirection(Direction.SOUTH);
+                    }
+                    else if ( !config.getCell(co).northWall()) {
+                        valeurs.setPos(teleporte (co, Direction.NORTH));
+                        valeurs.setDirection(Direction.NORTH);
+                    }
+                }
+            }
+        }
+    }
+
+    //ECRIRE MANHATTAN AVEC UN FOR (ARG1...ARGn) DONC AVEC UNE SEUL FONCTION MANHATTAN
+    public IntCoordinates Manhattan(IntCoordinates objectif , IntCoordinates prop1 , IntCoordinates prop2){
+        // Cette fonction retourne parmis les 2 propositions laquel est la plus proche de l'objectif
+        int p2 = Math.abs(objectif.x() - prop2.x()) + Math.abs(objectif.y() - prop2.y()) ;
+        int p1 = Math.abs(objectif.x() - prop1.x()) + Math.abs(objectif.y() - prop1.y()) ;
+        if (p2 < p1){
+            return prop2;
+        }
+        else {
+            return prop1;
+        }
+
+    }
+    public IntCoordinates Manhattan(IntCoordinates objectif , IntCoordinates prop1 , IntCoordinates prop2, IntCoordinates prop3){
+        IntCoordinates res1 = Manhattan(objectif, prop1,prop2);
+        return Manhattan(objectif, res1 , prop3);
+    }
+
+    public RealCoordinates teleporte (IntCoordinates co , Direction dir){
+        //Cette fonction retourne les coordonnées juste à côté de "co" pour que l'entité puisse s'y deplacer sans probleme
+        if (dir == Direction.NORTH){
+            return new RealCoordinates(co.x() , co.y() - 0.01);
+        }
+        if (dir == Direction.SOUTH){
+            return new RealCoordinates(co.x(), co.y() + 0.01);
+        }
+        if (dir == Direction.EAST){
+            return new RealCoordinates(co.x() + 0.01, co.y() );
+        }
+        else {
+            return new RealCoordinates(co.x() - 0.01, co.y() );
+        }
+    }
+    public IntCoordinates devantPacman (){
+        //Cette fonction retourne les coordonnées de la case qui se trouve à 2 case devant pacman
+        if (PacMan.INSTANCE.getDirection() == Direction.NORTH) {
+            if (PacMan.INSTANCE.getPos().round().y() - 2 < 2) {
+                return new IntCoordinates(PacMan.INSTANCE.getPos().round().x(), 2);
+            } else {
+                return new IntCoordinates(PacMan.INSTANCE.getPos().round().x(), PacMan.INSTANCE.getPos().round().y() - 2);
+            }
+        }
+        if (PacMan.INSTANCE.getDirection() == Direction.SOUTH) {
+            if (PacMan.INSTANCE.getPos().round().y() + 2 > 12) {
+                return new IntCoordinates(PacMan.INSTANCE.getPos().round().x(), 12);
+            } else {
+                return new IntCoordinates(PacMan.INSTANCE.getPos().round().x(), PacMan.INSTANCE.getPos().round().y() + 2);
+            }
+        }
+        if (PacMan.INSTANCE.getDirection() == Direction.WEST) {
+            if (PacMan.INSTANCE.getPos().round().x() - 2 < 0) {
+                return new IntCoordinates(0, PacMan.INSTANCE.getPos().round().y());
+            } else {
+                return new IntCoordinates(PacMan.INSTANCE.getPos().round().x() - 2, PacMan.INSTANCE.getPos().round().y());
+            }
+        }
+        if (PacMan.INSTANCE.getDirection() == Direction.EAST) {
+            if (PacMan.INSTANCE.getPos().round().x() + 2 > 14) {
+                return new IntCoordinates(14, PacMan.INSTANCE.getPos().round().y());
+            } else {
+                return new IntCoordinates(PacMan.INSTANCE.getPos().round().x() + 2, PacMan.INSTANCE.getPos().round().y());
+            }
+        } else {
+            return PacMan.INSTANCE.getPos().round();
+        }
+    }
+
+
+    public IntCoordinates objectif (Ghost valeur) {
+        //Retourne les coordonnées qui est l'objectif pour chaque fantome
+        //Correspond à l'IA des fantomes
+        if (valeur == BLINKY) {
+            return PacMan.INSTANCE.getPos().round();
+        }
+        if (valeur == PINKY) {
+            return devantPacman();
+        }
+        if (valeur == CLYDE) {
+            if (CLYDE.getPos().round().minus(PacMan.INSTANCE.getPos().round()) > 4) {
+                return PacMan.INSTANCE.getPos().round();
+            } else {
+                return new IntCoordinates(0, 13);
+            }
+        }
+        if (valeur == INKY) {
+            IntCoordinates devantPac = devantPacman();
+            int vx = devantPac.x() - BLINKY.getPos().round().x()  ;
+            int vy = devantPac.y() - BLINKY.getPos().round().y();
+            return new IntCoordinates(PacMan.INSTANCE.getPos().round().x() + vx , PacMan.INSTANCE.getPos().round().y() + vy);
+        }
+        return new IntCoordinates(0,12);
+
     }
 
 }

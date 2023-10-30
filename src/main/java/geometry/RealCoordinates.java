@@ -26,6 +26,7 @@ public record RealCoordinates(double x, double y) {
         return new RealCoordinates(x + other.x, y + other.y);
     }
 
+
     public RealCoordinates times(double multiplier) {
         return new RealCoordinates(x * multiplier, y * multiplier);
     }
@@ -86,5 +87,8 @@ public record RealCoordinates(double x, double y) {
         while (Math.round(rx) >= height)
             ry -= height;
         return new RealCoordinates(rx, ry);
+    }
+    public boolean equals (RealCoordinates co){
+        return ((this.x == co.getX()) && (this.y == co.getY()));
     }
 }
