@@ -106,7 +106,10 @@ public class MazeLoader {
                 laby[hauteur][longueur] = Cell.UCell('e', contenu(modele, chara));
             } else if (modele.charAt(chara)==']') {
                 laby[hauteur][longueur] = Cell.UCell('w', contenu(modele, chara));
+            } else if (modele.charAt(chara)=='U'){
+                laby[hauteur][longueur] = Cell.UCell('n', contenu(modele, chara));
             }
+
             //EntierCell
             else if (modele.charAt(chara)=='#'){
                 laby[hauteur][longueur] = Cell.EntierCell(false,contenu(modele,chara));

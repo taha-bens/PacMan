@@ -7,14 +7,13 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import misc.Debug;
-import model.MazeState;
+import model.*;
 
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
 //Imports ajoutés
-import model.Critter;
 import gui.GraphicsUpdater;
 import gui.CritterGraphicsFactory;
 import gui.CellGraphicsFactory;
@@ -76,10 +75,10 @@ public class GameView {
                     last = now;
                     return;
                 }
-                //System.out.println(now/1000000000);
                 var deltaT = now - last;
                 maze.update(deltaT);
-                maze.upt();
+                maze.updatePacman();
+                maze.updateGhost();
                 scoreLabel.setText(String.valueOf(maze.getScore()));
                 for (var updater : graphicsUpdaters) {
                     updater.update();

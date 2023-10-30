@@ -40,7 +40,7 @@ public enum Ghost implements Critter {
 
     @Override
     public double getSpeed() {
-        return 4;
+        return 3;
     }
 
 }
