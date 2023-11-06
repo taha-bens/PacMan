@@ -1,21 +1,20 @@
 package gui;
 
 import config.MazeConfig;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.VPos;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.image.Image;
 import javafx.scene.text.*;
 import javafx.scene.Scene;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.*;
 import javafx.stage.Stage;
 import model.*;
 
-import java.util.Optional;
+import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -65,14 +64,10 @@ public class SelectView {
         lab1.setPrefSize(270,210);
         lab1.setTranslateX(90);
         lab1.setTranslateY(200);
-        lab1.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                //System.out.println("click lab1");
-                SetMazeLocate("src/main/resources/maze1.txt");
-                SetScene(primaryStage);
-            }
-
+        lab1.setOnAction(event -> {
+            //System.out.println("click lab1");
+            SetMazeLocate("src/main/resources/maze1.txt");
+            SetScene(primaryStage);
         });
 
 
@@ -84,14 +79,10 @@ public class SelectView {
         lab2.setPrefSize(270,210);
         lab2.setTranslateX(405);
         lab2.setTranslateY(200);
-        lab2.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                //System.out.println("click lab2");
-                SetMazeLocate("src/main/resources/maze2.txt");
-                SetScene(primaryStage);
-            }
-
+        lab2.setOnAction(event -> {
+            //System.out.println("click lab2");
+            SetMazeLocate("src/main/resources/maze2.txt");
+            SetScene(primaryStage);
         });
 
 
@@ -104,14 +95,10 @@ public class SelectView {
         lab3.setPrefSize(270,210);
         lab3.setTranslateX(720);
         lab3.setTranslateY(200);
-        lab3.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                //System.out.println("click lab3");
-                SetMazeLocate("src/main/resources/maze3.txt");
-                SetScene(primaryStage);
-            }
-
+        lab3.setOnAction(event -> {
+            //System.out.println("click lab3");
+            SetMazeLocate("src/main/resources/maze3.txt");
+            SetScene(primaryStage);
         });
 
 
@@ -123,16 +110,21 @@ public class SelectView {
         labUser.setPrefSize(270, 210);
         labUser.setTranslateX(405);
         labUser.setTranslateY(475);
-        TextInputDialog input = new TextInputDialog("");
-        input.setHeaderText("Emplacement du labyrinthe");
-        labUser.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                //System.out.println("click labUser");
-                Optional<String> result = input.showAndWait();
-                result.ifPresent(txt -> SetMazeLocate(txt));
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Ouvrir un fichier de labyrinthe");
+        fileChooser.getExtensionFilters().addAll(
+                new ExtensionFilter("Text Files", "*.txt"));
+        fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
+
+        labUser.setOnAction(actionEvent -> {
+            //System.out.println("click labUser");
+            File selectedFile = fileChooser.showOpenDialog(primaryStage);
+            if (selectedFile != null) {
+                SetMazeLocate(selectedFile.getAbsolutePath());
                 SetScene(primaryStage);
             }
+
         });
 
 
