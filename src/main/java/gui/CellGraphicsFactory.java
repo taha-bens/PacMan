@@ -14,10 +14,6 @@ import static config.Cell.Content.DOT;
 import config.Cell;
 import gui.GraphicsUpdater;
 
-import javax.sound.sampled.*;
-import java.io.File;
-import java.io.IOException;
-
 public class CellGraphicsFactory {
     private final double scale;
 
