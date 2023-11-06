@@ -13,6 +13,7 @@ import static config.Cell.Content.DOT;
 //Imports ajoutés
 import config.Cell;
 import gui.GraphicsUpdater;
+
 public class CellGraphicsFactory {
     private final double scale;
 

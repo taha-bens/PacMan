@@ -4,6 +4,8 @@ import config.MazeConfig;
 import geometry.IntCoordinates;
 import geometry.RealCoordinates;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -16,6 +18,8 @@ import model.Critter;
 import model.Direction;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+
+import javax.sound.sampled.*;
 
 public final class MazeState {
     private final MazeConfig config;
