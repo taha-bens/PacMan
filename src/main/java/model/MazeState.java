@@ -16,6 +16,8 @@ import model.Direction;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
+import javax.sound.sampled.*;
+
 public final class MazeState {
     ///
     private Timer timer;

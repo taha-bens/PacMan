@@ -10,6 +10,8 @@ import misc.Debug;
 import model.*;
 
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +19,9 @@ import java.util.List;
 import gui.GraphicsUpdater;
 import gui.CritterGraphicsFactory;
 import gui.CellGraphicsFactory;
+import model.PacMan;
+
+import javax.sound.sampled.*;
 
 public class GameView {
     // class parameters
@@ -65,16 +70,42 @@ public class GameView {
         scoreLabel.setTranslateY(10.0);
     }
 
-    public void animate() {
-        new AnimationTimer() {
+    public void animate(){
+        new AnimationTimer(){
             long last = 0;
+            long sound_timer = 0;
 
             @Override
-            public void handle(long now) {
+            public void handle(long now){
                 if (last == 0) { // ignore the first tick, just compute the first deltaT
                     last = now;
                     return;
                 }
+
+                if (sound_timer > 607000000 && PacMan.INSTANCE.getDirection() != Direction.NONE){
+                    AudioInputStream audio;
+                    try {
+                        audio = AudioSystem.getAudioInputStream(new File("src/main/resources/pacman_chomp.wav"));
+                    } catch (UnsupportedAudioFileException | IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    Clip clip;
+                    try {
+                        clip = AudioSystem.getClip();
+                    } catch (LineUnavailableException e) {
+                        throw new RuntimeException(e);
+                    }
+                    try {
+                        clip.open(audio);
+                    } catch (LineUnavailableException | IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    clip.start();
+                    System.out.println(sound_timer);
+                    sound_timer = 0;
+
+                }
+
                 var deltaT = now - last;
                 maze.update(deltaT);
                 maze.updatePacman();
@@ -83,6 +114,7 @@ public class GameView {
                 for (var updater : graphicsUpdaters) {
                     updater.update();
                 }
+                sound_timer += now-last;
                 last = now;
             }
         }.start();

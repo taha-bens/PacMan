@@ -19,8 +19,6 @@ import static config.Cell.Content.ENERGIZER;
 import config.Cell;
 import gui.GraphicsUpdater;
 
-import java.sql.Time;
-
 public class CellGraphicsFactory {
     private final double scale;
 
