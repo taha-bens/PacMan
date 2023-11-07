@@ -1,6 +1,13 @@
 package model;
 
+import config.Cell;
+import config.MazeConfig;
+import config.MazeLoader;
+import geometry.IntCoordinates;
 import geometry.RealCoordinates;
+import gui.App;
+import javafx.scene.layout.Pane;
+import model.MazeState;
 
 /**
  * Implements Pac-Man character using singleton pattern. FIXME: check whether singleton is really a good idea.
@@ -26,7 +33,7 @@ public final class PacMan implements Critter { //final car il n'y a qu'une seule
 
     @Override
     public double getSpeed() {
-        return isEnergized() ? 6 : 4;
+        return 4;
     }
 
     @Override
@@ -55,8 +62,7 @@ public final class PacMan implements Critter { //final car il n'y a qu'une seule
      *
      * @return whether Pac-Man just ate an energizer
      */
-    public boolean isEnergized() {
-        // TODO handle timeout!
+    public boolean isEnergized(){
         return energized;
     }
 

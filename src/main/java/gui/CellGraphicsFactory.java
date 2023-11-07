@@ -1,14 +1,19 @@
 package gui;
 
 import geometry.IntCoordinates;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
 import model.MazeState;
 
 import static config.Cell.Content.DOT;
+import static config.Cell.Content.ENERGIZER;
 
 //Imports ajoutés
 import config.Cell;
@@ -31,7 +36,21 @@ public class CellGraphicsFactory {
         dot.setRadius(switch (cell.initialContent()) { case DOT -> scale/15; case ENERGIZER -> scale/5; case NOTHING -> 0; });
         dot.setCenterX(scale/2);
         dot.setCenterY(scale/2);
-        dot.setFill(Color.YELLOW);
+        // Condition si la pacgomme est une super pacgomme: faire clignoter la super pacgomme
+        if (cell.initialContent() == ENERGIZER){
+            Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.4), event -> {
+                if (dot.getFill() == Color.YELLOW){
+                    dot.setFill(Color.BLACK);
+                } else {
+                    dot.setFill(Color.YELLOW);
+                }
+            }));
+            timeline.setCycleCount(Animation.INDEFINITE);
+            timeline.play();
+        } else { // sinon : gomme jaune normale
+            dot.setFill(Color.YELLOW);
+        }
+
         if (cell.northWall()) {
             Rectangle nWall = new Rectangle();
             nWall.setHeight(scale/10);

@@ -8,7 +8,6 @@ import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import config.MazeConfig;
 import model.*;
-import geometry.*;
 
 //Import ajoutés
 import javafx.scene.image.Image;
