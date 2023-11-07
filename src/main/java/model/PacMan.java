@@ -33,7 +33,7 @@ public final class PacMan implements Critter { //final car il n'y a qu'une seule
 
     @Override
     public double getSpeed() {
-        return isEnergized() ? 4 : 4;
+        return 4;
     }
 
     @Override
