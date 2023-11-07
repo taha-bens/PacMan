@@ -1,15 +1,14 @@
 package model;
 
+import config.Cell;
 import config.MazeConfig;
+import config.MazeLoader;
 import geometry.IntCoordinates;
 import geometry.RealCoordinates;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static model.Ghost.*;
-
-import java.util.Set;
 
 import javafx.scene.image.Image;
 import model.Critter;
@@ -18,6 +17,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 public final class MazeState {
+    ///
+    private Timer timer;
+    ///
     private final MazeConfig config;
     private final int height;
     private final int width;
@@ -72,6 +74,26 @@ public final class MazeState {
         return height;
     }
 
+    public void startTimerEnergized(){
+        if (timer != null){
+            timer.cancel();
+        }
+        timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                PacMan.INSTANCE.setEnergized(false);
+            }
+        };
+        timer.schedule(timerTask, 8000);
+    }
+    public void resetTimerEnergized(){
+        if (timer != null){
+            timer.cancel();
+        }
+        startTimerEnergized();
+    }
+
     public void update(long deltaTns) {
         // FIXME: too many things in this method. Maybe some responsibilities can be delegated to other methods or classes?
         for(Critter critter: critters) {
@@ -118,15 +140,21 @@ public final class MazeState {
         }
         // FIXME Pac-Man rules should somehow be in Pacman class
         IntCoordinates pacPos = PacMan.INSTANCE.getPos().round();
-        if (!gridState[pacPos.y()][pacPos.x()]) {
-            addScore(1);
+        if (!gridState[pacPos.y()][pacPos.x()]){
             gridState[pacPos.y()][pacPos.x()] = true;
+            if (this.getConfig().getCell(pacPos).initialContent() == Cell.Content.ENERGIZER){
+                PacMan.INSTANCE.setEnergized(true);
+                addScore(50);
+                resetTimerEnergized();
+            } else {
+                addScore(10);
+            }
         }
 
         for (Critter critter : critters) {
             if (critter instanceof Ghost && critter.getPos().round().equals(pacPos)) {
                 if (PacMan.INSTANCE.isEnergized()) { // PacMan energisé tue un fantome
-                    addScore(10);
+                    addScore(200);
                     resetCritter(critter);
                 } else {
                     playerLost(); // PacMan touche un fantome

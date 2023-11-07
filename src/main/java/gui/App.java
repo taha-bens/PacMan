@@ -7,7 +7,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import config.MazeConfig;
 import model.*;
-import geometry.*;
 
 //Import ajoutés
 import gui.GameView;
@@ -31,24 +30,32 @@ public class App extends Application {
          * une scène dans laquelle les différents éléments sont placés,
          * une configuration de labyrinthe (pour ensuite créer le labyrinthe),
          * */
-        Pane root = new Pane(); //organisateur de la fenêtre (stage)
+         //organisateur de la fenêtre (stage)
+        Pane root = new Pane();
         Scene gameScene = new Scene(root); //scène (comme caneva dans python tkinter)
 
         
         PacmanController pacmanController = new PacmanController();
-
+        Blinky rouge = new Blinky();
+        Inky bleu = new Inky();
+        Pinky rose = new Pinky();
+        Clyde orange = new Clyde();
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                //test
+                rouge.BlinkyStart();
+                bleu.InkyMove();
+                rose.PinkyMove();
+                orange.ClydeMove();
 
             }
-        }, 0, 50);
+        }, 5000, 100);
         gameScene.setOnKeyPressed(pacmanController::keyPressedHandler); //ajoute l'event pression sur la scene
         gameScene.setOnKeyReleased(pacmanController::keyReleasedHandler); //ajoute l'event relachement sur la scene
         
-        MazeState maze = new MazeState(MazeConfig.makeMazeFINAL("src/main/resources/maze1.txt"), 50.0, root); //données du labyrinthe
+         //données du labyrinthe
+        MazeState maze = new MazeState(MazeConfig.makeMazeFINAL("src/main/resources/maze1.txt"), 50.0, root);
         GameView gameView = new GameView(maze, root, 50.0); //apparance graphique du précédent labyrinthe
         
         primaryStage.setScene(gameScene); //place la scène dans la fenêtre "primaryStage"
