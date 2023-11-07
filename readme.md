@@ -1,5 +1,5 @@
 
-![Logo](https://cdn.discordapp.com/attachments/741806766014201896/1159127007095959552/Sans_titre.png?ex=651ec0a6&is=651d6f26&hm=b9bdd826d797136d6d3a438e7861799a7c7a1aaf775fc374a40261ccb15e093e&)
+![Logo](src/main/resources/projet_icone.png)
 
 ## 📕 Présentation du projet
 
