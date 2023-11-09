@@ -57,7 +57,8 @@ public class CellGraphicsFactory {
             nWall.setWidth(scale);
             nWall.setY(0);
             nWall.setX(0);
-            nWall.setFill(Color.BLUEVIOLET);
+            if ((pos.x() ==6 && pos.y() == 7) ||(pos.x() ==8 && pos.y() == 7) ){nWall.setFill(Color.BLACK);}
+            else {nWall.setFill(Color.BLUEVIOLET);}
             group.getChildren().add(nWall);
         }
         if (cell.eastWall()) {
@@ -66,7 +67,8 @@ public class CellGraphicsFactory {
             nWall.setWidth(scale/10);
             nWall.setY(0);
             nWall.setX(9*scale/10);
-            nWall.setFill((pos.x() == 7 && pos.y() == 7) ? Color.rgb(0,0,0) : Color.BLUEVIOLET);
+            if ((pos.x() ==7 && pos.y() == 7) || (pos.x() ==6 && pos.y() == 7) ||(pos.x() ==8 && pos.y() == 7) ){nWall.setFill(Color.BLACK);}
+            else {nWall.setFill(Color.BLUEVIOLET);}
             group.getChildren().add(nWall);
         }
         if (cell.southWall()) {
@@ -75,7 +77,10 @@ public class CellGraphicsFactory {
             nWall.setWidth(scale);
             nWall.setY(9*scale/10);
             nWall.setX(0);
-            nWall.setFill((pos.x() == state.getWidth()/2 && pos.y() == state.getHeight()/2-1) ? Color.rgb(255,217,179) : Color.BLUEVIOLET);
+            if ((pos.x() ==7 && pos.y() == 7) || (pos.x() ==6 && pos.y() == 7) ||(pos.x() ==8 && pos.y() == 7) ){nWall.setFill(Color.BLACK);}
+            else if (pos.x() ==7 && pos.y() == 6){nWall.setFill(Color.rgb(255,217,179));}
+            else {nWall.setFill(Color.BLUEVIOLET);}
+
             group.getChildren().add(nWall);
         }
         if (cell.westWall()) {

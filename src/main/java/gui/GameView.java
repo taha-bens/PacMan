@@ -9,6 +9,7 @@ import javafx.scene.text.Font;
 import misc.Debug;
 import model.*;
 
+
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
@@ -20,6 +21,7 @@ import gui.GraphicsUpdater;
 import gui.CritterGraphicsFactory;
 import gui.CellGraphicsFactory;
 import model.PacMan;
+import static model.Ghost.*;
 
 import javax.sound.sampled.*;
 
@@ -74,14 +76,14 @@ public class GameView {
         new AnimationTimer(){
             long last = 0;
             long sound_timer = 0;
-
+            static long timerBrut = 0 ;
             @Override
             public void handle(long now){
                 if (last == 0) { // ignore the first tick, just compute the first deltaT
                     last = now;
                     return;
                 }
-
+                /*
                 if (sound_timer > 607000000 && PacMan.INSTANCE.getDirection() != Direction.NONE){
                     AudioInputStream audio;
                     try {
@@ -101,20 +103,49 @@ public class GameView {
                         throw new RuntimeException(e);
                     }
                     clip.start();
-                    System.out.println(sound_timer);
                     sound_timer = 0;
 
                 }
 
+                 */
+
+                long timerNet = timerBrut/1000000000;
+                int intTimerNet = (int) timerNet;
                 var deltaT = now - last;
                 maze.update(deltaT);
                 maze.updatePacman();
-                maze.updateGhost();
+
+                if (BLINKY.getPos().round().estEgal(new IntCoordinates(7,6)) && intTimerNet < 2){
+                    maze.blinkyStart();
+                }
+                if ((timerNet > 2) && PINKY.getPos().round().estEgal(new IntCoordinates(7,7))){
+                    maze.pinkyStart();
+                }
+                if ((maze.getPacgum() > 30) && INKY.getPos().round().estEgal(new IntCoordinates(6,7))){
+                    maze.inkyStart();
+                }
+                if (maze.getPacgum() > 60 && CLYDE.getPos().round().estEgal(new IntCoordinates(8,7))){
+                    maze.clydeStart();
+                }
+
+
+                if (!PacMan.INSTANCE.isEnergized()){
+                    if (maze.isScatter(intTimerNet)){
+                        maze.scatterMode();
+                    }
+                    else {
+                        maze.chaseMode();
+                    }
+                }
+                else {
+                    maze.frightenedMode();
+                }
                 scoreLabel.setText(String.valueOf(maze.getScore()));
                 for (var updater : graphicsUpdaters) {
                     updater.update();
                 }
                 sound_timer += now-last;
+                timerBrut += now-last;
                 last = now;
             }
         }.start();
