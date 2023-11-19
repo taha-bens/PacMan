@@ -100,12 +100,6 @@ public final class MazeState {
     public void update(long deltaTns) {
         // FIXME: too many things in this method. Maybe some responsibilities can be delegated to other methods or classes?
         for(Critter critter: critters) {
-            System.out.print((critter instanceof PacMan) ? ""
-                    : // PacmanController.changePacman('event')?
-                    switch ((Ghost) critter) {
-                        case BLINKY -> String.valueOf(critter.getPos()) + "\n";
-                        default -> "";
-                    });
             RealCoordinates curPos = critter.getPos();
             RealCoordinates nextPos = critter.nextPos(deltaTns);
             Set<IntCoordinates> curNeighbours = curPos.intNeighbours();
