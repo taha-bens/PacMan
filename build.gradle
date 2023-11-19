@@ -26,3 +26,8 @@ javafx {
 }
 
 mainClassName = 'gui.App'
+
+checkstyle {
+    config = rootProject.resources.text.fromFile('checkstyle.xml')
+    toolVersion '10.12.4'
+}
