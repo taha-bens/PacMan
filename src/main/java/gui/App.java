@@ -1,5 +1,6 @@
 package gui;
 
+import Pacman.src.main.java.model.Sound;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -12,14 +13,8 @@ import model.*;
 //Import ajoutés
 import javafx.scene.image.Image;
 
-import javax.sound.sampled.*;
-import java.io.*;
-import java.util.Timer;
-import java.util.TimerTask;
-
 //La classe App s'occupe du lancement du jeu, c'est la première classe à être appelée
 public class App extends Application {
-
     @Override
     public void start(Stage primaryStage) {
         //Méthode : start
@@ -34,15 +29,12 @@ public class App extends Application {
         MenuView menuView = new MenuView(menuroot, primaryStage);
         Scene menuScene = new Scene(menuroot, 500, 600);
         menuScene.setFill(Paint.valueOf("#000000"));
-
         primaryStage.setScene(menuScene);
-
         primaryStage.setTitle("Pacman - Menu");
         Image icon = new Image("pacman/PacmanR1.png");
         primaryStage.getIcons().add(icon);
         primaryStage.setResizable(false);
         primaryStage.show(); //affiche la fenêtre
-
-
+        Sound.SOUND.playMainMusicLoop();
     }
 }

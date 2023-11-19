@@ -1,18 +1,19 @@
 package model;
 
+import Pacman.src.main.java.model.Sound;
 import config.Cell;
 import config.MazeConfig;
 import config.MazeLoader;
 import geometry.IntCoordinates;
 import geometry.RealCoordinates;
 
+import java.lang.module.ModuleDescriptor;
 import java.util.*;
 import java.util.Random;
 import static model.Ghost.*;
 
 import javafx.scene.image.Image;
-import model.Critter;
-import model.Direction;
+import model.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
@@ -191,6 +192,7 @@ public final class MazeState {
         else if (lives == 1) this.root.getChildren().remove(l2);
         else if (lives == 0) {
             this.root.getChildren().remove(l1);
+            Sound.SOUND.stopStartMusic();
             System.out.println("Game over!");
             System.exit(0);
         }
