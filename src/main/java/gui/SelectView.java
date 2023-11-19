@@ -1,5 +1,6 @@
 package gui;
 
+import Pacman.src.main.java.model.Sound;
 import config.MazeConfig;
 import javafx.geometry.VPos;
 import javafx.scene.control.Button;
@@ -12,11 +13,13 @@ import javafx.scene.Scene;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.*;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import model.*;
 
 import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.CountDownLatch;
 
 public class SelectView {
     private final Pane gameroot;
@@ -166,12 +169,9 @@ public class SelectView {
         primaryStage.setTitle("Pacman");
         primaryStage.setResizable(true);
 
+        Sound.SOUND.stopMainMusicLoop();
         gameView.animate(); //méthode de la classe "gameView" qui sert à actualiser en continue le jeu
     }
-
-
-
-
 }
 
 

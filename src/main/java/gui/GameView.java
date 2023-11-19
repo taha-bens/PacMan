@@ -1,5 +1,6 @@
 package gui;
 
+import Pacman.src.main.java.model.Sound;
 import geometry.IntCoordinates;
 import javafx.animation.AnimationTimer;
 import javafx.scene.control.Label;
@@ -14,6 +15,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 //Imports ajoutés
 import gui.GraphicsUpdater;
@@ -62,19 +65,20 @@ public class GameView {
                 addGraphics(cellFactory.makeGraphics(maze, new IntCoordinates(x, y)));
             }
         }
-        scoreLabel = new Label(String.valueOf(1));
+        scoreLabel = new Label(String.valueOf(0));
         scoreLabel.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 25));
         scoreLabel.setTextFill(Color.WHITE);
         this.gameRoot.getChildren().add(scoreLabel);
-        scoreLabel.setTranslateX(10.0);
+        scoreLabel.setTranslateX(50.0);
         scoreLabel.setTranslateY(10.0);
     }
 
     public void animate(){
+        Sound.SOUND.playStartMusic();
+
         new AnimationTimer(){
             long last = 0;
             long sound_timer = 0;
-
             @Override
             public void handle(long now){
                 if (last == 0) { // ignore the first tick, just compute the first deltaT
@@ -84,20 +88,13 @@ public class GameView {
 
                 if (sound_timer > 607000000 && PacMan.INSTANCE.getDirection() != Direction.NONE){
                     AudioInputStream audio;
+                    Clip clip;
+
                     try {
                         audio = AudioSystem.getAudioInputStream(new File("src/main/resources/pacman_chomp.wav"));
-                    } catch (UnsupportedAudioFileException | IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                    Clip clip;
-                    try {
                         clip = AudioSystem.getClip();
-                    } catch (LineUnavailableException e) {
-                        throw new RuntimeException(e);
-                    }
-                    try {
                         clip.open(audio);
-                    } catch (LineUnavailableException | IOException e) {
+                    } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
                         throw new RuntimeException(e);
                     }
                     clip.start();
