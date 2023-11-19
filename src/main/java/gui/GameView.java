@@ -83,7 +83,9 @@ public class GameView {
                     last = now;
                     return;
                 }
-                /*
+                if (!maze.vie2 && maze.getLives()==2){timerBrut = 0;maze.vie2 = true;}
+                if (!maze.vie1 && maze.getLives()==1){timerBrut = 0;maze.vie1 = true;}
+
                 if (sound_timer > 607000000 && PacMan.INSTANCE.getDirection() != Direction.NONE){
                     AudioInputStream audio;
                     try {
@@ -106,8 +108,6 @@ public class GameView {
                     sound_timer = 0;
 
                 }
-
-                 */
 
                 long timerNet = timerBrut/1000000000;
                 int intTimerNet = (int) timerNet;

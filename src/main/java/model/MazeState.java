@@ -23,6 +23,7 @@ public final class MazeState {
     private Timer timer;
     ///
     private final MazeConfig config;
+    public MazeConfig getconfig(){return config;}
     private final int height;
     private final int width;
 
@@ -31,8 +32,8 @@ public final class MazeState {
     private final List<Critter> critters;
     private int score;
     private int pacgum;
-
-    private boolean chaseMode;
+    public boolean vie2;
+    public boolean vie1;
 
     private final Map<Critter, RealCoordinates> initialPos;
     private int lives = 3;
@@ -46,6 +47,8 @@ public final class MazeState {
         width = config.getWidth();
         critters = List.of(PacMan.INSTANCE, Ghost.CLYDE, BLINKY, INKY, PINKY);
         gridState = new boolean[height][width];
+        vie1 = false;
+        vie2 = false;
         initialPos = Map.of(
                 PacMan.INSTANCE, config.getPacManPos().toRealCoordinates(1.0),
                 BLINKY, config.getBlinkyPos().toRealCoordinates(1.0),
@@ -69,6 +72,7 @@ public final class MazeState {
     public int getPacgum (){
         return pacgum;
     }
+    public int getLives (){return lives;}
     public List<Critter> getCritters() {
         return critters;
     }
@@ -570,6 +574,8 @@ public final class MazeState {
     //ECRIRE MANHATTAN AVEC UN FOR (ARG1...ARGn) DONC AVEC UNE SEUL FONCTION MANHATTAN
     public IntCoordinates Manhattan(IntCoordinates objectif , IntCoordinates prop1 , IntCoordinates prop2) {
         // Cette fonction retourne parmis les 2 propositions laquel est la plus proche de l'objectif
+        if ( (prop1 == new IntCoordinates(14,7)) || (prop1 == new IntCoordinates(0,7)) ){System.out.println("??????????");return prop2;}
+        if ( (prop2 == new IntCoordinates(14,7)) || (prop2 == new IntCoordinates(0,7)) ){System.out.println("??????????");return prop1;}
         int p2 = Math.abs(objectif.x() - prop2.x()) + Math.abs(objectif.y() - prop2.y());
         int p1 = Math.abs(objectif.x() - prop1.x()) + Math.abs(objectif.y() - prop1.y());
         if (p1 < p2) {
