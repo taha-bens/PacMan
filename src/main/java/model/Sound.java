@@ -14,7 +14,7 @@ public final class Sound {
                 l = n;
                 return;
             }
-            if (sound_timer > 29540000000L){
+            if (sound_timer > 29540000000L) {
                 playMainMusic();
                 sound_timer = 0;
             }
@@ -22,15 +22,15 @@ public final class Sound {
             l = n;
         }
     };
-    private Clip MainMusicClip, StartMusicClip;
+    private Clip MainMusicClip, StartMusicClip, eatSoundClip;
 
-    private Sound(){}
+    private Sound() {}
 
     public static final Sound SOUND = new Sound();
 
-    public Clip getMainMusicClip() {return MainMusicClip;}
+    public Clip getMainMusicClip() { return MainMusicClip; }
 
-    private void playMainMusic(){
+    private void playMainMusic() {
         AudioInputStream audio;
         try {
             audio = AudioSystem.getAudioInputStream(new File("src/main/resources/PacmanMainMusic.wav"));
@@ -42,21 +42,21 @@ public final class Sound {
         MainMusicClip.start();
     }
 
-    public void playMainMusicLoop(){
+    public void playMainMusicLoop() {
         /* Joue la musique du menu en boucle
         */
         playMainMusic();
         MainMusicLoop.start();
     }
 
-    public void stopMainMusicLoop(){
+    public void stopMainMusicLoop() {
         /* Stop la musique du menu
          */
         MainMusicLoop.stop();
         MainMusicClip.stop();
     }
 
-    public void playStartMusic(){
+    public void playStartMusic() {
         /* Joue la musique de début de jeu
         */
         AudioInputStream StartAudio;
@@ -70,17 +70,38 @@ public final class Sound {
         StartMusicClip.start();
     }
 
-    public void stopStartMusic(){
+    public void stopStartMusic() {
         /* Stop la musique de début de jeu
         */
         StartMusicClip.stop();
     }
 
-    public void stopAllSounds(){
+    public void playEatSound() {
+        /* Joue le son de Pacman qui mange une Pacgum
+         */
+        AudioInputStream eatSoundAudio;
+        try {
+            eatSoundAudio = AudioSystem.getAudioInputStream(new File("src/main/resources/pacman_chomp.wav"));
+            eatSoundClip = AudioSystem.getClip();
+            eatSoundClip.open(eatSoundAudio);
+        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+            throw new RuntimeException(e);
+        }
+        eatSoundClip.start();
+    }
+
+    public void stopEatSound() {
+        /* Stop la musique de début de jeu
+         */
+        eatSoundClip.stop();
+    }
+
+    public void stopAllSounds() {
         /* Stop tout les sons du jeu (pour les développeurs)
         */
         stopMainMusicLoop();
         stopStartMusic();
+        stopEatSound();
     }
 
 }
