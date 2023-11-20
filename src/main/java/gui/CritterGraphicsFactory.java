@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import misc.Debug;
 import model.Critter;
+import model.Direction;
 import model.Ghost;
 import model.PacMan;
 
@@ -49,17 +50,53 @@ public final class CritterGraphicsFactory {
                     case INKY -> "gif/cyan/InkyL.gif";
                     case PINKY -> "gif/pink/PinkyL.gif";
                 };
-
         ImageView image = new ImageView(makeImage(url));
 
+        ImageView pacU = new ImageView(makeImage("gif/pacman/PacmanU.gif"));
+        ImageView pacR = new ImageView(makeImage("gif/pacman/PacmanR.gif"));
+        ImageView pacD = new ImageView(makeImage("gif/pacman/PacmanD.gif"));
+        ImageView pacL = new ImageView(makeImage("gif/pacman/PacmanL.gif"));
+
+        ImageView binU = new ImageView(makeImage("gif/red/BlinkyU.gif"));
+        ImageView binR = new ImageView(makeImage("gif/red/BlinkyR.gif"));
+        ImageView binD = new ImageView(makeImage("gif/red/BlinkyD.gif"));
+        ImageView binL = new ImageView(makeImage("gif/red/BlinkyL.gif"));
+
+        ImageView clyU = new ImageView(makeImage("gif/orange/ClydeU.gif"));
+        ImageView clyR = new ImageView(makeImage("gif/orange/ClydeR.gif"));
+        ImageView clyD = new ImageView(makeImage("gif/orange/ClydeD.gif"));
+        ImageView clyL = new ImageView(makeImage("gif/orange/ClydeL.gif"));
+
+        ImageView inkU = new ImageView(makeImage("gif/cyan/InkyU.gif"));
+        ImageView inkR = new ImageView(makeImage("gif/cyan/InkyR.gif"));
+        ImageView inkD = new ImageView(makeImage("gif/cyan/InkyD.gif"));
+        ImageView inkL = new ImageView(makeImage("gif/cyan/InkyL.gif"));
+
+        ImageView pinU = new ImageView(makeImage("gif/pink/PinkyU.gif"));
+        ImageView pinR = new ImageView(makeImage("gif/pink/PinkyR.gif"));
+        ImageView pinD = new ImageView(makeImage("gif/pink/PinkyD.gif"));
+        ImageView pinL = new ImageView(makeImage("gif/pink/PinkyL.gif"));
+
         return new GraphicsUpdater() {
+
 
             @Override
             public void update() {
                 image.setTranslateX((critter.getPos().x() + (1 - size) / 2) * scale);
                 image.setTranslateY((critter.getPos().y() + (1 - size) / 2) * scale);
 
-                image.setImage(makeImage(critterDetection(critter)));
+                if(critter instanceof PacMan) {
+                    setSprites(PacMan.INSTANCE, image, pacU, pacR, pacD, pacL);
+                }
+
+                if(critter instanceof Ghost) {
+                    switch((Ghost) critter) {
+                        case BLINKY -> setSprites(critter, image, binU, binR, binD, binL);
+                        case CLYDE -> setSprites(critter, image, clyU, clyR, clyD, clyL);
+                        case INKY -> setSprites(critter, image, inkU, inkR, inkD, inkL);
+                        case PINKY -> setSprites(critter, image, pinU, pinR, pinD, pinL);
+                    }
+                }
             }
 
             @Override
@@ -69,47 +106,12 @@ public final class CritterGraphicsFactory {
         };
     }
 
-    /**
-     *  Changer les sprites des critters en fonction des directions
-     *  TODO: creer une methode vide qui change les images directement
-     */
-    public static String critterDetection(Critter cri) {
-        return (cri instanceof PacMan) ?
-                switch (PacMan.INSTANCE.getDirection()) {
-                    case NORTH -> "gif/pacman/PacmanU.gif";
-                    case EAST -> "gif/pacman/PacmanR.gif";
-                    case SOUTH -> "gif/pacman/PacmanD.gif";
-                    case WEST, NONE -> "gif/pacman/PacmanL.gif";
-                }
-                :
-                switch ((Ghost) cri) {
-                    case BLINKY -> switch (cri.getDirection()) {
-                        case NORTH -> "gif/red/BlinkyU.gif";
-                        case EAST -> "gif/red/BlinkyR.gif";
-                        case SOUTH -> "gif/red/BlinkyD.gif";
-                        case WEST, NONE -> "gif/red/BlinkyL.gif";
-                    };
-
-                    case CLYDE -> switch (cri.getDirection()) {
-                        case NORTH -> "gif/orange/ClydeU.gif";
-                        case EAST -> "gif/orange/ClydeR.gif";
-                        case SOUTH -> "gif/orange/ClydeD.gif";
-                        case WEST, NONE -> "gif/orange/ClydeL.gif";
-                    };
-
-                    case INKY -> switch (cri.getDirection()) {
-                        case NORTH -> "gif/cyan/InkyU.gif";
-                        case EAST -> "gif/cyan/InkyR.gif";
-                        case SOUTH -> "gif/cyan/InkyD.gif";
-                        case WEST, NONE -> "gif/cyan/InkyL.gif";
-                    };
-
-                    case PINKY -> switch  (cri.getDirection()) {
-                        case NORTH -> "gif/pink/PinkyU.gif";
-                        case EAST -> "gif/pink/PinkyR.gif";
-                        case SOUTH -> "gif/pink/PinkyD.gif";
-                        case WEST, NONE -> "gif/pink/PinkyL.gif";
-                    };
-                };
+    private void setSprites(Critter critter, ImageView image, ImageView north, ImageView east, ImageView south, ImageView west) {
+        switch(critter.getDirection()) {
+            case NORTH -> image.setImage(north.getImage());
+            case EAST -> image.setImage(east.getImage());
+            case SOUTH -> image.setImage(south.getImage());
+            case WEST -> image.setImage(west.getImage());
+        }
     }
 }
