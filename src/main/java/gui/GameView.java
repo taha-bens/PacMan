@@ -81,69 +81,81 @@ public class GameView {
         new AnimationTimer(){
             long last = 0;
             long sound_timer = 0;
-            static long timerBrut = 0 ;
+            static long timerBrut = 0;
+            long startMusicTimer = 0;
+            boolean freezeBolean = true;
             @Override
-            public void handle(long now){
+            public void handle(long now) {
+                if (freezeBolean){
+                    freezeBolean = false;
+                    for (var updater : graphicsUpdaters) {
+                        updater.update();
+                    }
+                }
                 if (last == 0) { // ignore the first tick, just compute the first deltaT
                     last = now;
                     return;
                 }
-                if (!maze.vie2 && maze.getLives()==2){timerBrut = 0;maze.vie2 = true;}
-                if (!maze.vie1 && maze.getLives()==1){timerBrut = 0;maze.vie1 = true;}
-
-                if (sound_timer > 607000000 && PacMan.INSTANCE.getDirection() != Direction.NONE){
-                    AudioInputStream audio;
-                    Clip clip;
-
-                    try {
-                        audio = AudioSystem.getAudioInputStream(new File("src/main/resources/pacman_chomp.wav"));
-                        clip = AudioSystem.getClip();
-                        clip.open(audio);
-                    } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
-                        throw new RuntimeException(e);
+                if (startMusicTimer > 4217000000L) {
+                    if (!maze.vie2 && maze.getLives() == 2) {
+                        timerBrut = 0;
+                        maze.vie2 = true;
                     }
-                    clip.start();
-                    sound_timer = 0;
-
-                }
-
-                long timerNet = timerBrut/1000000000;
-                int intTimerNet = (int) timerNet;
-                var deltaT = now - last;
-                maze.update(deltaT);
-                maze.updatePacman();
-
-                if (BLINKY.getPos().round().estEgal(new IntCoordinates(7,6)) && intTimerNet < 2){
-                    maze.blinkyStart();
-                }
-                if ((timerNet > 2) && PINKY.getPos().round().estEgal(new IntCoordinates(7,7))){
-                    maze.pinkyStart();
-                }
-                if ((maze.getPacgum() > 30) && INKY.getPos().round().estEgal(new IntCoordinates(6,7))){
-                    maze.inkyStart();
-                }
-                if (maze.getPacgum() > 60 && CLYDE.getPos().round().estEgal(new IntCoordinates(8,7))){
-                    maze.clydeStart();
-                }
-
-
-                if (!PacMan.INSTANCE.isEnergized()){
-                    if (maze.isScatter(intTimerNet)){
-                        maze.scatterMode();
+                    if (!maze.vie1 && maze.getLives() == 1) {
+                        timerBrut = 0;
+                        maze.vie1 = true;
                     }
-                    else {
-                        maze.chaseMode();
+
+                    if (maze.getHasEat() && sound_timer < 25000000) {
+                        Sound.SOUND.playEatSound();
                     }
+
+                    if (sound_timer > 607000000) {
+                        sound_timer = 0;
+                        maze.setHasEat(false);
+                    }
+
+                    long timerNet = timerBrut / 1000000000;
+                    int intTimerNet = (int) timerNet;
+                    var deltaT = now - last;
+                    maze.update(deltaT);
+                    maze.updatePacman();
+
+                    if (BLINKY.getPos().round().estEgal(new IntCoordinates(7, 6)) && intTimerNet < 2) {
+                        maze.blinkyStart();
+                    }
+                    if ((timerNet > 2) && PINKY.getPos().round().estEgal(new IntCoordinates(7, 7))) {
+                        maze.pinkyStart();
+                    }
+                    if ((maze.getPacgum() > 30) && INKY.getPos().round().estEgal(new IntCoordinates(6, 7))) {
+                        maze.inkyStart();
+                    }
+                    if (maze.getPacgum() > 60 && CLYDE.getPos().round().estEgal(new IntCoordinates(8, 7))) {
+                        maze.clydeStart();
+                    }
+
+
+                    if (!PacMan.INSTANCE.isEnergized()) {
+                        if (maze.isScatter(intTimerNet)) {
+                            maze.scatterMode();
+                        } else {
+                            maze.chaseMode();
+                        }
+                    } else {
+                        maze.frightenedMode();
+                    }
+                    scoreLabel.setText(String.valueOf(maze.getScore()));
+                    for (var updater : graphicsUpdaters) {
+                        updater.update();
+                    }
+
+                    if (maze.getHasEat()) {
+                        sound_timer += now - last;
+                    }
+
+                    timerBrut += now - last;
                 }
-                else {
-                    maze.frightenedMode();
-                }
-                scoreLabel.setText(String.valueOf(maze.getScore()));
-                for (var updater : graphicsUpdaters) {
-                    updater.update();
-                }
-                sound_timer += now-last;
-                timerBrut += now-last;
+                startMusicTimer += now - last;
                 last = now;
             }
         }.start();

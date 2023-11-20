@@ -42,6 +42,8 @@ public final class MazeState {
     private Pane root;
     private ImageView l1, l2, l3;
 
+    private static boolean hasEat = false;
+
     public MazeState(MazeConfig config, double scale, Pane root) {
         this.config = config;
         height = config.getHeight();
@@ -68,6 +70,12 @@ public final class MazeState {
             this.root.getChildren().add(liveImageTab[i-1]);
             liveImageTab[i-1].setX(scale*(i-1)+5);
             liveImageTab[i-1].setY(710);
+        }
+
+        for (int i = 0; i < config.getGrid().length; i++) {
+            for (int j = 0; j < config.getGrid()[i].length; j++) {
+                gridState[i][j] = config.getGrid()[i][j].initialContent() == Cell.Content.NOTHING;
+            }
         }
     }
     public int getPacgum (){
@@ -119,28 +127,28 @@ public final class MazeState {
                     case NORTH -> {
                         for (IntCoordinates n: curNeighbours) if (config.getCell(n).northWall()) {
                             nextPos = curPos.floorY();
-                            //critter.setDirection(Direction.NONE);
+                            critter.setDirection(Direction.NONE);
                             break;
                         }
                     }
                     case EAST -> {
                         for (IntCoordinates n: curNeighbours) if (config.getCell(n).eastWall()) {
                             nextPos = curPos.ceilX();
-                            //critter.setDirection(Direction.NONE);
+                            critter.setDirection(Direction.NONE);
                             break;
                         }
                     }
                     case SOUTH -> {
                         for (IntCoordinates n: curNeighbours) if (config.getCell(n).southWall()) {
                             nextPos = curPos.ceilY();
-                            //critter.setDirection(Direction.NONE);
+                            critter.setDirection(Direction.NONE);
                             break;
                         }
                     }
                     case WEST -> {
                         for (IntCoordinates n: curNeighbours) if (config.getCell(n).westWall()) {
                             nextPos = curPos.floorX();
-                            //critter.setDirection(Direction.NONE);
+                            critter.setDirection(Direction.NONE);
                             break;
                         }
                     }
@@ -179,6 +187,15 @@ public final class MazeState {
 
     private void addScore(int increment) {
         score += increment;
+        hasEat = true;
+    }
+
+    public boolean getHasEat() {
+        return hasEat;
+    }
+
+    public void setHasEat(boolean newValue) {
+        hasEat = newValue;
     }
     private void incrPacgum (){
         pacgum++;
