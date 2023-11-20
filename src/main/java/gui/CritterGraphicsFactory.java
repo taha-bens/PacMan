@@ -10,7 +10,7 @@ import model.Direction;
 import model.Ghost;
 import model.PacMan;
 
-//Import ajoutÃ©
+//Import ajouté
 import gui.GraphicsUpdater;
 
 import javax.swing.*;
