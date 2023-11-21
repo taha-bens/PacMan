@@ -10,7 +10,11 @@ import java.util.*;
 
 import static model.Ghost.*;
 
+import gui.GameOverView;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Paint;
+import javafx.stage.Stage;
 import model.Critter;
 import model.Direction;
 import javafx.scene.image.ImageView;
@@ -23,6 +27,7 @@ public final class MazeState {
     private Timer timer;
     ///
     private final MazeConfig config;
+    private final int level;
     private final int height;
     private final int width;
 
@@ -37,8 +42,9 @@ public final class MazeState {
     private Pane root;
     private ImageView l1, l2, l3;
 
-    public MazeState(MazeConfig config, double scale, Pane root) {
+    public MazeState(MazeConfig config, double scale, Pane root, int level) {
         this.config = config;
+        this.level = level;
         height = config.getHeight();
         width = config.getWidth();
         critters = List.of(PacMan.INSTANCE, Ghost.CLYDE, BLINKY, INKY, PINKY);
@@ -96,7 +102,7 @@ public final class MazeState {
         startTimerEnergized();
     }
 
-    public void update(long deltaTns) {
+    public void update(long deltaTns, Stage primaryStage) {
         // FIXME: too many things in this method. Maybe some responsibilities can be delegated to other methods or classes?
         for(Critter critter: critters) {
             RealCoordinates curPos = critter.getPos();
@@ -159,7 +165,7 @@ public final class MazeState {
                     addScore(200);
                     resetCritter(critter);
                 } else {
-                    playerLost(); // PacMan touche un fantome
+                    playerLost(primaryStage); // PacMan touche un fantome
                     return;
                 }
             }
@@ -176,15 +182,24 @@ public final class MazeState {
         System.out.println("Score: " + score);
     }
 
-    private void playerLost() {
+    private void playerLost(Stage primaryStage) {
         // FIXME: this should be displayed in the JavaFX view, not in the console. A game over screen would be nice too.
         lives--;
         if (lives == 2) this.root.getChildren().remove(l3);
         else if (lives == 1) this.root.getChildren().remove(l2);
         else if (lives == 0) {
             this.root.getChildren().remove(l1);
-            System.out.println("Game over!");
-            System.exit(0);
+            System.out.println("Game Over");
+            // --- Game Over Scene
+            Pane gameoverroot = new Pane();
+            GameOverView menuView = new GameOverView(gameoverroot, primaryStage, score, this.level);
+            Scene gameOverScene = new Scene(gameoverroot, 500, 600);
+            gameOverScene.setFill(Paint.valueOf("#000000"));
+
+            primaryStage.setScene(gameOverScene);
+            primaryStage.setTitle("Pacman - Game Over");
+            primaryStage.setResizable(false);
+            // ---
         }
         System.out.println("Lives: " + lives);
         resetCritters();

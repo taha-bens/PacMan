@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 import misc.Debug;
 import model.*;
 
@@ -70,7 +71,7 @@ public class GameView {
         scoreLabel.setTranslateY(10.0);
     }
 
-    public void animate(){
+    public void animate(Stage primaryStage){
         new AnimationTimer(){
             long last = 0;
             long sound_timer = 0;
@@ -107,7 +108,7 @@ public class GameView {
                 }
 
                 var deltaT = now - last;
-                maze.update(deltaT);
+                maze.update(deltaT, primaryStage);
                 maze.updatePacman();
                 maze.updateGhost();
                 scoreLabel.setText(String.valueOf(maze.getScore()));

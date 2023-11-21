@@ -1,0 +1,4 @@
+kerrian;1000
+armand;60
+julien;40
+alexis;30
