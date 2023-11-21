@@ -70,7 +70,7 @@ public class SelectView {
         lab1.setOnAction(event -> {
             //System.out.println("click lab1");
             SetMazeLocate("src/main/resources/maze1.txt");
-            SetScene(primaryStage);
+            SetScene(primaryStage, 1);
         });
 
 
@@ -85,7 +85,7 @@ public class SelectView {
         lab2.setOnAction(event -> {
             //System.out.println("click lab2");
             SetMazeLocate("src/main/resources/maze2.txt");
-            SetScene(primaryStage);
+            SetScene(primaryStage, 2);
         });
 
 
@@ -101,7 +101,7 @@ public class SelectView {
         lab3.setOnAction(event -> {
             //System.out.println("click lab3");
             SetMazeLocate("src/main/resources/maze3.txt");
-            SetScene(primaryStage);
+            SetScene(primaryStage, 3);
         });
 
 
@@ -125,7 +125,7 @@ public class SelectView {
             File selectedFile = fileChooser.showOpenDialog(primaryStage);
             if (selectedFile != null) {
                 SetMazeLocate(selectedFile.getAbsolutePath());
-                SetScene(primaryStage);
+                SetScene(primaryStage, 0);
             }
 
         });
@@ -142,7 +142,7 @@ public class SelectView {
 
 
 
-    public void SetScene(Stage primaryStage){
+    public void SetScene(Stage primaryStage, int level){
         Pane root = new Pane(); //organisateur de la fenêtre (stage)
         Scene gameScene = new Scene(root); //scène (comme caneva dans python tkinter)
 
@@ -162,7 +162,7 @@ public class SelectView {
         gameScene.setOnKeyPressed(pacmanController::keyPressedHandler); //ajoute l'event pression sur la scene
         gameScene.setOnKeyReleased(pacmanController::keyReleasedHandler); //ajoute l'event relachement sur la scene
 
-        MazeState maze = new MazeState(MazeConfig.makeMazeFINAL(mazeLocate), 50.0, root); //données du labyrinthe
+        MazeState maze = new MazeState(MazeConfig.makeMazeFINAL(mazeLocate), 50.0, root, level); //données du labyrinthe
         GameView gameView = new GameView(maze, root, 50.0); //apparance graphique du précédent labyrinthe
 
         primaryStage.setScene(gameScene);
@@ -170,7 +170,7 @@ public class SelectView {
         primaryStage.setResizable(true);
 
         Sound.SOUND.stopMainMusicLoop();
-        gameView.animate(); //méthode de la classe "gameView" qui sert à actualiser en continue le jeu
+        gameView.animate(primaryStage); //méthode de la classe "gameView" qui sert à actualiser en continue le jeu
     }
 }
 

@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 import misc.Debug;
 import model.*;
 
@@ -36,6 +37,12 @@ public class GameView {
     private final List<GraphicsUpdater> graphicsUpdaters;
 
     private static Label scoreLabel;
+
+    private static AnimationTimer reload;
+
+    public static AnimationTimer getReload() {
+        return reload;
+    }
 
     private void addGraphics(GraphicsUpdater updater) {
         gameRoot.getChildren().add(updater.getNode());
@@ -75,10 +82,10 @@ public class GameView {
         scoreLabel.setTranslateY(10.0);
     }
 
-    public void animate(){
+    public void animate(Stage primaryStage){
         Sound.SOUND.playStartMusic();
 
-        new AnimationTimer(){
+        reload = new AnimationTimer(){
             long last = 0;
             long sound_timer = 0;
             static long timerBrut = 0;
@@ -118,7 +125,7 @@ public class GameView {
                     long timerNet = timerBrut / 1000000000;
                     int intTimerNet = (int) timerNet;
                     var deltaT = now - last;
-                    maze.update(deltaT);
+                    maze.update(deltaT, primaryStage);
                     maze.updatePacman();
 
                     if (BLINKY.getPos().round().estEgal(new IntCoordinates(7, 6)) && intTimerNet < 2) {
@@ -158,6 +165,7 @@ public class GameView {
                 startMusicTimer += now - last;
                 last = now;
             }
-        }.start();
+        };
+        reload.start();
     }
 }
