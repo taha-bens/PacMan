@@ -7,23 +7,7 @@ import model.PacMan;
 import javafx.scene.input.KeyEvent;
 
 public class PacmanController {
-
-    /**
-     * Méthode : changePacman à combiner avec #keyPressedHandler(KeyEvent event)
-     * Input : event (KeyEvent)
-     * @param event la touche détectée via KeyEvent
-     * @return le nom de Pacman selon la touche
-     */
-    public static String changePacman(KeyEvent event) {
-        return switch(event.getCode()) {
-            case LEFT -> "pacman_left.png";
-            case RIGHT -> "pacman_right.png";
-            case UP -> "pacman_up.png";
-            case DOWN -> "pacman_down.png";
-            default -> "pacman_right.png";
-        };
-    }
-
+    
     public void keyPressedHandler(KeyEvent event) {
         //Méthode : keyPressed Handler
         //Input : event (KeyEvent)

@@ -1,5 +1,5 @@
 package model;
-
+import model.MazeState;
 import geometry.RealCoordinates;
 
 public enum Ghost implements Critter {
@@ -7,17 +7,10 @@ public enum Ghost implements Critter {
     // TODO: implement a different AI for each ghost, according to the description in Wikipedia's page
     BLINKY, INKY, PINKY, CLYDE;
 
-    private boolean Frightened;
-    private boolean Scatter;
-
-    private static boolean Chase;
-
     private RealCoordinates pos;
     private Direction direction = Direction.NONE;
 
-   public boolean getChase (){
-       return Chase;
-   }
+
     @Override
     public RealCoordinates getPos() {
         return pos;
@@ -40,7 +33,8 @@ public enum Ghost implements Critter {
 
     @Override
     public double getSpeed() {
-        return PacMan.INSTANCE.isEnergized() ? 2 : 3;
+        return PacMan.INSTANCE.isEnergized() ? 2 : 3.6;
     }
+
 
 }

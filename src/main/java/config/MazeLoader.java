@@ -11,9 +11,6 @@ import java.util.Scanner;
 import config.Cell;
 
 public class MazeLoader {
-
-
-
     //lecteur du labyrinthe sous format TXT
     public static String mazeReader(String fichier){
         StringBuilder modele_txt = new StringBuilder();
@@ -120,8 +117,5 @@ public class MazeLoader {
             }
         }
         return laby;
-
     }
-
-
 }
