@@ -35,7 +35,6 @@ public class SelectView {
 
     public void SetMazeLocate(String txt) {
         this.mazeLocate = txt;
-        //System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
     }
 
 
@@ -68,7 +67,6 @@ public class SelectView {
         lab1.setTranslateX(90);
         lab1.setTranslateY(200);
         lab1.setOnAction(event -> {
-            //System.out.println("click lab1");
             SetMazeLocate("src/main/resources/maze1.txt");
             SetScene(primaryStage, 1);
         });
@@ -83,7 +81,6 @@ public class SelectView {
         lab2.setTranslateX(405);
         lab2.setTranslateY(200);
         lab2.setOnAction(event -> {
-            //System.out.println("click lab2");
             SetMazeLocate("src/main/resources/maze2.txt");
             SetScene(primaryStage, 2);
         });
@@ -99,7 +96,6 @@ public class SelectView {
         lab3.setTranslateX(720);
         lab3.setTranslateY(200);
         lab3.setOnAction(event -> {
-            //System.out.println("click lab3");
             SetMazeLocate("src/main/resources/maze3.txt");
             SetScene(primaryStage, 3);
         });
@@ -121,7 +117,6 @@ public class SelectView {
         fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
 
         labUser.setOnAction(actionEvent -> {
-            //System.out.println("click labUser");
             File selectedFile = fileChooser.showOpenDialog(primaryStage);
             if (selectedFile != null) {
                 SetMazeLocate(selectedFile.getAbsolutePath());
@@ -145,20 +140,7 @@ public class SelectView {
     public void SetScene(Stage primaryStage, int level){
         Pane root = new Pane(); //organisateur de la fenêtre (stage)
         Scene gameScene = new Scene(root); //scène (comme caneva dans python tkinter)
-
         PacmanController pacmanController = new PacmanController();
-        Blinky rouge = new Blinky();
-        Inky bleu = new Inky();
-        Pinky rose = new Pinky();
-        Clyde orange = new Clyde();
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                //test
-
-            }
-        }, 0, 50);
         gameScene.setOnKeyPressed(pacmanController::keyPressedHandler); //ajoute l'event pression sur la scene
         gameScene.setOnKeyReleased(pacmanController::keyReleasedHandler); //ajoute l'event relachement sur la scene
 

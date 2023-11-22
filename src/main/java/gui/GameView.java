@@ -126,35 +126,17 @@ public class GameView {
                     int intTimerNet = (int) timerNet;
                     var deltaT = now - last;
                     maze.update(deltaT, primaryStage);
-                    maze.updatePacman();
 
-                    if (BLINKY.getPos().round().estEgal(new IntCoordinates(7, 6)) && intTimerNet < 2) {
-                        maze.blinkyStart();
-                    }
-                    if ((timerNet > 2) && PINKY.getPos().round().estEgal(new IntCoordinates(7, 7))) {
-                        maze.pinkyStart();
-                    }
-                    if ((maze.getPacgum() > 30) && INKY.getPos().round().estEgal(new IntCoordinates(6, 7))) {
-                        maze.inkyStart();
-                    }
-                    if (maze.getPacgum() > 60 && CLYDE.getPos().round().estEgal(new IntCoordinates(8, 7))) {
-                        maze.clydeStart();
-                    }
+                    PacMan.INSTANCE.updatePacman(maze.getConfig());
+                    Mouvement.start(intTimerNet , maze);
+                    Mode.mode(intTimerNet , maze);
 
-
-                    if (!PacMan.INSTANCE.isEnergized()) {
-                        if (maze.isScatter(intTimerNet)) {
-                            maze.scatterMode();
-                        } else {
-                            maze.chaseMode();
-                        }
-                    } else {
-                        maze.frightenedMode();
-                    }
                     scoreLabel.setText(String.valueOf(maze.getScore()));
                     for (var updater : graphicsUpdaters) {
                         updater.update();
                     }
+
+
 
                     if (maze.getHasEat()) {
                         sound_timer += now - last;
