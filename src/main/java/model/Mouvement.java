@@ -14,10 +14,10 @@ public class Mouvement  {
         if ((timer > 2) && PINKY.getPos().round().estEgal(new IntCoordinates(7, 7))) {
             pinkyStart();
         }
-        if ((maze.getPacgum() > 30) && INKY.getPos().round().estEgal(new IntCoordinates(6, 7))) {
+        if ((maze.getPacgum() > maze.getPacgumTotal()/4) && INKY.getPos().round().estEgal(new IntCoordinates(6, 7))) {
             inkyStart();
         }
-        if (maze.getPacgum() > 60 && CLYDE.getPos().round().estEgal(new IntCoordinates(8, 7))) {
+        if ((maze.getPacgum() > maze.getPacgumTotal()/2)  && CLYDE.getPos().round().estEgal(new IntCoordinates(8, 7))) {
             clydeStart();
         }
     }

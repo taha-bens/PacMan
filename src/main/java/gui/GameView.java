@@ -121,12 +121,13 @@ public class GameView {
                         sound_timer = 0;
                         maze.setHasEat(false);
                     }
-
+                    System.out.println(BLINKY.getDirection());
                     long timerNet = timerBrut / 1000000000;
                     int intTimerNet = (int) timerNet;
                     var deltaT = now - last;
                     maze.update(deltaT, primaryStage);
 
+                    System.out.println(BLINKY.getDirection());
                     PacMan.INSTANCE.updatePacman(maze.getConfig());
                     Mouvement.start(intTimerNet , maze);
                     Mode.mode(intTimerNet , maze);

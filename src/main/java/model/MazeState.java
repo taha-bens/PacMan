@@ -33,6 +33,7 @@ public final class MazeState {
     public final int level;
     private final int height;
     private final int width;
+    public int pacgumTotal;
 
     private final boolean[][] gridState;
 
@@ -59,6 +60,7 @@ public final class MazeState {
         gridState = new boolean[height][width];
         vie1 = false;
         vie2 = false;
+        pacgumTotal = pacgumtotal(config);
         initialPos = Map.of(
                 PacMan.INSTANCE, config.getPacManPos().toRealCoordinates(1.0),
                 BLINKY, config.getBlinkyPos().toRealCoordinates(1.0),
@@ -88,6 +90,9 @@ public final class MazeState {
     public int getPacgum (){
         return pacgum;
     }
+    public int getPacgumTotal(){
+        return this.pacgumTotal;
+    }
     public int getLives (){return lives;}
     public List<Critter> getCritters() {
         return critters;
@@ -99,6 +104,18 @@ public final class MazeState {
 
     public int getHeight() {
         return height;
+    }
+    public int pacgumtotal(MazeConfig config){
+        int acc = 0;
+        for (int i = 0; i < config.getGrid().length; i++) {
+            for (int j = 0; j < config.getGrid()[i].length; j++) {
+                if (config.getGrid()[i][j].initialContent() == Cell.Content.DOT){
+                    acc++;
+                }
+
+            }
+        }
+        return acc;
     }
 
     public void startTimerEnergized(){
@@ -171,6 +188,7 @@ public final class MazeState {
             gridState[pacPos.y()][pacPos.x()] = true;
             if (this.getConfig().getCell(pacPos).initialContent() == Cell.Content.ENERGIZER){
                 PacMan.INSTANCE.setEnergized(true);
+                Mode.Backward();
                 addScore(50);
                 resetTimerEnergized();
             } else {

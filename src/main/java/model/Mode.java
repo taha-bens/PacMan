@@ -19,6 +19,21 @@ public class Mode {
         }
 
     }
+    public static void Backward(){
+        BLINKY.setDirection(getDirectionBackward(BLINKY.getDirection()));
+        PINKY.setDirection(getDirectionBackward(PINKY.getDirection()));
+        INKY.setDirection(getDirectionBackward(INKY.getDirection()));
+        CLYDE.setDirection(getDirectionBackward(CLYDE.getDirection()));
+    }
+    public static Direction getDirectionBackward(Direction dir){
+        switch (dir){
+            case NORTH : return Direction.SOUTH;
+            case SOUTH : return Direction.NORTH;
+            case EAST:  return Direction.WEST;
+            case WEST:  return Direction.EAST;
+        }
+        return Direction.NONE;
+    }
     public static void scatterMode(MazeState maze){
         for (Ghost valeurs : Ghost.values()){
             if (BLINKY.getPos().round().estEgal(new IntCoordinates(7,6))){
