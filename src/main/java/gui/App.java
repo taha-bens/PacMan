@@ -24,12 +24,12 @@ public class App extends Application {
          * une scène dans laquelle les différents éléments sont placés,
          * une configuration de labyrinthe (pour ensuite créer le labyrinthe),
          * */
-
         Pane menuroot = new Pane();
         MenuView menuView = new MenuView(menuroot, primaryStage);
         Scene menuScene = new Scene(menuroot, 500, 600);
         menuScene.setFill(Paint.valueOf("#000000"));
         primaryStage.setScene(menuScene);
+
         primaryStage.setTitle("Pacman - Menu");
         Image icon = new Image("pacman/PacmanR1.png");
         primaryStage.getIcons().add(icon);

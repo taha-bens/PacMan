@@ -205,15 +205,6 @@ public class GameOverView {
         return contenu;
     }
 
-    public void waitTime(int millis) {
-        try {
-            Thread.sleep(millis);
-        } catch (InterruptedException e) {
-            // Gérez l'exception, par exemple, en affichant un message d'erreur
-            e.printStackTrace();
-        }
-    }
-
     public void menuScene(Stage primaryStage) {
         Pane menuroot = new Pane();
         MenuView menuView = new MenuView(menuroot, primaryStage);
