@@ -30,7 +30,7 @@ public final class MazeState {
     ///
     private final MazeConfig config;
     public MazeConfig getconfig(){return config;}
-    public final int level;
+    public final String level;
     private final int height;
     private final int width;
 
@@ -50,7 +50,7 @@ public final class MazeState {
 
     private static boolean hasEat = false;
 
-    public MazeState(MazeConfig config, double scale, Pane root, int level) {
+    public MazeState(MazeConfig config, double scale, Pane root, String level) {
         this.config = config;
         this.level = level;
         height = config.getHeight();
