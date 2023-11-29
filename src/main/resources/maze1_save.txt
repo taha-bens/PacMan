@@ -1,4 +1,5 @@
-kerrian;1000
-armand;60
-julien;40
-alexis;30
+julien;690
+alexis;580
+armand;550
+kerrian;380
+jenny;130

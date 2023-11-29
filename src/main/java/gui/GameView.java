@@ -38,6 +38,12 @@ public class GameView {
 
     private static Label scoreLabel;
 
+    private static AnimationTimer reload;
+
+    public static AnimationTimer getReload() {
+        return reload;
+    }
+
     private void addGraphics(GraphicsUpdater updater) {
         gameRoot.getChildren().add(updater.getNode());
         graphicsUpdaters.add(updater);
@@ -78,7 +84,8 @@ public class GameView {
 
     public void animate(Stage primaryStage){
         Sound.SOUND.playStartMusic();
-        new AnimationTimer(){
+
+        reload = new AnimationTimer(){
             long last = 0;
             long sound_timer = 0;
             static long timerBrut = 0;
@@ -118,42 +125,18 @@ public class GameView {
                     long timerNet = timerBrut / 1000000000;
                     int intTimerNet = (int) timerNet;
                     var deltaT = now - last;
-                    maze.update(deltaT);
-                    maze.updatePacman();
+                    maze.update(deltaT, primaryStage);
 
-                    if (BLINKY.getPos().round().estEgal(new IntCoordinates(7, 6)) && intTimerNet < 2) {
-                        maze.blinkyStart();
-                    }
-                    if ((timerNet > 2) && PINKY.getPos().round().estEgal(new IntCoordinates(7, 7))) {
-                        maze.pinkyStart();
-                    }
-                    if ((maze.getPacgum() > 30) && INKY.getPos().round().estEgal(new IntCoordinates(6, 7))) {
-                        maze.inkyStart();
-                    }
-                    if (maze.getPacgum() > 60 && CLYDE.getPos().round().estEgal(new IntCoordinates(8, 7))) {
-                        maze.clydeStart();
-                    }
+                    PacMan.INSTANCE.updatePacman(maze.getConfig());
+                    Mouvement.start(intTimerNet , maze);
+                    Mode.mode(intTimerNet , maze);
 
-                var deltaT = now - last;
-                maze.update(deltaT, primaryStage);
-                maze.updatePacman();
-                maze.updateGhost();
-                scoreLabel.setText(String.valueOf(maze.getScore()));
-                for (var updater : graphicsUpdaters) {
-                    updater.update();
-                    if (!PacMan.INSTANCE.isEnergized()) {
-                        if (maze.isScatter(intTimerNet)) {
-                            maze.scatterMode();
-                        } else {
-                            maze.chaseMode();
-                        }
-                    } else {
-                        maze.frightenedMode();
-                    }
                     scoreLabel.setText(String.valueOf(maze.getScore()));
                     for (var updater : graphicsUpdaters) {
                         updater.update();
                     }
+
+
 
                     if (maze.getHasEat()) {
                         sound_timer += now - last;
@@ -164,6 +147,7 @@ public class GameView {
                 startMusicTimer += now - last;
                 last = now;
             }
-        }.start();
+        };
+        reload.start();
     }
 }
