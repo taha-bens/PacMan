@@ -1,0 +1,2 @@
+armand;1000
+kerrian;50
