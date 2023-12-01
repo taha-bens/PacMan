@@ -121,7 +121,6 @@ public class GameView {
                         sound_timer = 0;
                         maze.setHasEat(false);
                     }
-
                     long timerNet = timerBrut / 1000000000;
                     int intTimerNet = (int) timerNet;
                     var deltaT = now - last;
