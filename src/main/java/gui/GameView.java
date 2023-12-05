@@ -65,15 +65,16 @@ public class GameView {
         CellGraphicsFactory cellFactory = new CellGraphicsFactory(scale);
         graphicsUpdaters = new ArrayList<>();
 
-        for(Critter critter : maze.getCritters()) {
-            addGraphics(critterFactory.makeGraphics(critter));
-        }
-
         for(int x = 0; x < maze.getWidth(); x++){
             for(int y = 0; y < maze.getHeight(); y++) {
                 addGraphics(cellFactory.makeGraphics(maze, new IntCoordinates(x, y)));
             }
         }
+        for(Critter critter : maze.getCritters()) {
+            addGraphics(critterFactory.makeGraphics(critter));
+        }
+
+
         scoreLabel = new Label(String.valueOf(0));
         scoreLabel.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 25));
         scoreLabel.setTextFill(Color.WHITE);
@@ -134,8 +135,6 @@ public class GameView {
                     for (var updater : graphicsUpdaters) {
                         updater.update();
                     }
-
-
 
                     if (maze.getHasEat()) {
                         sound_timer += now - last;

@@ -60,10 +60,13 @@ public class Mode {
                 }
             }
 
-            if (valeurs.getDirection() == Direction.WEST){
+            else if (valeurs.getDirection() == Direction.WEST){
                 if ( valeurs.getPos().getX() - Math.floor( valeurs.getPos().getX()  )  < 0.1){
                     Mouvement.west(maze ,valeurs, "scatter");
                 }
+            }
+            else if (valeurs.getDirection() == Direction.NONE){
+                Mouvement.none(maze , valeurs , "scatter");
             }
         }
 
@@ -73,7 +76,7 @@ public class Mode {
             if (BLINKY.getPos().round().estEgal(new IntCoordinates(7,6))){
                 BLINKY.setDirection(Direction.WEST);
             }
-            if (valeurs.getDirection() == Direction.NORTH){
+            else if (valeurs.getDirection() == Direction.NORTH){
                 if ( valeurs.getPos().getY() - Math.floor( valeurs.getPos().getY() )  < 0.1 ){
                     Mouvement.north(maze , valeurs , "frightened ");
                 }
@@ -89,10 +92,13 @@ public class Mode {
                 }
             }
 
-            if (valeurs.getDirection() == Direction.WEST){
+            else if (valeurs.getDirection() == Direction.WEST){
                 if ( valeurs.getPos().getX() - Math.floor( valeurs.getPos().getX()  )  < 0.1){
                     Mouvement.west(maze , valeurs, "frightened ");
                 }
+            }
+            else if (valeurs.getDirection() == Direction.NONE){
+                Mouvement.none(maze , valeurs , "frightened ");
             }
         }
     }
@@ -114,10 +120,13 @@ public class Mode {
                 }
             }
 
-            if (valeurs.getDirection() == Direction.WEST){
+            else if (valeurs.getDirection() == Direction.WEST){
                 if ( valeurs.getPos().getX() - Math.floor( valeurs.getPos().getX()  )  < 0.1){
                     Mouvement.west(maze , valeurs, "chase");
                 }
+            }
+            else if (valeurs.getDirection() == Direction.NONE){
+                Mouvement.none(maze , valeurs , "chase");
             }
         }
     }
@@ -127,17 +136,17 @@ public class Mode {
         if (valeur == BLINKY) {
             return PacMan.INSTANCE.getPos().round();
         }
-        if (valeur == PINKY) {
+        else if (valeur == PINKY) {
             return PacMan.INSTANCE.devantPacman();
         }
-        if (valeur == CLYDE) {
+        else if (valeur == CLYDE) {
             if (CLYDE.getPos().round().minus(PacMan.INSTANCE.getPos().round()) > 4) {
                 return PacMan.INSTANCE.getPos().round();
             } else {
                 return new IntCoordinates(0, 13);
             }
         }
-        if (valeur == INKY) {
+        else if (valeur == INKY) {
             IntCoordinates devantPac = PacMan.INSTANCE.devantPacman();
             int vx = devantPac.x() - BLINKY.getPos().round().x()  ;
             int vy = devantPac.y() - BLINKY.getPos().round().y();
@@ -150,18 +159,17 @@ public class Mode {
         if (valeur == BLINKY) {
             return new IntCoordinates(13 , 2);
         }
-        if (valeur == PINKY) {
+        else if (valeur == PINKY) {
             return new IntCoordinates(0 , 0);
         }
-        if (valeur == INKY) {
+        else if (valeur == INKY) {
             return new IntCoordinates(14 , 12);
         }
-        if (valeur == CLYDE) {
+        else if (valeur == CLYDE) {
             return new IntCoordinates(0 , 12);
         }
-        else {
-            return new IntCoordinates(0,0);
-        }
+        return new IntCoordinates(0,0);
+
     }
     public static IntCoordinates frightenedObjectif(){
         Random random = new Random();
@@ -176,19 +184,8 @@ public class Mode {
         }
         int scatterDuration = 7;
         int chaseDuration = 20;
-
-        // Nombre de cycles complet (Scatter puis Chase) jusqu'à S
         int fullCycles = S / (scatterDuration + chaseDuration);
-
-        // Durée totale de ces cycles complets
         int totalDuration = fullCycles * (scatterDuration + chaseDuration);
-
-        // Si S est inférieur à la durée totale, alors il est dans la phase "Scatter"
-        if (S - totalDuration < scatterDuration) {
-            return true;
-        }
-
-        // Sinon, il est dans la phase "Chase" ou "Chase" permanent
-        return false;
+        return S - totalDuration < scatterDuration;
     }
 }
