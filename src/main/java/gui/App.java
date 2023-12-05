@@ -3,6 +3,7 @@ package gui;
 import Pacman.src.main.java.model.Sound;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;

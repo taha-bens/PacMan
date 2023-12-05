@@ -12,6 +12,10 @@ import java.util.*;
 import java.util.Random;
 import static model.Ghost.*;
 
+import gui.FruitsGraphicsFactory;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
 import gui.GameOverView;
 import gui.GameView;
 import javafx.scene.Scene;
@@ -27,6 +31,7 @@ import javax.sound.sampled.*;
 public final class MazeState {
     ///
     private Timer timer;
+    private Timeline tml;
     ///
     private final MazeConfig config;
     public MazeConfig getconfig(){return config;}
@@ -36,8 +41,10 @@ public final class MazeState {
     public int pacgumTotal;
 
     private final boolean[][] gridState;
+    private final boolean[][] fruitsGridState;
 
     private final List<Critter> critters;
+    private final List<Fruits> fruits;
     private int score;
     private int pacgum;
     public boolean vie2;
@@ -48,6 +55,7 @@ public final class MazeState {
 
     private Pane root;
     private ImageView l1, l2, l3;
+    private boolean eatSuperPacGum;
 
     public MazeState(MazeConfig config, double scale, Pane root, String level) {
         this.config = config;
@@ -55,7 +63,9 @@ public final class MazeState {
         height = config.getHeight();
         width = config.getWidth();
         critters = List.of(PacMan.INSTANCE, Ghost.CLYDE, BLINKY, INKY, PINKY);
+        fruits = List.of(Fruits.CHERRY);
         gridState = new boolean[height][width];
+        fruitsGridState = new boolean[height][width];
         vie1 = false;
         vie2 = false;
         pacgumTotal = pacgumtotal(config);
@@ -95,6 +105,7 @@ public final class MazeState {
     public List<Critter> getCritters() {
         return critters;
     }
+    public List<Fruits> getFruits(){ return fruits; }
 
     public int getWidth() {
         return width;
@@ -183,7 +194,10 @@ public final class MazeState {
         IntCoordinates pacPos = PacMan.INSTANCE.getPos().round();
         if (!gridState[pacPos.y()][pacPos.x()]){
             gridState[pacPos.y()][pacPos.x()] = true;
+            fruitsGridState[pacPos.y()][pacPos.x()] = true;
             if (this.getConfig().getCell(pacPos).initialContent() == Cell.Content.ENERGIZER){
+                eatSuperPacGum = true;
+                tml.play();
                 PacMan.INSTANCE.setEnergized(true);
                 Mode.Backward();
                 addScore(50);
@@ -193,6 +207,8 @@ public final class MazeState {
                 incrPacgum();
             }
         }
+
+
 
         for (Critter critter : critters) {
             if (critter instanceof Ghost && critter.getPos().round().equals(pacPos)) {
@@ -206,12 +222,27 @@ public final class MazeState {
                 }
             }
         }
+
+        tml = new Timeline(
+                new KeyFrame(Duration.seconds(0.5), event -> {
+                    setEatSuperPacGum(false);
+                })
+        );
     }
 
-    private void addScore(int increment) {
+    public void addScore(int increment) {
         Sound.SOUND.playEatSound();
         score += increment;
     }
+
+    public boolean getEatSuperPacGum() {
+        return eatSuperPacGum;
+    }
+    public void setEatSuperPacGum(boolean eatSuperPacGum) {
+        this.eatSuperPacGum = eatSuperPacGum;
+    }
+
+
     private void incrPacgum (){
         pacgum++;
     }
@@ -260,6 +291,13 @@ public final class MazeState {
     public boolean getGridState(IntCoordinates pos) {
         return gridState[pos.y()][pos.x()];
     }
+    public boolean getFruitsGridState(IntCoordinates pos) {
+        return fruitsGridState[pos.y()][pos.x()];
+    }
+    public void setFruitsGridState(IntCoordinates pos, boolean b){
+        fruitsGridState[pos.y()][pos.x()] = b;
+    }
+
 
     public int getScore(){return this.score;}
 }

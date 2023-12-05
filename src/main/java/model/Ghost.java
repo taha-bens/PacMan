@@ -9,6 +9,7 @@ public enum Ghost implements Critter {
 
     private RealCoordinates pos;
     private Direction direction = Direction.NONE;
+    private Direction previousDir;
 
 
     @Override
@@ -23,7 +24,12 @@ public enum Ghost implements Critter {
 
     @Override
     public void setDirection(Direction direction) {
+        previousDir = this.direction;
         this.direction = direction;
+    }
+
+    public Direction getPreviousDir(){
+        return this.previousDir;
     }
 
     @Override

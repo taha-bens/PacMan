@@ -15,6 +15,7 @@ import model.MazeState;
 public final class PacMan implements Critter { //final car il n'y a qu'une seule instance de cette classe
     private Direction direction = Direction.NONE;
     private Direction nextDirection = Direction.NONE;
+    private Direction previousDir;
 
     private RealCoordinates pos;
     private boolean energized;
@@ -41,9 +42,11 @@ public final class PacMan implements Critter { //final car il n'y a qu'une seule
     public Direction getNextDirection() {
         return nextDirection;
     }
+    public Direction getPreviousDir(){ return previousDir; }
 
     @Override
     public void setDirection(Direction direction) {
+        previousDir = this.direction;
         this.direction = direction;
     }
 

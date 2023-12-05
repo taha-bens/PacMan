@@ -68,7 +68,12 @@ public class GameView {
         root.setStyle("-fx-background-color: #000000");
         CritterGraphicsFactory critterFactory = new CritterGraphicsFactory(scale);
         CellGraphicsFactory cellFactory = new CellGraphicsFactory(scale);
+        FruitsGraphicsFactory fruitsFactory = new FruitsGraphicsFactory(scale);
         graphicsUpdaters = new ArrayList<>();
+
+        for (Fruits fruits : maze.getFruits()){
+            addGraphics(fruitsFactory.makeGraphics(maze, fruits));
+        }
 
         for(int x = 0; x < maze.getWidth(); x++){
             for(int y = 0; y < maze.getHeight(); y++) {
@@ -76,7 +81,7 @@ public class GameView {
             }
         }
         for(Critter critter : maze.getCritters()) {
-            addGraphics(critterFactory.makeGraphics(critter));
+            addGraphics(critterFactory.makeGraphics(maze, critter));
         }
 
 
