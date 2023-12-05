@@ -88,7 +88,7 @@ public record RealCoordinates(double x, double y) {
             ry -= height;
         return new RealCoordinates(rx, ry);
     }
-    public boolean equals (RealCoordinates co){
+    public boolean estEgal (RealCoordinates co){
         return ((this.x == co.getX()) && (this.y == co.getY()));
     }
 }

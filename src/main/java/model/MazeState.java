@@ -112,7 +112,6 @@ public final class MazeState {
                 if (config.getGrid()[i][j].initialContent() == Cell.Content.DOT){
                     acc++;
                 }
-
             }
         }
         return acc;
@@ -251,12 +250,16 @@ public final class MazeState {
     }
 
     private void resetCritter(Critter critter) {
-        critter.setDirection(Direction.NONE);
         critter.setPos(initialPos.get(critter));
+        critter.setDirection(Direction.NONE);
     }
 
     private void resetCritters() {
         for (Critter critter: critters) resetCritter(critter);
+    }
+    public void resetBlinky(){
+        BLINKY.setPos(new RealCoordinates(7,7));
+        BLINKY.setDirection(Direction.NONE);
     }
 
     public MazeConfig getConfig() {

@@ -8,8 +8,8 @@ import static model.Ghost.CLYDE;
 
 public class Mouvement  {
     public static void start (int timer, MazeState maze){
-        if (BLINKY.getPos().round().estEgal(new IntCoordinates(7, 6)) && timer < 2) {
-            blinkyStart();
+        if ( BLINKY.getPos().estEgal(new RealCoordinates(7, 6)) && timer < 2) {
+            blinkyStart1();
         }
         if ((timer > 2) && PINKY.getPos().round().estEgal(new IntCoordinates(7, 7))) {
             pinkyStart();
@@ -203,6 +203,55 @@ public class Mouvement  {
             valeurs.setDirection(Direction.NORTH);
         }
     }
+    public static void none(MazeState maze , Ghost valeurs, String mode){
+        IntCoordinates co =valeurs.getPos().round();
+        IntCoordinates objectif = null;
+        if (mode.equals("chase")){  objectif = Mode.chaseObjectif(valeurs);}
+        else if (mode.equals("scatter")) { objectif = Mode.scatterObjectif(valeurs);}
+        else {objectif = Mode.frightenedObjectif();}
+        if (!maze.getconfig().getCell(co).southWall()) {
+            if (!maze.getconfig().getCell(co).eastWall() && !maze.getconfig().getCell(co).westWall()) {
+                IntCoordinates vers = Manhattan(objectif , co.leftNeighbour() , co.downNeighbour(), co.rightNeighbour() );
+                if (vers.estEgal(co.rightNeighbour())){  valeurs.setDirection(Direction.EAST);}
+                if (vers.estEgal(co.downNeighbour())){  valeurs.setDirection(Direction.SOUTH);}
+                else { valeurs.setDirection(Direction.WEST);}
+            } else if (!maze.getconfig().getCell(co).northWall() && !maze.getconfig().getCell(co).eastWall()) {
+                IntCoordinates vers = Manhattan(objectif , co.upNeighbour() , co.downNeighbour(), co.rightNeighbour() );
+                if (vers.estEgal(co.rightNeighbour())){  valeurs.setDirection(Direction.EAST);}
+                if (vers.estEgal(co.downNeighbour())){  valeurs.setDirection(Direction.SOUTH);}
+                else { valeurs.setDirection(Direction.NORTH);}
+            } else if (!maze.getconfig().getCell(co).northWall() && !maze.getconfig().getCell(co).westWall()) {
+                IntCoordinates vers = Manhattan(objectif , co.upNeighbour() , co.downNeighbour(), co.leftNeighbour() );
+                if (vers.estEgal(co.leftNeighbour())){  valeurs.setDirection(Direction.WEST);}
+                if (vers.estEgal(co.downNeighbour())){  valeurs.setDirection(Direction.SOUTH);}
+                else { valeurs.setDirection(Direction.NORTH);}
+            } else if (!maze.getconfig().getCell(co).eastWall()) {
+                IntCoordinates vers = Manhattan(objectif , co.downNeighbour(), co.rightNeighbour() );
+                if (vers.estEgal(co.downNeighbour())){ valeurs.setDirection(Direction.SOUTH);}
+                else { valeurs.setDirection(Direction.WEST);}
+            } else if (!maze.getconfig().getCell(co).westWall()) {
+                IntCoordinates vers = Manhattan(objectif, co.downNeighbour(), co.leftNeighbour() );
+                if (vers.estEgal(co.leftNeighbour())){  valeurs.setDirection(Direction.WEST);}
+                if (vers.estEgal(co.downNeighbour())){  valeurs.setDirection(Direction.SOUTH);}
+            }
+        }
+        else if (!maze.getconfig().getCell(co).northWall())    {
+            if (!maze.getconfig().getCell(co).eastWall() && !maze.getconfig().getCell(co).westWall()) {
+                IntCoordinates vers = Manhattan(objectif , co.leftNeighbour() , co.upNeighbour(), co.rightNeighbour() );
+                if (vers.estEgal(co.rightNeighbour())){  valeurs.setDirection(Direction.EAST);}
+                if (vers.estEgal(co.upNeighbour())){  valeurs.setDirection(Direction.NORTH);}
+                else { valeurs.setDirection(Direction.WEST);}
+            } else if (!maze.getconfig().getCell(co).eastWall()) {
+                IntCoordinates vers = Manhattan(objectif, co.leftNeighbour(), co.upNeighbour() );
+                if (vers.estEgal(co.leftNeighbour())){  valeurs.setDirection(Direction.WEST);}
+                else { valeurs.setDirection(Direction.NORTH);}
+            } else if (!maze.getconfig().getCell(co).westWall()) {
+                IntCoordinates vers = Manhattan(objectif, co.leftNeighbour() , co.upNeighbour() );
+                if (vers.estEgal(co.leftNeighbour())){  valeurs.setDirection(Direction.WEST);}
+                else { valeurs.setDirection(Direction.NORTH);}
+            }
+        }
+    }
     public static IntCoordinates Manhattan(IntCoordinates objectif , IntCoordinates prop1 , IntCoordinates prop2) {
         // Cette fonction retourne parmis les 2 propositions laquel est la plus proche de l'objectif
         if ( (prop1.estEgal(new IntCoordinates(14,7))) || (prop1.estEgal(new IntCoordinates(0,7)))){return prop2;}
@@ -239,7 +288,8 @@ public class Mouvement  {
             return new RealCoordinates(co.x() - 0.01, co.y() );
         }
     }
-    public static void blinkyStart() { BLINKY.setDirection(Direction.WEST );
+    public static void blinkyStart1() {
+        BLINKY.setDirection(Direction.WEST);
     }
     public static void pinkyStart(){
         PINKY.setDirection(Direction.NORTH);
