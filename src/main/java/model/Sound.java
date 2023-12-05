@@ -4,104 +4,187 @@ import javafx.animation.AnimationTimer;
 import javax.sound.sampled.*;
 import java.io.*;
 
+/**
+ * Classe qui gère l'ensemble des sons du jeu
+ * @author Julien
+ * @version 2.0
+ */
 public final class Sound {
-    private final AnimationTimer MainMusicLoop = new AnimationTimer() {
-        long l = 0;
+    private final AnimationTimer mainMusicLoop = new AnimationTimer() {
+        long last = 0;
         long sound_timer = 0;
         @Override
-        public void handle(long n) {
-            if (l == 0) {
-                l = n;
+        public void handle(long now) {
+            if (last == 0) {
+                last = now;
                 return;
             }
             if (sound_timer > 29540000000L) {
                 playMainMusic();
                 sound_timer = 0;
             }
-            sound_timer += n - l;
-            l = n;
+            sound_timer += now - last;
+            last = now;
         }
     };
-    private Clip MainMusicClip, StartMusicClip, eatSoundClip;
 
-    private Sound() {}
+    private Clip mainMusicClip, startMusicClip, eatSoundClip, deathMusicClip;
+    
+    private Sound() {
+
+    }
 
     public static final Sound SOUND = new Sound();
 
-    public Clip getMainMusicClip() { return MainMusicClip; }
+    /**
+     * Getter du mainMusicClip
+     * @author Julien
+     * @version 1.0
+     * @return Clip
+     */
+    public Clip getMainMusicClip() {
+        return mainMusicClip;
+    }
 
+    /**
+     * Getter du startMusicClip
+     * @return Clip
+     */
+    public Clip getStartMusicClip() {
+
+        return startMusicClip;
+    }
+
+    /**
+     * Getter du deathMusicClip
+     */
+    public Clip getDeathMusicClip() {
+        return deathMusicClip;
+    }
+
+    /**
+     * Joue une seule fois la musique du menu principale
+     * @return void
+     */
     private void playMainMusic() {
         AudioInputStream audio;
         try {
-            audio = AudioSystem.getAudioInputStream(new File("src/main/resources/PacmanMainMusic.wav"));
-            MainMusicClip = AudioSystem.getClip();
-            MainMusicClip.open(audio);
-        } catch (LineUnavailableException | UnsupportedAudioFileException | IOException e) {
+            File file = new File("src/main/resources/PacmanMainMusic.wav");
+            audio = AudioSystem.getAudioInputStream(file);
+            mainMusicClip = AudioSystem.getClip();
+            mainMusicClip.open(audio);
+        }
+        catch (LineUnavailableException | UnsupportedAudioFileException | IOException e) {
             throw new RuntimeException(e);
         }
-        MainMusicClip.start();
+        mainMusicClip.start();
     }
 
+    /**
+     * Joue la musique du menu en boucle
+     * @return void
+     */
     public void playMainMusicLoop() {
-        /* Joue la musique du menu en boucle
-        */
         playMainMusic();
-        MainMusicLoop.start();
+        mainMusicLoop.start();
     }
 
+    /**
+     * Stop la musique du menu
+     * @return void
+     */
     public void stopMainMusicLoop() {
-        /* Stop la musique du menu
-         */
-        MainMusicLoop.stop();
-        MainMusicClip.stop();
+        mainMusicLoop.stop();
+        mainMusicClip.stop();
     }
 
+    /**
+     * Joue la musique de début de jeu
+     * @return void
+     */
     public void playStartMusic() {
-        /* Joue la musique de début de jeu
-        */
         AudioInputStream StartAudio;
         try {
-            StartAudio = AudioSystem.getAudioInputStream(new File("src/main/resources/pacman_beginning.wav"));
-            StartMusicClip = AudioSystem.getClip();
-            StartMusicClip.open(StartAudio);
-        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+            File file = new File("src/main/resources/pacman_beginning.wav");
+            StartAudio = AudioSystem.getAudioInputStream(file);
+            startMusicClip = AudioSystem.getClip();
+            startMusicClip.open(StartAudio);
+        }
+        catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
             throw new RuntimeException(e);
         }
-        StartMusicClip.start();
+        startMusicClip.start();
     }
 
+    /**
+     * Stop la musique de début de jeu
+     * @return void
+     */
     public void stopStartMusic() {
-        /* Stop la musique de début de jeu
-        */
-        StartMusicClip.stop();
+        startMusicClip.stop();
     }
 
+    /**
+     * Joue le son de Pacman qui mange une Pacgum
+     * @return void
+     */
     public void playEatSound() {
-        /* Joue le son de Pacman qui mange une Pacgum
-         */
         AudioInputStream eatSoundAudio;
         try {
-            eatSoundAudio = AudioSystem.getAudioInputStream(new File("src/main/resources/pacman_chomp.wav"));
+            File file = new File("src/main/resources/credit.wav");
+            eatSoundAudio = AudioSystem.getAudioInputStream(file);
             eatSoundClip = AudioSystem.getClip();
             eatSoundClip.open(eatSoundAudio);
-        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+        }
+        catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
             throw new RuntimeException(e);
         }
         eatSoundClip.start();
     }
 
+    /**
+     * Stop la musique de début de jeu
+     * @return void
+     */
     public void stopEatSound() {
-        /* Stop la musique de début de jeu
-         */
         eatSoundClip.stop();
     }
 
+    /**
+     * Joue le son de Pacman qui mange une Pacgum
+     * @return void
+     */
+    public void playDeathMusic() {
+        AudioInputStream deathAudio;
+        try {
+            File file = new File("src/main/resources/DeathMusic.wav");
+            deathAudio = AudioSystem.getAudioInputStream(file);
+            deathMusicClip = AudioSystem.getClip();
+            deathMusicClip.open(deathAudio);
+        }
+        catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+            throw new RuntimeException(e);
+        }
+        deathMusicClip.start();
+    }
+
+    /**
+     * Stop la musique de de mort
+     * @return void
+     */
+    public void stopDeathMusic() {
+        deathMusicClip.stop();
+    }
+
+    /**
+     * Stop tout les sons du jeu (pour les développeurs)
+     * @return void
+     */
     public void stopAllSounds() {
-        /* Stop tout les sons du jeu (pour les développeurs)
-        */
         stopMainMusicLoop();
         stopStartMusic();
         stopEatSound();
+        stopDeathMusic();
     }
 
 }

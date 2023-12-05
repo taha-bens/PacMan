@@ -49,8 +49,6 @@ public final class MazeState {
     private Pane root;
     private ImageView l1, l2, l3;
 
-    private static boolean hasEat = false;
-
     public MazeState(MazeConfig config, double scale, Pane root, String level) {
         this.config = config;
         this.level = level;
@@ -202,7 +200,8 @@ public final class MazeState {
                     addScore(200);
                     resetCritter(critter);
                 } else {
-                    playerLost(primaryStage); // PacMan touche un fantome
+                    //playerLost(primaryStage);
+                    GameView.setIsDead(true); // PacMan touche un fantome
                     return;
                 }
             }
@@ -210,22 +209,14 @@ public final class MazeState {
     }
 
     private void addScore(int increment) {
+        Sound.SOUND.playEatSound();
         score += increment;
-        hasEat = true;
-    }
-
-    public boolean getHasEat() {
-        return hasEat;
-    }
-
-    public void setHasEat(boolean newValue) {
-        hasEat = newValue;
     }
     private void incrPacgum (){
         pacgum++;
     }
 
-    private void playerLost(Stage primaryStage) {
+    public void playerLost(Stage primaryStage) {
         // FIXME: this should be displayed in the JavaFX view, not in the console. A game over screen would be nice too.
         lives--;
 

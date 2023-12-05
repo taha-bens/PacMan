@@ -44,6 +44,11 @@ public class GameView {
         return reload;
     }
 
+    private static boolean isDead = false;
+
+    public static void setIsDead(boolean new_value) {
+        isDead = new_value;
+    }
     private void addGraphics(GraphicsUpdater updater) {
         gameRoot.getChildren().add(updater.getNode());
         graphicsUpdaters.add(updater);
@@ -90,59 +95,61 @@ public class GameView {
             long last = 0;
             long sound_timer = 0;
             static long timerBrut = 0;
-            long startMusicTimer = 0;
-            boolean freezeBolean = true;
+            boolean startFreezeBoolean = true;
+            boolean deathFreezeBoolean = true;
             @Override
             public void handle(long now) {
-                if (freezeBolean){
-                    freezeBolean = false;
-                    for (var updater : graphicsUpdaters) {
-                        updater.update();
+                if (isDead) {
+                    if (deathFreezeBoolean) {
+                        Sound.SOUND.playDeathMusic();
+                    }
+                    deathFreezeBoolean = false;
+                    if (Sound.SOUND.getDeathMusicClip().getMicrosecondPosition() ==
+                            Sound.SOUND.getDeathMusicClip().getMicrosecondLength()) {
+                        maze.playerLost(primaryStage);
+                        isDead = false;
+                        deathFreezeBoolean = true;
                     }
                 }
-                if (last == 0) { // ignore the first tick, just compute the first deltaT
-                    last = now;
-                    return;
+                else {
+                    if (startFreezeBoolean) {
+                        startFreezeBoolean = false;
+                        for (var updater : graphicsUpdaters) {
+                            updater.update();
+                        }
+                    }
+                    if (last == 0) { // ignore the first tick, just compute the first deltaT
+                        last = now;
+                        return;
+                    }
+                    if (Sound.SOUND.getStartMusicClip().getMicrosecondPosition() ==
+                            Sound.SOUND.getStartMusicClip().getMicrosecondLength()) {
+                        if (!maze.vie2 && maze.getLives() == 2) {
+                            timerBrut = 0;
+                            maze.vie2 = true;
+                        }
+                        if (!maze.vie1 && maze.getLives() == 1) {
+                            timerBrut = 0;
+                            maze.vie1 = true;
+                        }
+
+                        long timerNet = timerBrut / 1000000000;
+                        int intTimerNet = (int) timerNet;
+                        var deltaT = now - last;
+                        maze.update(deltaT, primaryStage);
+
+                        PacMan.INSTANCE.updatePacman(maze.getConfig());
+                        Mouvement.start(intTimerNet, maze);
+                        Mode.mode(intTimerNet, maze);
+
+                        scoreLabel.setText(String.valueOf(maze.getScore()));
+                        for (var updater : graphicsUpdaters) {
+                            updater.update();
+                        }
+
+                        timerBrut += now - last;
+                    }
                 }
-                if (startMusicTimer > 4217000000L) {
-                    if (!maze.vie2 && maze.getLives() == 2) {
-                        timerBrut = 0;
-                        maze.vie2 = true;
-                    }
-                    if (!maze.vie1 && maze.getLives() == 1) {
-                        timerBrut = 0;
-                        maze.vie1 = true;
-                    }
-
-                    if (maze.getHasEat() && sound_timer < 25000000) {
-                        Sound.SOUND.playEatSound();
-                    }
-
-                    if (sound_timer > 607000000) {
-                        sound_timer = 0;
-                        maze.setHasEat(false);
-                    }
-                    long timerNet = timerBrut / 1000000000;
-                    int intTimerNet = (int) timerNet;
-                    var deltaT = now - last;
-                    maze.update(deltaT, primaryStage);
-
-                    PacMan.INSTANCE.updatePacman(maze.getConfig());
-                    Mouvement.start(intTimerNet , maze);
-                    Mode.mode(intTimerNet , maze);
-
-                    scoreLabel.setText(String.valueOf(maze.getScore()));
-                    for (var updater : graphicsUpdaters) {
-                        updater.update();
-                    }
-
-                    if (maze.getHasEat()) {
-                        sound_timer += now - last;
-                    }
-
-                    timerBrut += now - last;
-                }
-                startMusicTimer += now - last;
                 last = now;
             }
         };
