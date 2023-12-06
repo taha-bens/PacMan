@@ -1,5 +1,5 @@
 package model;
-import model.MazeState;
+
 import geometry.RealCoordinates;
 
 public enum Ghost implements Critter {
@@ -10,7 +10,6 @@ public enum Ghost implements Critter {
     private RealCoordinates pos;
     private Direction direction = Direction.NONE;
     private Direction previousDir;
-
 
     @Override
     public RealCoordinates getPos() {
@@ -28,7 +27,7 @@ public enum Ghost implements Critter {
         this.direction = direction;
     }
 
-    public Direction getPreviousDir(){
+    public Direction getPreviousDir() {
         return this.previousDir;
     }
 

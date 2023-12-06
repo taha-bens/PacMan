@@ -4,15 +4,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-//Import ajouté
-import geometry.IntCoordinates;
-
-/*On défini des coordonnées réelles pour représenter les positions qui se
+/**
+ * On défini des coordonnées réelles pour représenter les positions qui se
  * situe entre chaque coordonnées (par ex : entre 1.0 et 2.0 -> 1.57 ou 1.69)
  * cela permet de rendre fluide les déplacement des créature par exemple
  * (si on c'était uniquement contanté de "IntCoordinates", les créatures
- * se téléporteraient de 1 coordonnée à chaque fois, ça ne serai pas fluide)*/
-
+ * se téléporteraient de 1 coordonnée à chaque fois, ça ne serai pas fluide)
+ * @param x
+ * @param y
+ */
 public record RealCoordinates(double x, double y) {
 
     public static final RealCoordinates ZERO = new RealCoordinates(0, 0);
@@ -21,31 +21,28 @@ public record RealCoordinates(double x, double y) {
     public static final RealCoordinates SOUTH_UNIT = new RealCoordinates(0, 1);
     public static final RealCoordinates WEST_UNIT = new RealCoordinates(-1, 0);
 
-
     public RealCoordinates plus(RealCoordinates other) {
         return new RealCoordinates(x + other.x, y + other.y);
     }
-
 
     public RealCoordinates times(double multiplier) {
         return new RealCoordinates(x * multiplier, y * multiplier);
     }
 
-    public double getX (){
+    public double getX() {
         return x;
     }
-    public double getY (){
+
+    public double getY() {
         return y;
     }
+
     /**
-     *
+     * Donner les cases voisines par rapport à this.x et this.y
      * @return the coordinates of all integer squares that a unit square with current coordinates would intersect
-      */
+     * Set<IntCoordinate> (ensemble immuable)
+     */
     public Set<IntCoordinates> intNeighbours() {
-        //Méthode : intNeighbours
-        //Input : rien
-        //OutPut : Set<IntCoordinate> (ensemble immuable)
-        /*Description : donne les case voisine par rapport à this.x et this.y*/
         return new HashSet<>(List.of(
                 new IntCoordinates((int) Math.floor(x), (int) Math.floor(y)),
                 new IntCoordinates((int) Math.floor(x), (int) Math.ceil(y)),
@@ -88,7 +85,8 @@ public record RealCoordinates(double x, double y) {
             ry -= height;
         return new RealCoordinates(rx, ry);
     }
-    public boolean estEgal (RealCoordinates co){
+
+    public boolean estEgal(RealCoordinates co) {
         return ((this.x == co.getX()) && (this.y == co.getY()));
     }
 }

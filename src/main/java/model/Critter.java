@@ -20,7 +20,7 @@ public sealed interface Critter permits Ghost, PacMan {
             case EAST -> RealCoordinates.EAST_UNIT;
             case SOUTH -> RealCoordinates.SOUTH_UNIT;
             case WEST -> RealCoordinates.WEST_UNIT;
-        }).times(getSpeed()*deltaTNanoSeconds * 1E-9));
+        }).times(getSpeed() * deltaTNanoSeconds * 1E-9));
     }
 
     void setPos(RealCoordinates realCoordinates);

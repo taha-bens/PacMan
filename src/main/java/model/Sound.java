@@ -1,4 +1,4 @@
-package Pacman.src.main.java.model;
+package model;
 
 import javafx.animation.AnimationTimer;
 import javax.sound.sampled.*;
@@ -10,20 +10,22 @@ import java.io.*;
  * @version 2.0
  */
 public final class Sound {
+
     private final AnimationTimer mainMusicLoop = new AnimationTimer() {
         long last = 0;
-        long sound_timer = 0;
+        long soundTimer = 0;
         @Override
         public void handle(long now) {
             if (last == 0) {
                 last = now;
                 return;
             }
-            if (sound_timer > 29540000000L) {
+
+            if (soundTimer > 29540000000L) {
                 playMainMusic();
-                sound_timer = 0;
+                soundTimer = 0;
             }
-            sound_timer += now - last;
+            soundTimer += now - last;
             last = now;
         }
     };
@@ -39,7 +41,6 @@ public final class Sound {
     /**
      * Getter du mainMusicClip
      * @author Julien
-     * @version 1.0
      * @return Clip
      */
     public Clip getMainMusicClip() {
@@ -73,8 +74,8 @@ public final class Sound {
             audio = AudioSystem.getAudioInputStream(file);
             mainMusicClip = AudioSystem.getClip();
             mainMusicClip.open(audio);
-        }
-        catch (LineUnavailableException | UnsupportedAudioFileException | IOException e) {
+
+        } catch (LineUnavailableException | UnsupportedAudioFileException | IOException e) {
             throw new RuntimeException(e);
         }
         mainMusicClip.start();
@@ -109,8 +110,8 @@ public final class Sound {
             StartAudio = AudioSystem.getAudioInputStream(file);
             startMusicClip = AudioSystem.getClip();
             startMusicClip.open(StartAudio);
-        }
-        catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+
+        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
             throw new RuntimeException(e);
         }
         startMusicClip.start();
@@ -135,8 +136,8 @@ public final class Sound {
             eatSoundAudio = AudioSystem.getAudioInputStream(file);
             eatSoundClip = AudioSystem.getClip();
             eatSoundClip.open(eatSoundAudio);
-        }
-        catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+
+        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
             throw new RuntimeException(e);
         }
         eatSoundClip.start();
@@ -161,8 +162,8 @@ public final class Sound {
             deathAudio = AudioSystem.getAudioInputStream(file);
             deathMusicClip = AudioSystem.getClip();
             deathMusicClip.open(deathAudio);
-        }
-        catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+
+        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
             throw new RuntimeException(e);
         }
         deathMusicClip.start();
@@ -186,5 +187,4 @@ public final class Sound {
         stopEatSound();
         stopDeathMusic();
     }
-
 }
