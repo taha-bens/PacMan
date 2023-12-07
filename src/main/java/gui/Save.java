@@ -18,6 +18,10 @@ public class Save {
         this.contenu = readFichier();
     }
 
+    /**
+     * Lire un fichier
+     * @return
+     */
     private String[][] readFichier() {
         try {
             FileReader reader = new FileReader(fichier);
@@ -38,15 +42,18 @@ public class Save {
                 contenu[i][0] = ligne[0];
                 contenu[i][1] = ligne[1];
             }
-
             bufferedReader.close();
             return contenu;
+
         } catch (IOException e) {
             System.err.println("Error reading file: " + e.getMessage());
             return null;
         }
     }
 
+    /**
+     * Ecrire dans un fichier
+     */
     public void writeFichier() {
         try {
             FileWriter writer = new FileWriter(fichier);
@@ -60,6 +67,11 @@ public class Save {
         }
     }
 
+    /**
+     * Avoir le score du joueur par son pseudo
+     * @param pseudo
+     * @return
+     */
     public int getScore(String pseudo) {
         for (int i = 0; i < contenu.length; i++) {
             if (contenu[i][0].equals(pseudo)) {
@@ -69,15 +81,25 @@ public class Save {
         return -1;
     }
 
+    /**
+     * Actualiser le score d'un joueur par son pseudo
+     * @param pseudo
+     * @param score
+     */
     public void updateScore(String pseudo, int score) {
         for (int i = 0; i < contenu.length; i++) {
-            if (contenu[i][0].equals(pseudo) && Integer.valueOf(contenu[i][1])<score) {
+            if (contenu[i][0].equals(pseudo) && Integer.valueOf(contenu[i][1]) < score) {
                 contenu[i][1] = String.valueOf(score);
                 return;
             }
         }
     }
 
+    /**
+     * Retourner vrai si l'utilisateur existe
+     * @param pseudo
+     * @return
+     */
     public boolean userExist(String pseudo) {
         for (int i = 0; i < contenu.length; i++) {
             if (contenu[i][0].equals(pseudo)) {
@@ -87,6 +109,11 @@ public class Save {
         return false;
     }
 
+    /**
+     * DÃ©finir un joueur et son score
+     * @param pseudo
+     * @param score
+     */
     public void setUser(String pseudo, int score) {
         if (userExist(pseudo)) {
             updateScore(pseudo, score);
@@ -95,6 +122,12 @@ public class Save {
         }
     }
 
+    /**
+     * Ajouter un joueur
+     * @param pseudo
+     * @param score
+     * @return
+     */
     private String[][] addUser(String pseudo, int score) {
         String[][] newContenu = new String[contenu.length + 1][2];
         for (int i = 0; i < contenu.length; i++) {
@@ -109,5 +142,7 @@ public class Save {
         Arrays.sort(contenu, (a, b) -> Integer.parseInt(b[1]) - Integer.parseInt(a[1]));
     }
 
-    public String[][] getContenu(){return contenu;}
+    public String[][] getContenu() {
+        return contenu;
+    }
 }

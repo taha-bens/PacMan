@@ -1,40 +1,36 @@
 package model;
 
-import Pacman.src.main.java.model.Sound;
 import config.Cell;
 import config.MazeConfig;
-import config.MazeLoader;
 import geometry.IntCoordinates;
 import geometry.RealCoordinates;
-
-import java.lang.module.ModuleDescriptor;
-import java.util.*;
-import java.util.Random;
-import static model.Ghost.*;
-
-import gui.FruitsGraphicsFactory;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.util.Duration;
 import gui.GameOverView;
 import gui.GameView;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Paint;
-import javafx.stage.Stage;
-import model.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Paint;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
-import javax.sound.sampled.*;
+import java.util.*;
+
+import static model.Ghost.*;
 
 public final class MazeState {
-    ///
+
     private Timer timer;
     private Timeline tml;
-    ///
+
     private final MazeConfig config;
-    public MazeConfig getconfig(){return config;}
+
+    public MazeConfig getconfig() {
+        return config;
+    }
+
     public final String level;
     private final int height;
     private final int width;
@@ -68,7 +64,7 @@ public final class MazeState {
         fruitsGridState = new boolean[height][width];
         vie1 = false;
         vie2 = false;
-        pacgumTotal = pacgumtotal(config);
+        pacgumTotal = pacgumTotal(config);
         initialPos = Map.of(
                 PacMan.INSTANCE, config.getPacManPos().toRealCoordinates(1.0),
                 BLINKY, config.getBlinkyPos().toRealCoordinates(1.0),
@@ -78,15 +74,16 @@ public final class MazeState {
         );
         this.root = root;
         resetCritters();
-        Image liveImage = new Image("pacman/PacmanL1.png",scale*0.7,scale*0.7,true,true);
-        l1 = new ImageView(new Image("pacman/PacmanL1.png",scale*0.7,scale*0.7,true,true));
-        l2 = new ImageView(new Image("pacman/PacmanL1.png",scale*0.7,scale*0.7,true,true));
-        l3 = new ImageView(new Image("pacman/PacmanL1.png",scale*0.7,scale*0.7,true,true));
-        ImageView[] liveImageTab = {l1,l2,l3};
-        for (int i = 1; i <= 3; i++){
-            this.root.getChildren().add(liveImageTab[i-1]);
-            liveImageTab[i-1].setX(scale*(i-1)+5);
-            liveImageTab[i-1].setY(710);
+        Image liveImage = new Image("pacman/PacmanL1.png", scale * 0.7, scale * 0.7, true, true);
+        l1 = new ImageView(liveImage);
+        l2 = new ImageView(liveImage);
+        l3 = new ImageView(liveImage);
+
+        ImageView[] liveImageTab = { l1, l2, l3 };
+        for (int i = 1; i <= 3; i++) {
+            this.root.getChildren().add(liveImageTab[i - 1]);
+            liveImageTab[i - 1].setX(scale * (i - 1) + 5);
+            liveImageTab[i - 1].setY(710);
         }
 
         for (int i = 0; i < config.getGrid().length; i++) {
@@ -95,17 +92,26 @@ public final class MazeState {
             }
         }
     }
-    public int getPacgum (){
+
+    public int getPacgum() {
         return pacgum;
     }
-    public int getPacgumTotal(){
+
+    public int getPacgumTotal() {
         return this.pacgumTotal;
     }
-    public int getLives (){return lives;}
+
+    public int getLives() {
+        return lives;
+    }
+
     public List<Critter> getCritters() {
         return critters;
     }
-    public List<Fruits> getFruits(){ return fruits; }
+
+    public List<Fruits> getFruits() {
+        return fruits;
+    }
 
     public int getWidth() {
         return width;
@@ -114,7 +120,8 @@ public final class MazeState {
     public int getHeight() {
         return height;
     }
-    public int pacgumtotal(MazeConfig config){
+
+    public int pacgumTotal(MazeConfig config) {
         int acc = 0;
         for (int i = 0; i < config.getGrid().length; i++) {
             for (int j = 0; j < config.getGrid()[i].length; j++) {
@@ -126,8 +133,8 @@ public final class MazeState {
         return acc;
     }
 
-    public void startTimerEnergized(){
-        if (timer != null){
+    public void startTimerEnergized() {
+        if (timer != null) {
             timer.cancel();
         }
         timer = new Timer();
@@ -139,8 +146,8 @@ public final class MazeState {
         };
         timer.schedule(timerTask, 8000);
     }
-    public void resetTimerEnergized(){
-        if (timer != null){
+    public void resetTimerEnergized() {
+        if (timer != null) {
             timer.cancel();
         }
         startTimerEnergized();
@@ -148,7 +155,7 @@ public final class MazeState {
 
     public void update(long deltaTns, Stage primaryStage) {
         // FIXME: too many things in this method. Maybe some responsibilities can be delegated to other methods or classes?
-        for(Critter critter: critters) {
+        for (Critter critter: critters) {
             RealCoordinates curPos = critter.getPos();
             RealCoordinates nextPos = critter.nextPos(deltaTns);
             Set<IntCoordinates> curNeighbours = curPos.intNeighbours();
@@ -157,37 +164,43 @@ public final class MazeState {
             if (!curNeighbours.containsAll(nextNeighbours)) { // the critter would overlap new cells. Do we allow it?
                 switch (critter.getDirection()) {
                     case NORTH -> {
-                        for (IntCoordinates n: curNeighbours) if (config.getCell(n).northWall()) {
-                            nextPos = curPos.floorY();
-                            critter.setDirection(Direction.NONE);
-                            break;
+                        for (IntCoordinates n : curNeighbours) {
+                            if (config.getCell(n).northWall()) {
+                                nextPos = curPos.floorY();
+                                critter.setDirection(Direction.NONE);
+                                break;
+                            }
                         }
                     }
                     case EAST -> {
-                        for (IntCoordinates n: curNeighbours) if (config.getCell(n).eastWall()) {
-                            nextPos = curPos.ceilX();
-                            critter.setDirection(Direction.NONE);
-                            break;
+                        for (IntCoordinates n : curNeighbours) {
+                            if (config.getCell(n).eastWall()) {
+                                nextPos = curPos.ceilX();
+                                critter.setDirection(Direction.NONE);
+                                break;
+                            }
                         }
                     }
                     case SOUTH -> {
-                        for (IntCoordinates n: curNeighbours) if (config.getCell(n).southWall()) {
-                            nextPos = curPos.ceilY();
-                            critter.setDirection(Direction.NONE);
-                            break;
+                        for (IntCoordinates n : curNeighbours) {
+                            if (config.getCell(n).southWall()) {
+                                nextPos = curPos.ceilY();
+                                critter.setDirection(Direction.NONE);
+                                break;
+                            }
                         }
                     }
                     case WEST -> {
-                        for (IntCoordinates n: curNeighbours) if (config.getCell(n).westWall()) {
-                            nextPos = curPos.floorX();
-                            critter.setDirection(Direction.NONE);
-                            break;
+                        for (IntCoordinates n : curNeighbours) {
+                            if (config.getCell(n).westWall()) {
+                                nextPos = curPos.floorX();
+                                critter.setDirection(Direction.NONE);
+                                break;
+                            }
                         }
                     }
                 }
-
             }
-
             critter.setPos(nextPos.warp(width, height));
         }
         // FIXME Pac-Man rules should somehow be in Pacman class
@@ -195,11 +208,11 @@ public final class MazeState {
         if (!gridState[pacPos.y()][pacPos.x()]){
             gridState[pacPos.y()][pacPos.x()] = true;
             fruitsGridState[pacPos.y()][pacPos.x()] = true;
-            if (this.getConfig().getCell(pacPos).initialContent() == Cell.Content.ENERGIZER){
+            if (this.getConfig().getCell(pacPos).initialContent() == Cell.Content.ENERGIZER) {
                 eatSuperPacGum = true;
                 tml.play();
                 PacMan.INSTANCE.setEnergized(true);
-                Mode.Backward();
+                Mode.backward();
                 addScore(50);
                 resetTimerEnergized();
             } else {
@@ -212,7 +225,7 @@ public final class MazeState {
 
         for (Critter critter : critters) {
             if (critter instanceof Ghost && critter.getPos().round().equals(pacPos)) {
-                if (PacMan.INSTANCE.isEnergized()) { // PacMan energisé tue un fantome
+                if (PacMan.INSTANCE.isEnergized()) { // PacMan energisÃ© tue un fantome
                     addScore(200);
                     resetCritter(critter);
                 } else {
@@ -238,12 +251,12 @@ public final class MazeState {
     public boolean getEatSuperPacGum() {
         return eatSuperPacGum;
     }
+
     public void setEatSuperPacGum(boolean eatSuperPacGum) {
         this.eatSuperPacGum = eatSuperPacGum;
     }
 
-
-    private void incrPacgum (){
+    private void incrPacgum() {
         pacgum++;
     }
 
@@ -251,9 +264,11 @@ public final class MazeState {
         // FIXME: this should be displayed in the JavaFX view, not in the console. A game over screen would be nice too.
         lives--;
 
-        if (lives == 2) this.root.getChildren().remove(l3);
-        else if (lives == 1) this.root.getChildren().remove(l2);
-        else if (lives == 0) {
+        if (lives == 2) {
+            this.root.getChildren().remove(l3);
+        } else if (lives == 1) {
+            this.root.getChildren().remove(l2);
+        } else if (lives == 0) {
             this.root.getChildren().remove(l1);
             Sound.SOUND.stopStartMusic();
             GameView.getReload().stop();
@@ -277,10 +292,12 @@ public final class MazeState {
     }
 
     private void resetCritters() {
-        for (Critter critter: critters) resetCritter(critter);
+        for (Critter critter: critters) {
+            resetCritter(critter);
+        }
     }
-    public void resetBlinky(){
-        BLINKY.setPos(new RealCoordinates(7,7));
+    public void resetBlinky() {
+        BLINKY.setPos(new RealCoordinates(7, 7));
         BLINKY.setDirection(Direction.NONE);
     }
 
@@ -291,13 +308,16 @@ public final class MazeState {
     public boolean getGridState(IntCoordinates pos) {
         return gridState[pos.y()][pos.x()];
     }
+
     public boolean getFruitsGridState(IntCoordinates pos) {
         return fruitsGridState[pos.y()][pos.x()];
     }
-    public void setFruitsGridState(IntCoordinates pos, boolean b){
+
+    public void setFruitsGridState(IntCoordinates pos, boolean b) {
         fruitsGridState[pos.y()][pos.x()] = b;
     }
 
-
-    public int getScore(){return this.score;}
+    public int getScore() {
+        return this.score;
+    }
 }

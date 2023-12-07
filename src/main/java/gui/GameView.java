@@ -1,6 +1,5 @@
 package gui;
 
-import Pacman.src.main.java.model.Sound;
 import geometry.IntCoordinates;
 import javafx.animation.AnimationTimer;
 import javafx.scene.control.Label;
@@ -8,26 +7,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import misc.Debug;
 import model.*;
 
-
-import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-
-//Imports ajoutés
-import gui.GraphicsUpdater;
-import gui.CritterGraphicsFactory;
-import gui.CellGraphicsFactory;
-import model.PacMan;
-import static model.Ghost.*;
-
-import javax.sound.sampled.*;
 
 public class GameView {
     // class parameters
@@ -46,8 +29,8 @@ public class GameView {
 
     private static boolean isDead = false;
 
-    public static void setIsDead(boolean new_value) {
-        isDead = new_value;
+    public static void setIsDead(boolean newValue) {
+        isDead = newValue;
     }
     private void addGraphics(GraphicsUpdater updater) {
         gameRoot.getChildren().add(updater.getNode());
@@ -98,7 +81,6 @@ public class GameView {
 
         reload = new AnimationTimer(){
             long last = 0;
-            long sound_timer = 0;
             static long timerBrut = 0;
             boolean startFreezeBoolean = true;
             boolean deathFreezeBoolean = true;

@@ -1,2 +1,3 @@
 armand;1000
+alex;1000
 kerrian;50

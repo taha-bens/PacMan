@@ -1,8 +1,6 @@
 package gui;
 
 import javafx.animation.AnimationTimer;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,9 +11,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import model.Mode;
-import model.Mouvement;
-import model.PacMan;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,20 +18,35 @@ import java.util.Arrays;
 import java.util.regex.Pattern;
 
 public class GameOverView {
-    private final Pane gameOverRoot;
 
+    private final Pane gameOverRoot;
     private static AnimationTimer reload;
 
-    public GameOverView(Pane gameOverRoot, Stage primaryStage, int PlayerScore, String level){
+    public GameOverView(Pane gameOverRoot, Stage primaryStage, int playerScore, String level) {
         this.gameOverRoot = gameOverRoot;
         this.gameOverRoot.setStyle("-fx-background-color: #000000");
 
         int temoin;
-        switch(level){
-            case "0" : temoin = 0; level = "src/main/resources/maze"+level+"_save.txt"; break;
-            case "1" : temoin = 1; level = "src/main/resources/maze"+level+"_save.txt"; break;
-            case "2" : temoin = 2; level = "src/main/resources/maze"+level+"_save.txt"; break;
-            default : temoin = -1; level = level.replace(".txt", "_save.txt");
+        switch (level) {
+            case "0" -> {
+                temoin = 0;
+                level = "src/main/resources/maze" + level + "_save.txt";
+            }
+
+            case "1" -> {
+                temoin = 1;
+                level = "src/main/resources/maze" + level + "_save.txt";
+            }
+
+            case "2" -> {
+                temoin = 2;
+                level = "src/main/resources/maze" + level + "_save.txt";
+            }
+
+            default -> {
+                temoin = -1;
+                level = level.replace(".txt", "_save.txt");
+            }
         }
 
         Label titleLabel = new Label("ScoreBoard");
@@ -58,7 +68,7 @@ public class GameOverView {
         textField.setTranslateX(100);
         textField.setTranslateY(470);
 
-        Label playerScoreLabel = new Label("Votre Score : "+PlayerScore);
+        Label playerScoreLabel = new Label("Votre Score : " + playerScore);
         playerScoreLabel.setTextFill(Color.GOLD);
         playerScoreLabel.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 20));
         playerScoreLabel.setPrefSize(500, 30);
@@ -67,11 +77,9 @@ public class GameOverView {
         playerScoreLabel.setAlignment(Pos.CENTER);
 
         Button ok = new Button("OK");
-        ok.setStyle(
-                "-fx-background-color: #000000;" +
+        ok.setStyle("-fx-background-color: #000000;" +
                 "-fx-border-color: #8A2BE2;" +
-                "-fx-border-width: 5px;"
-        );
+                "-fx-border-width: 5px;");
         ok.setTextFill(Color.GOLD);
         ok.setPrefSize(100, 30);
         ok.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 27));
@@ -79,51 +87,54 @@ public class GameOverView {
         ok.setTranslateY(530);
         String finalLevel = level;
 
-        ok.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                if (!textField.getText().trim().isEmpty()) { // Si différent de "" ou " " ou "                     " (que des espaces)
-                    ok.setDisable(true);
-                    String pseudo = Pattern.compile("[^a-zA-Z0-9]").matcher(textField.getText().toLowerCase()).replaceAll(""); //Remplace tous les caractères spéciaux par ""
-                    System.out.println("Pseudo : " + pseudo);
-                    textField.clear();
+        ok.setOnAction(event -> {
+            // Si différent de "" ou " " ou "                     " (que des espaces)
+            if (!textField.getText().trim().isEmpty()) {
+                ok.setDisable(true);
+                String pseudo = Pattern
+                        .compile("[^a-zA-Z0-9]")
+                        .matcher(textField.getText().toLowerCase())
+                        .replaceAll(""); //Remplace tous les caractères spéciaux par ""
+                System.out.println("Pseudo : " + pseudo);
+                textField.clear();
 
-                    // --- inscription dans le fichier de sauvegarde
-                    Save contenu = new Save(finalLevel);
-                    contenu.setUser(pseudo, PlayerScore);
-                    contenu.trier();
-                    contenu.writeFichier();
-                    // ---
+                // --- inscription dans le fichier de sauvegarde
+                Save contenu = new Save(finalLevel);
+                contenu.setUser(pseudo, playerScore);
+                contenu.trier();
+                contenu.writeFichier();
+                // ---
 
-                    // --- Actualisation du ScoreBoard
-                    gameOverRoot.getChildren().remove(grid);
-                    GridPane grid = ScoreBoard((new Save(finalLevel)).getContenu());
-                    gameOverRoot.getChildren().add(grid);
-                    // ---
+                // --- Actualisation du ScoreBoard
+                gameOverRoot.getChildren().remove(grid);
+                GridPane grid1 = ScoreBoard((new Save(finalLevel)).getContenu());
+                gameOverRoot.getChildren().add(grid1);
+                // ---
 
-                    // --- changement de Scène après 5s
-                    reload = new AnimationTimer(){
-                        long last = 0;
-                        long timer = 0;
-                        @Override
-                        public void handle(long now) {
-                            if (last == 0) { // ignore the first tick, just compute the first deltaT
-                                last = now;
-                                return;
-                            }
-                            if (timer > 5000000000L) {
-                                menuScene(primaryStage);
-                                reload.stop();
-                            }
-                            timer += now - last;
+                // --- changement de Scène après 5s
+                reload = new AnimationTimer() {
+                    long last = 0;
+                    long timer = 0;
+
+                    @Override
+                    public void handle(long now) {
+                        if (last == 0) { // ignore the first tick, just compute the first deltaT
                             last = now;
+                            return;
                         }
-                    };
-                    reload.start();
-                    // ---
-                } else {
-                    System.out.println("Pseudo Invalide!");
-                }
+
+                        if (timer > 5000000000L) {
+                            menuScene(primaryStage);
+                            reload.stop();
+                        }
+                        timer += now - last;
+                        last = now;
+                    }
+                };
+                reload.start();
+                // ---
+            } else {
+                System.out.println("Pseudo Invalide!");
             }
         });
 
@@ -135,7 +146,7 @@ public class GameOverView {
 
     }
 
-    public GridPane ScoreBoard(String[][] contenu){
+    public GridPane ScoreBoard(String[][] contenu) {
         // --- ScoreBoard
         GridPane grid = new GridPane();
 
@@ -167,7 +178,7 @@ public class GameOverView {
             pseudoLabel.setStyle("-fx-border-color: #FFD700; -fx-border-width: 1px;");
             pseudoLabel.setPrefSize(250, 30);
             pseudoLabel.setAlignment(Pos.CENTER);
-            grid.add(pseudoLabel, 0, row+1);
+            grid.add(pseudoLabel, 0, row + 1);
 
             Label scoreLabel = new Label(scoreText);
             scoreLabel.setTextFill(Color.GOLD);
@@ -175,7 +186,7 @@ public class GameOverView {
             scoreLabel.setStyle("-fx-border-color: #FFD700; -fx-border-width: 1px;");
             scoreLabel.setPrefSize(250, 30);
             scoreLabel.setAlignment(Pos.CENTER);
-            grid.add(scoreLabel, 1, row+1);
+            grid.add(scoreLabel, 1, row + 1);
         }
         grid.setTranslateX(0);
         grid.setTranslateY(50);
@@ -183,25 +194,23 @@ public class GameOverView {
     }
 
     public String[][] formatScoreBoard(String[][] contenu) {
-        if (contenu.length>10) {
+        if (contenu.length > 10) {
             contenu = Arrays.copyOf(contenu, 10);
         }
-        if (contenu.length<10) {
+        if (contenu.length < 10) {
             String[][] newContenu = new String[10][2];
 
-            for (int i=0; i<contenu.length; i++) {
+            for (int i = 0; i < contenu.length; i++) {
                 newContenu[i][0] = contenu[i][0];
                 newContenu[i][1] = contenu[i][1];
             }
 
-            for (int i=contenu.length; i<10; i++) {
+            for (int i = contenu.length; i < 10; i++) {
                 newContenu[i][0] = "-";
                 newContenu[i][1] = "000000";
             }
-
             contenu = newContenu;
         }
-
         return contenu;
     }
 
@@ -218,6 +227,7 @@ public class GameOverView {
     public static void verifFile(String filePath) {
         System.out.println(filePath);
         File file = new File(filePath);
+
         if (!file.exists()) {
             try {
                 file.createNewFile();
