@@ -1,7 +1,7 @@
-test;2230
+kerrian;26690
+test;2820
 julien;690
 alexis;580
 armand;550
-kerrian;380
 jenny;130
 pseudo;90
