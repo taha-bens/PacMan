@@ -151,7 +151,7 @@ public class MazeCustomView {
         labImage.setLayoutY(430);
 
         Button button = new Button();
-        ImageView imageButton = new ImageView(new Image("Information3.png"));
+        ImageView imageButton = new ImageView(new Image("Information.png"));
         button.setGraphic(imageButton);
         button.setStyle(
                 "-fx-background-color: #000000;"
