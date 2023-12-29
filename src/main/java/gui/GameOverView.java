@@ -133,8 +133,6 @@ public class GameOverView {
                 };
                 reload.start();
                 // ---
-            } else {
-                System.out.println("Pseudo Invalide!");
             }
         });
 
@@ -225,14 +223,12 @@ public class GameOverView {
     }
 
     public static void verifFile(String filePath) {
-        System.out.println(filePath);
         File file = new File(filePath);
 
         if (!file.exists()) {
             try {
                 file.createNewFile();
             } catch (IOException e) {
-                System.err.println("Erreur lors de la création du fichier : " + filePath);
                 e.printStackTrace();
             }
         }

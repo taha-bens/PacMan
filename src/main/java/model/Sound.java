@@ -31,7 +31,7 @@ public final class Sound {
     };
 
     private Clip mainMusicClip, startMusicClip, eatSoundClip, deathMusicClip;
-    
+
     private Sound() {
 
     }

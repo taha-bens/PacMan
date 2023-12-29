@@ -6,6 +6,7 @@ import geometry.IntCoordinates;
 import geometry.RealCoordinates;
 import gui.GameOverView;
 import gui.GameView;
+import gui.PacmanController;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Scene;
@@ -47,15 +48,19 @@ public final class MazeState {
     public boolean vie1;
 
     private final Map<Critter, RealCoordinates> initialPos;
-    private int lives = 3;
+    private int lives;
 
     private Pane root;
     private ImageView l1, l2, l3;
     private boolean eatSuperPacGum;
 
-    public MazeState(MazeConfig config, double scale, Pane root, String level) {
+    private String mazeLocate;
+
+    public MazeState(MazeConfig config, double scale, Pane root, String level, Stage primaryStage, int oldScore, int lives) {
         this.config = config;
         this.level = level;
+        this.score = oldScore;
+        this.lives = (lives<=3)?(lives):(3);
         height = config.getHeight();
         width = config.getWidth();
         critters = List.of(PacMan.INSTANCE, Ghost.CLYDE, BLINKY, INKY, PINKY);
@@ -84,6 +89,19 @@ public final class MazeState {
             this.root.getChildren().add(liveImageTab[i - 1]);
             liveImageTab[i - 1].setX(scale * (i - 1) + 5);
             liveImageTab[i - 1].setY(710);
+        }
+
+        switch (this.lives) {
+            case 1 -> {
+                this.root.getChildren().remove(l2);
+                this.root.getChildren().remove(l3);
+                break;
+            }
+
+            case 2 -> {
+                this.root.getChildren().remove(l3);
+                break;
+            }
         }
 
         for (int i = 0; i < config.getGrid().length; i++) {
@@ -218,6 +236,33 @@ public final class MazeState {
             } else {
                 addScore(10);
                 incrPacgum();
+                if (pacgum==pacgumTotal) {
+                    GameView.getReload().stop();
+                    switch(level){
+                        case "1" : mazeLocate = "src/main/resources/maze"+level+".txt"; break;
+                        case "2" : mazeLocate = "src/main/resources/maze"+level+".txt"; break;
+                        case "3" : mazeLocate = "src/main/resources/maze"+level+".txt"; break;
+                        default : mazeLocate = level; break;
+                    }
+
+                    Pane root = new Pane(); //organisateur de la fenêtre (stage)
+                    Scene gameScene = new Scene(root); //scène (comme caneva dans python tkinter)
+                    PacmanController pacmanController = new PacmanController();
+                    gameScene.setOnKeyPressed(pacmanController::keyPressedHandler); //ajoute l'event pression sur la scene
+                    gameScene.setOnKeyReleased(pacmanController::keyReleasedHandler); //ajoute l'event relachement sur la scene
+
+                    MazeState maze = new MazeState(MazeConfig.makeMazeFINAL(mazeLocate), 50.0, root, level, primaryStage, this.score, this.lives); //données du labyrinthe
+                    GameView gameView = new GameView(maze, root, 50.0); //apparance graphique du précédent labyrinthe
+
+                    PacMan.INSTANCE.setEnergized(false);
+
+                    primaryStage.setScene(gameScene);
+                    primaryStage.setTitle("Pacman");
+                    primaryStage.setResizable(true);
+
+                    Sound.SOUND.stopMainMusicLoop();
+                    gameView.animate(primaryStage);
+                }
             }
         }
 
