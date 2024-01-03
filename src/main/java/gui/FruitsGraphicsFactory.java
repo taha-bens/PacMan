@@ -48,6 +48,7 @@ public class FruitsGraphicsFactory {
                 new KeyFrame(Duration.seconds(16), event -> {
                     img.setVisible(false);
                     state.setFruitsGridState(fruitsCoord, true);
+                    flag = false;
                 })
         );
 
@@ -68,6 +69,7 @@ public class FruitsGraphicsFactory {
                     flag = true;
                     timelineFruitAppear.play();
                     timelineFruitDisappear.play();
+
                 }
                 if (img.isVisible()) {
                     if (state.getFruitsGridState(fruitsCoord)) {

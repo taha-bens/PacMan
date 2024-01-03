@@ -6,6 +6,7 @@ import geometry.IntCoordinates;
 import geometry.RealCoordinates;
 import gui.GameOverView;
 import gui.GameView;
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Scene;
@@ -23,7 +24,7 @@ import static model.Ghost.*;
 public final class MazeState {
 
     private Timer timer;
-    private Timeline tml;
+    private Timeline timelineEatSuperPacGumStatus;
 
     private final MazeConfig config;
 
@@ -47,11 +48,13 @@ public final class MazeState {
     public boolean vie1;
 
     private final Map<Critter, RealCoordinates> initialPos;
+    private final Map<Critter, Direction> initialDir;
     private int lives = 3;
 
     private Pane root;
     private ImageView l1, l2, l3;
     private boolean eatSuperPacGum;
+    private int ghostEatenBySuperPacGum;
 
     public MazeState(MazeConfig config, double scale, Pane root, String level) {
         this.config = config;
@@ -71,6 +74,13 @@ public final class MazeState {
                 INKY, config.getInkyPos().toRealCoordinates(1.0),
                 CLYDE, config.getClydePos().toRealCoordinates(1.0),
                 PINKY, config.getPinkyPos().toRealCoordinates(1.0)
+        );
+        initialDir = Map.of(
+                PacMan.INSTANCE, Direction.WEST,
+                BLINKY, Direction.NORTH,
+                INKY, Direction.EAST,
+                CLYDE, Direction.WEST,
+                PINKY, Direction.NORTH
         );
         this.root = root;
         resetCritters();
@@ -142,6 +152,11 @@ public final class MazeState {
             @Override
             public void run() {
                 PacMan.INSTANCE.setEnergized(false);
+                for (Critter c : critters) {
+                    if (c instanceof Ghost && !((Ghost) c).isDead()) {
+                        ((Ghost) c).setFrightened(false);
+                    }
+                }
             }
         };
         timer.schedule(timerTask, 8000);
@@ -160,14 +175,17 @@ public final class MazeState {
             RealCoordinates nextPos = critter.nextPos(deltaTns);
             Set<IntCoordinates> curNeighbours = curPos.intNeighbours();
             Set<IntCoordinates> nextNeighbours = nextPos.intNeighbours();
-
             if (!curNeighbours.containsAll(nextNeighbours)) { // the critter would overlap new cells. Do we allow it?
                 switch (critter.getDirection()) {
                     case NORTH -> {
                         for (IntCoordinates n : curNeighbours) {
                             if (config.getCell(n).northWall()) {
                                 nextPos = curPos.floorY();
-                                critter.setDirection(Direction.NONE);
+                                if (critter == BLINKY) {
+                                    critter.setDirection(Direction.WEST);
+                                } else {
+                                    critter.setDirection(Direction.NONE);
+                                }
                                 break;
                             }
                         }
@@ -194,7 +212,11 @@ public final class MazeState {
                         for (IntCoordinates n : curNeighbours) {
                             if (config.getCell(n).westWall()) {
                                 nextPos = curPos.floorX();
-                                critter.setDirection(Direction.NONE);
+                                if (critter == BLINKY) {
+                                    BLINKY.setDirection(Direction.NORTH);
+                                } else {
+                                    critter.setDirection(Direction.NONE);
+                                }
                                 break;
                             }
                         }
@@ -209,34 +231,43 @@ public final class MazeState {
             gridState[pacPos.y()][pacPos.x()] = true;
             fruitsGridState[pacPos.y()][pacPos.x()] = true;
             if (this.getConfig().getCell(pacPos).initialContent() == Cell.Content.ENERGIZER) {
+                ghostEatenBySuperPacGum = 200;
                 eatSuperPacGum = true;
-                tml.play();
+                timelineEatSuperPacGumStatus.play();
                 PacMan.INSTANCE.setEnergized(true);
                 Mode.backward();
                 addScore(50);
                 resetTimerEnergized();
+                for (Critter c : critters) {
+                    if (c instanceof Ghost) {
+                        ((Ghost) c).setFrightened(true);
+                    }
+                }
             } else {
                 addScore(10);
                 incrPacgum();
             }
         }
 
-
-
         for (Critter critter : critters) {
-            if (critter instanceof Ghost && critter.getPos().round().equals(pacPos)) {
-                if (PacMan.INSTANCE.isEnergized()) { // PacMan energisÃ© tue un fantome
-                    addScore(200);
-                    resetCritter(critter);
-                } else {
-                    //playerLost(primaryStage);
-                    GameView.setIsDead(true); // PacMan touche un fantome
-                    return;
+            if (critter instanceof Ghost) {
+                critterBackHome(critter);
+                if (critter.getPos().round().equals(pacPos)){
+                    if (((Ghost) critter).isFrightened()) {// PacMan energisÃ© tue un fantome
+                        if (!((Ghost) critter).isDead()){
+                            ((Ghost) critter).setDead(true);
+                            addScore(ghostEatenBySuperPacGum);
+                            ghostEatenBySuperPacGum += 200;
+                        }
+                    } else {
+                        GameView.setIsDead(true); // PacMan touche un fantome
+                        return;
+                    }
                 }
             }
         }
 
-        tml = new Timeline(
+        timelineEatSuperPacGumStatus = new Timeline(
                 new KeyFrame(Duration.seconds(0.5), event -> {
                     setEatSuperPacGum(false);
                 })
@@ -289,6 +320,20 @@ public final class MazeState {
     private void resetCritter(Critter critter) {
         critter.setPos(initialPos.get(critter));
         critter.setDirection(Direction.NONE);
+        if (critter instanceof Ghost) {
+            ((Ghost) critter).setFrightened(false);
+            ((Ghost) critter).setDead(false);
+        }
+    }
+
+    private void critterBackHome(Critter critter){
+        IntCoordinates critPos = critter.getPos().round();
+        if (critPos.equals(Mode.homeObjectif()) && ((Ghost) critter).isDead()){
+            critter.setPos(initialPos.get(PINKY));
+            critter.setDirection(initialDir.get(critter));
+            ((Ghost) critter).setDead(false);
+            ((Ghost) critter).setFrightened(false);
+        }
     }
 
     private void resetCritters() {

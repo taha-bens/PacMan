@@ -17,7 +17,6 @@ public class MenuView {
 
     public MenuView(Pane menuRoot, Stage primaryStage) {
         this.menuRoot = menuRoot;
-
         Image img = new Image("projet_icone.png", 500, 0, true, false);
         ImageView image = new ImageView(img);
         image.setTranslateX(0);

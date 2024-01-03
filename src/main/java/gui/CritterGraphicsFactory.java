@@ -76,6 +76,11 @@ public final class CritterGraphicsFactory {
         ImageView pinD = new ImageView(makeImage("gif/pink/PinkyD.gif"));
         ImageView pinL = new ImageView(makeImage("gif/pink/PinkyL.gif"));
 
+        ImageView deadU = new ImageView(makeImage("dead/DeadU.png"));
+        ImageView deadR = new ImageView(makeImage("dead/DeadR.png"));
+        ImageView deadD = new ImageView(makeImage("dead/DeadD.png"));
+        ImageView deadL = new ImageView(makeImage("dead/DeadL.png"));
+
         //Creation de la timeline de l'animation des fantomes frightened
 
         frightenedTimeline[0] = new KeyFrame(Duration.seconds(0), event -> {
@@ -104,9 +109,8 @@ public final class CritterGraphicsFactory {
             public void update() {
                 if (critter instanceof PacMan) {
                     setSprites(PacMan.INSTANCE, image, pacU, pacR, pacD, pacL);
-
                 } else {
-                    if (!PacMan.INSTANCE.isEnergized()) {
+                    if (!((Ghost) critter).isFrightened()) {
                         tml.stop();
                         switch ((Ghost) critter) {
                             case BLINKY -> setSprites(critter, image, binU, binR, binD, binL);
@@ -118,6 +122,9 @@ public final class CritterGraphicsFactory {
                         if (maze.getEatSuperPacGum() || tml.getStatus() == Animation.Status.STOPPED) {
                             tml.playFromStart();
                         }
+                    }
+                    if (((Ghost) critter).isDead()){
+                        setSprites(critter, image, deadU, deadR, deadD, deadL);
                     }
                 }
                 image.setTranslateX((critter.getPos().x() + (1 - size) / 2) * scale);

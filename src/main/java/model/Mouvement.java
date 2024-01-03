@@ -42,6 +42,8 @@ public class Mouvement {
             objectif = Mode.chaseObjectif(valeurs);
         } else if (mode.equals("scatter")) {
             objectif = Mode.scatterObjectif(valeurs);
+        } else if (mode.equals("dead")) {
+            objectif = Mode.homeObjectif();
         } else {
             objectif = Mode.frightenedObjectif();
         }
@@ -135,6 +137,8 @@ public class Mouvement {
             objectif = Mode.chaseObjectif(valeurs);
         } else if (mode.equals("scatter")) {
             objectif = Mode.scatterObjectif(valeurs);
+        } else if (mode.equals("dead")) {
+            objectif = Mode.homeObjectif();
         } else {
             objectif = Mode.frightenedObjectif();
         }
@@ -227,6 +231,8 @@ public class Mouvement {
             objectif = Mode.chaseObjectif(valeurs);
         } else if (mode.equals("scatter")) {
             objectif = Mode.scatterObjectif(valeurs);
+        } else if (mode.equals("dead")) {
+            objectif = Mode.homeObjectif();
         } else {
             objectif = Mode.frightenedObjectif();
         }
@@ -320,6 +326,8 @@ public class Mouvement {
             objectif = Mode.chaseObjectif(valeurs);
         } else if (mode.equals("scatter")) {
             objectif = Mode.scatterObjectif(valeurs);
+        } else if (mode.equals("dead")) {
+            objectif = Mode.homeObjectif();
         } else {
             objectif = Mode.frightenedObjectif();
         }
@@ -405,6 +413,8 @@ public class Mouvement {
             objectif = Mode.chaseObjectif(valeurs);
         } else if (mode.equals("scatter")) {
             objectif = Mode.scatterObjectif(valeurs);
+        } else if (mode.equals("dead")) {
+            objectif = Mode.homeObjectif();
         } else {
             objectif = Mode.frightenedObjectif();
         }

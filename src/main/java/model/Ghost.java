@@ -10,6 +10,8 @@ public enum Ghost implements Critter {
     private RealCoordinates pos;
     private Direction direction = Direction.NONE;
     private Direction previousDir;
+    private boolean isFrightened;
+    private boolean isDead;
 
     @Override
     public RealCoordinates getPos() {
@@ -36,9 +38,28 @@ public enum Ghost implements Critter {
         return direction;
     }
 
+    public boolean isFrightened() {
+        return isFrightened;
+    }
+    public void setFrightened(boolean frightened) {
+        isFrightened = frightened;
+    }
+    public boolean isDead() {
+        return isDead;
+    }
+    public void setDead(boolean dead) {
+        isDead = dead;
+    }
+
     @Override
     public double getSpeed() {
-        return PacMan.INSTANCE.isEnergized() ? 2 : 3.6;
+        if (isFrightened && !isDead){
+            return 2;
+        } else if (isFrightened){
+            return 4;
+        } else {
+            return 3.6;
+        }
     }
 
 

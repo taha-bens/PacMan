@@ -22,7 +22,6 @@ public class Mode {
         } else {
             Mode.frightenedMode(maze);
         }
-
     }
 
     /**
@@ -67,21 +66,37 @@ public class Mode {
 
             if (valeurs.getDirection() == Direction.NORTH) {
                 if (valeurs.getPos().getY() - Math.floor(valeurs.getPos().getY()) < 0.1) {
-                    Mouvement.north(maze, valeurs, "scatter");
+                    if (valeurs.isDead()) {
+                        Mouvement.north(maze, valeurs, "dead");
+                    } else {
+                        Mouvement.north(maze, valeurs, "scatter");
+                    }
                 }
             } else if (valeurs.getDirection() == Direction.SOUTH) {
                 if (Math.ceil(valeurs.getPos().getY()) - valeurs.getPos().getY() < 0.1) {
-                    Mouvement.south(maze, valeurs, "scatter");
+                    if (valeurs.isDead()) {
+                        Mouvement.south(maze, valeurs, "dead");
+                    } else {
+                        Mouvement.south(maze, valeurs, "scatter");
+                    }
                 }
             } else if (valeurs.getDirection() == Direction.EAST) {
                 if (Math.ceil(valeurs.getPos().getX()) - valeurs.getPos().getX() < 0.1) {
-                    Mouvement.east(maze, valeurs, "scatter");
+                    if (valeurs.isDead()) {
+                        Mouvement.east(maze, valeurs, "dead");
+                    } else {
+                        Mouvement.east(maze, valeurs, "scatter");
+                    }
                 }
             }
 
             if (valeurs.getDirection() == Direction.WEST) {
                 if (valeurs.getPos().getX() - Math.floor(valeurs.getPos().getX()) < 0.1) {
-                    Mouvement.west(maze, valeurs, "scatter");
+                    if (valeurs.isDead()) {
+                        Mouvement.west(maze, valeurs, "dead");
+                    } else {
+                        Mouvement.west(maze, valeurs, "scatter");
+                    }
                 }
             }
         }
@@ -93,28 +108,48 @@ public class Mode {
      */
     public static void frightenedMode(MazeState maze) {
         for (Ghost valeurs : Ghost.values()) {
-            if (BLINKY.getPos().round().estEgal(new IntCoordinates(7, 6))) {
-                BLINKY.setDirection(Direction.WEST);
+            if (BLINKY.getPos().getX() == 7.0 && BLINKY.getPos().getY() < 6.10 && BLINKY.getPos().getY() > 6.0) {
+                BLINKY.setDirection(Direction.NORTH);
             }
 
             if (valeurs.getDirection() == Direction.NORTH) {
                 if (valeurs.getPos().getY() - Math.floor(valeurs.getPos().getY()) < 0.1) {
-                    Mouvement.north(maze, valeurs, "frightened");
+                    if (valeurs.isDead()) {
+                        Mouvement.north(maze, valeurs, "dead");
+                    } else {
+                        Mouvement.north(maze, valeurs, "frightened");
+                    }
                 }
             } else if (valeurs.getDirection() == Direction.SOUTH) {
                 if (Math.ceil(valeurs.getPos().getY()) - valeurs.getPos().getY() < 0.1) {
-                    Mouvement.south(maze, valeurs, "frightened");
+                    if (valeurs.isDead()) {
+                        Mouvement.south(maze, valeurs, "dead");
+                    } else {
+                        Mouvement.south(maze, valeurs, "frightened");
+                    }
                 }
             } else if (valeurs.getDirection() == Direction.EAST) {
                 if (Math.ceil(valeurs.getPos().getX()) - valeurs.getPos().getX() < 0.1) {
-                    Mouvement.east(maze, valeurs, "frightened");
+                    if (valeurs.isDead()) {
+                        Mouvement.east(maze, valeurs, "dead");
+                    } else {
+                        Mouvement.east(maze, valeurs, "frightened");
+                    }
                 }
             } else if (valeurs.getDirection() == Direction.WEST) {
                 if (valeurs.getPos().getX() - Math.floor(valeurs.getPos().getX()) < 0.1) {
-                    Mouvement.west(maze, valeurs, "frightened");
+                    if (valeurs.isDead()) {
+                        Mouvement.west(maze, valeurs, "dead");
+                    } else {
+                        Mouvement.west(maze, valeurs, "frightened");
+                    }
                 }
             } else if (valeurs.getDirection() == Direction.NONE) {
-                Mouvement.none(maze, valeurs, "frightened");
+                if (valeurs.isDead()) {
+                    Mouvement.none(maze, valeurs, "dead");
+                } else {
+                    Mouvement.none(maze, valeurs, "frightened");
+                }
             }
         }
     }
@@ -127,22 +162,42 @@ public class Mode {
         for (Ghost valeurs : Ghost.values()) {
             if (valeurs.getDirection() == Direction.NORTH) {
                 if (valeurs.getPos().getY() - Math.floor(valeurs.getPos().getY()) < 0.1) {
-                    Mouvement.north(maze, valeurs, "chase");
+                    if (valeurs.isDead()) {
+                        Mouvement.north(maze, valeurs, "dead");
+                    } else {
+                        Mouvement.north(maze, valeurs, "chase");
+                    }
                 }
             } else if (valeurs.getDirection() == Direction.SOUTH) {
                 if (Math.ceil(valeurs.getPos().getY()) - valeurs.getPos().getY() < 0.1) {
-                    Mouvement.south(maze, valeurs, "chase");
+                    if (valeurs.isDead()) {
+                        Mouvement.south(maze, valeurs, "dead");
+                    } else {
+                        Mouvement.south(maze, valeurs, "chase");
+                    }
                 }
             } else if (valeurs.getDirection() == Direction.EAST) {
                 if (Math.ceil(valeurs.getPos().getX()) - valeurs.getPos().getX() < 0.1) {
-                    Mouvement.east(maze, valeurs, "chase");
+                    if (valeurs.isDead()) {
+                        Mouvement.east(maze, valeurs, "dead");
+                    } else {
+                        Mouvement.east(maze, valeurs, "chase");
+                    }
                 }
             } else if (valeurs.getDirection() == Direction.WEST) {
                 if (valeurs.getPos().getX() - Math.floor( valeurs.getPos().getX()) < 0.1) {
-                    Mouvement.west(maze, valeurs, "chase");
+                    if (valeurs.isDead()) {
+                        Mouvement.west(maze, valeurs, "dead");
+                    } else {
+                        Mouvement.west(maze, valeurs, "chase");
+                    }
                 }
             } else if (valeurs.getDirection() == Direction.NONE) {
-                Mouvement.none(maze, valeurs, "chase");
+                if (valeurs.isDead()) {
+                    Mouvement.none(maze, valeurs, "dead");
+                } else {
+                    Mouvement.none(maze, valeurs, "chase");
+                }
             }
         }
     }
@@ -203,6 +258,9 @@ public class Mode {
         return new IntCoordinates(x, y);
     }
 
+    public static IntCoordinates homeObjectif(){
+        return new IntCoordinates(7,6);
+    }
     public static boolean isScatter(int S) {
         // Durées des phases "Scatter" et "Chase"
         if (S > 84) {

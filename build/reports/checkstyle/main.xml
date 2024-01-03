@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="10.12.4">
-<file name="C:\Workspace\Travail\pacman\src\main\java\config\Cell.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\config\Cell.java">
 <error line="3" column="1" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
 <error line="9" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
 <error line="13" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
@@ -15,44 +15,44 @@
 <error line="38" column="24" severity="warning" message="Method name &apos;PipeCell&apos; must match pattern &apos;^[a-z][a-z0-9]\w*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MethodNameCheck"/>
 <error line="46" column="24" severity="warning" message="Method name &apos;EntierCell&apos; must match pattern &apos;^[a-z][a-z0-9]\w*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MethodNameCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\config\MazeConfig.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\config\MazeConfig.java">
 <error line="5" column="1" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
 <error line="7" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
 <error line="29" column="5" severity="warning" message="Chaque déclaration de variable doit faire l&apos;objet d&apos;une instruction à part." source="com.puppycrawl.tools.checkstyle.checks.coding.MultipleVariableDeclarationsCheck"/>
 <error line="71" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
 <error line="71" column="30" severity="warning" message="L&apos;abréviation dans le nom &apos;makeMazeFINAL&apos; ne doit pas contenir plus de &apos;1&apos; lettres majuscules." source="com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\config\MazeLoader.java">
-<error line="11" column="1" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
-<error line="13" severity="warning" message="La première phrase de la Javadoc doit se terminer avec un point." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
-<error line="15" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="15" severity="warning" message="Javadoc tag &apos;@param&apos; doit être précédé d&apos;une ligne vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\config\MazeLoader.java">
+<error line="12" column="1" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+<error line="14" severity="warning" message="La première phrase de la Javadoc doit se terminer avec un point." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
 <error line="16" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="36" severity="warning" message="La première phrase de la Javadoc doit se terminer avec un point." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
-<error line="38" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="38" severity="warning" message="Javadoc tag &apos;@param&apos; doit être précédé d&apos;une ligne vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
+<error line="16" severity="warning" message="Javadoc tag &apos;@param&apos; doit être précédé d&apos;une ligne vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
+<error line="17" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="37" severity="warning" message="La première phrase de la Javadoc doit se terminer avec un point." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
 <error line="39" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="53" severity="warning" message="La première phrase de la Javadoc doit se terminer avec un point." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
-<error line="55" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="55" severity="warning" message="Javadoc tag &apos;@param&apos; doit être précédé d&apos;une ligne vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
+<error line="39" severity="warning" message="Javadoc tag &apos;@param&apos; doit être précédé d&apos;une ligne vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
+<error line="40" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="54" severity="warning" message="La première phrase de la Javadoc doit se terminer avec un point." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
 <error line="56" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="56" severity="warning" message="Javadoc tag &apos;@param&apos; doit être précédé d&apos;une ligne vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
 <error line="57" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="70" severity="warning" message="La première phrase de la Javadoc doit se terminer avec un point." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
-<error line="72" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="72" severity="warning" message="Javadoc tag &apos;@param&apos; doit être précédé d&apos;une ligne vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
+<error line="58" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="71" severity="warning" message="La première phrase de la Javadoc doit se terminer avec un point." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
 <error line="73" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="86" column="13" severity="warning" message="&apos;}&apos; à la colonne 13 devrait être sur la même ligne que la prochaine partie d&apos;une instruction multi-bloc (celui qui contient directement plusieurs blocs : if/else-if/else, do/while ou try/catch/finally)." source="RightCurlySame"/>
-<error line="95" column="13" severity="warning" message="&apos;}&apos; à la colonne 13 devrait être sur la même ligne que la prochaine partie d&apos;une instruction multi-bloc (celui qui contient directement plusieurs blocs : if/else-if/else, do/while ou try/catch/finally)." source="RightCurlySame"/>
-<error line="105" column="13" severity="warning" message="&apos;}&apos; à la colonne 13 devrait être sur la même ligne que la prochaine partie d&apos;une instruction multi-bloc (celui qui contient directement plusieurs blocs : if/else-if/else, do/while ou try/catch/finally)." source="RightCurlySame"/>
-<error line="111" column="13" severity="warning" message="&apos;}&apos; à la colonne 13 devrait être sur la même ligne que la prochaine partie d&apos;une instruction multi-bloc (celui qui contient directement plusieurs blocs : if/else-if/else, do/while ou try/catch/finally)." source="RightCurlySame"/>
-<error line="117" column="52" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="119" column="13" severity="warning" message="&apos;}&apos; à la colonne 13 devrait être sur la même ligne que la prochaine partie d&apos;une instruction multi-bloc (celui qui contient directement plusieurs blocs : if/else-if/else, do/while ou try/catch/finally)." source="RightCurlySame"/>
-<error line="121" column="50" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="73" severity="warning" message="Javadoc tag &apos;@param&apos; doit être précédé d&apos;une ligne vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
+<error line="74" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="87" column="13" severity="warning" message="&apos;}&apos; à la colonne 13 devrait être sur la même ligne que la prochaine partie d&apos;une instruction multi-bloc (celui qui contient directement plusieurs blocs : if/else-if/else, do/while ou try/catch/finally)." source="RightCurlySame"/>
+<error line="96" column="13" severity="warning" message="&apos;}&apos; à la colonne 13 devrait être sur la même ligne que la prochaine partie d&apos;une instruction multi-bloc (celui qui contient directement plusieurs blocs : if/else-if/else, do/while ou try/catch/finally)." source="RightCurlySame"/>
+<error line="106" column="13" severity="warning" message="&apos;}&apos; à la colonne 13 devrait être sur la même ligne que la prochaine partie d&apos;une instruction multi-bloc (celui qui contient directement plusieurs blocs : if/else-if/else, do/while ou try/catch/finally)." source="RightCurlySame"/>
+<error line="112" column="13" severity="warning" message="&apos;}&apos; à la colonne 13 devrait être sur la même ligne que la prochaine partie d&apos;une instruction multi-bloc (celui qui contient directement plusieurs blocs : if/else-if/else, do/while ou try/catch/finally)." source="RightCurlySame"/>
+<error line="118" column="52" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="120" column="13" severity="warning" message="&apos;}&apos; à la colonne 13 devrait être sur la même ligne que la prochaine partie d&apos;une instruction multi-bloc (celui qui contient directement plusieurs blocs : if/else-if/else, do/while ou try/catch/finally)." source="RightCurlySame"/>
+<error line="122" column="50" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\geometry\IntCoordinates.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\geometry\IntCoordinates.java">
 <error line="3" column="1" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\geometry\RealCoordinates.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\geometry\RealCoordinates.java">
 <error line="13" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
 <error line="13" severity="warning" message="Javadoc tag &apos;@param&apos; doit être précédé d&apos;une ligne vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
 <error line="14" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
@@ -70,7 +70,7 @@
 <error line="82" column="9" severity="warning" message="L&apos;instruction &apos;while&apos; devrait utiliser des accolades (&apos;{&apos; et &apos;}&apos;)." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
 <error line="84" column="9" severity="warning" message="L&apos;instruction &apos;while&apos; devrait utiliser des accolades (&apos;{&apos; et &apos;}&apos;)." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\gui\App.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\gui\App.java">
 <error line="11" severity="warning" message="La première phrase de la Javadoc doit se terminer avec un point." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
 <error line="16" severity="warning" message="Le résumé Javadoc est manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
 <error line="19" severity="warning" message="La continuation de la ligne a un niveau d&apos;indentation incorrect, le niveau attendu doit être 4." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTagContinuationIndentationCheck"/>
@@ -80,7 +80,7 @@
 <error line="24" severity="warning" message="La continuation de la ligne a un niveau d&apos;indentation incorrect, le niveau attendu doit être 4." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTagContinuationIndentationCheck"/>
 <error line="25" severity="warning" message="La continuation de la ligne a un niveau d&apos;indentation incorrect, le niveau attendu doit être 4." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTagContinuationIndentationCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\gui\CellGraphicsFactory.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\gui\CellGraphicsFactory.java">
 <error line="16" column="1" severity="warning" message="L&apos;import pour &apos;config.Cell.Content.ENERGIZER&apos; est dans le mauvais ordre. Il devrait être dans le groupe &apos;STATIC&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="18" column="1" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
 <error line="25" severity="warning" message="La première phrase de la Javadoc doit se terminer avec un point." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
@@ -99,7 +99,7 @@
 <error line="102" column="52" severity="warning" message="&apos;||&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
 <error line="120" column="62" severity="warning" message="&apos;?&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\gui\CritterGraphicsFactory.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\gui\CritterGraphicsFactory.java">
 <error line="10" column="13" severity="warning" message="L&apos;utilisation des import.* est prohibé - model.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="12" column="1" severity="warning" message="Mauvais ordre lexicographique pour l&apos;import &apos;java.util.Map&apos;. Il devrait être avant &apos;model.*&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="12" column="1" severity="warning" message="Séparation supplémentaire dans le groupe d&apos;importation avant &apos;java.util.Map&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
@@ -116,40 +116,41 @@
 <error line="46" column="21" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 20 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="47" column="21" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 20 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="48" column="17" severity="warning" message="&apos;switch rcurly&apos; au niveau d&apos;indentation 16 n&apos;est pas indenté correctement, le niveau attendu est 8." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="111" column="25" severity="warning" message="Il manque le cas &quot;default&quot; dans le bloc &quot;switch&quot;." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
-<error line="112" column="29" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 28 n&apos;est pas indenté correctement, le niveau attendu est l&apos;un des suivants : 26, 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="113" column="29" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 28 n&apos;est pas indenté correctement, le niveau attendu est l&apos;un des suivants : 26, 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="114" column="29" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 28 n&apos;est pas indenté correctement, le niveau attendu est l&apos;un des suivants : 26, 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="115" column="29" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 28 n&apos;est pas indenté correctement, le niveau attendu est l&apos;un des suivants : 26, 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="118" severity="warning" message="La ligne excède 100 caractères (trouvé 102)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="134" severity="warning" message="La première phrase de la Javadoc doit se terminer avec un point." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
-<error line="136" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="136" severity="warning" message="Javadoc tag &apos;@param&apos; doit être précédé d&apos;une ligne vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
-<error line="137" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="138" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="139" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="140" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="141" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="143" severity="warning" message="La ligne excède 100 caractères (trouvé 129)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="145" column="13" severity="warning" message="Il manque le cas &quot;default&quot; dans le bloc &quot;switch&quot;." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
-<error line="146" column="17" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 16 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="147" column="17" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 16 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="148" column="17" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 16 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="149" column="17" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 16 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="115" column="25" severity="warning" message="Il manque le cas &quot;default&quot; dans le bloc &quot;switch&quot;." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
+<error line="116" column="29" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 28 n&apos;est pas indenté correctement, le niveau attendu est l&apos;un des suivants : 26, 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="117" column="29" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 28 n&apos;est pas indenté correctement, le niveau attendu est l&apos;un des suivants : 26, 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="118" column="29" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 28 n&apos;est pas indenté correctement, le niveau attendu est l&apos;un des suivants : 26, 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="119" column="29" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 28 n&apos;est pas indenté correctement, le niveau attendu est l&apos;un des suivants : 26, 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="122" severity="warning" message="La ligne excède 100 caractères (trouvé 102)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="126" column="52" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="141" severity="warning" message="La première phrase de la Javadoc doit se terminer avec un point." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
+<error line="143" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="143" severity="warning" message="Javadoc tag &apos;@param&apos; doit être précédé d&apos;une ligne vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
+<error line="144" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="145" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="146" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="147" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="148" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="150" severity="warning" message="La ligne excède 100 caractères (trouvé 129)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="152" column="13" severity="warning" message="Il manque le cas &quot;default&quot; dans le bloc &quot;switch&quot;." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
 <error line="153" column="17" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 16 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="154" column="17" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 16 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="155" column="17" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 16 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="156" column="17" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 16 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="159" column="13" severity="warning" message="Il manque le cas &quot;default&quot; dans le bloc &quot;switch&quot;." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
+<error line="160" column="17" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 16 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="161" column="17" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 16 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="162" column="17" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 16 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="163" column="17" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 16 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\gui\FruitsGraphicsFactory.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\gui\FruitsGraphicsFactory.java">
 <error line="14" column="1" severity="warning" message="Mauvais ordre lexicographique pour l&apos;import &apos;java.util.Map&apos;. Il devrait être avant &apos;model.PacMan&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="14" column="1" severity="warning" message="Séparation supplémentaire dans le groupe d&apos;importation avant &apos;java.util.Map&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="16" column="1" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
 <error line="31" column="39" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="35" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\gui\GameOverMultiView.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\gui\GameOverMultiView.java">
 <error line="19" column="1" severity="warning" message="Mauvais ordre lexicographique pour l&apos;import &apos;java.io.File&apos;. Il devrait être avant &apos;javafx.stage.Stage&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="19" column="1" severity="warning" message="Séparation supplémentaire dans le groupe d&apos;importation avant &apos;java.io.File&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="20" column="1" severity="warning" message="Mauvais ordre lexicographique pour l&apos;import &apos;java.io.IOException&apos;. Il devrait être avant &apos;javafx.stage.Stage&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
@@ -183,7 +184,7 @@
 <error line="112" column="38" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="145" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\gui\GameOverView.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\gui\GameOverView.java">
 <error line="15" column="1" severity="warning" message="Mauvais ordre lexicographique pour l&apos;import &apos;java.io.File&apos;. Il devrait être avant &apos;javafx.stage.Stage&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="15" column="1" severity="warning" message="Séparation supplémentaire dans le groupe d&apos;importation avant &apos;java.io.File&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="16" column="1" severity="warning" message="Mauvais ordre lexicographique pour l&apos;import &apos;java.io.IOException&apos;. Il devrait être avant &apos;javafx.stage.Stage&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
@@ -217,7 +218,7 @@
 <error line="217" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
 <error line="227" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\gui\GameView.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\gui\GameView.java">
 <error line="10" column="13" severity="warning" message="L&apos;utilisation des import.* est prohibé - model.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="12" column="1" severity="warning" message="Mauvais ordre lexicographique pour l&apos;import &apos;java.util.ArrayList&apos;. Il devrait être avant &apos;model.*&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="12" column="1" severity="warning" message="Séparation supplémentaire dans le groupe d&apos;importation avant &apos;java.util.ArrayList&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
@@ -240,19 +241,19 @@
 <error line="100" column="17" severity="warning" message="&apos;}&apos; à la colonne 17 devrait être sur la même ligne que la prochaine partie d&apos;une instruction multi-bloc (celui qui contient directement plusieurs blocs : if/else-if/else, do/while ou try/catch/finally)." source="RightCurlySame"/>
 <error line="112" column="82" severity="warning" message="&apos;==&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\gui\GraphicsUpdater.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\gui\GraphicsUpdater.java">
 <error line="5" column="1" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
 <error line="7" column="5" severity="warning" message="&apos;METHOD_DEF&apos; doit être séparé de la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\gui\MenuView.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\gui\MenuView.java">
 <error line="8" column="27" severity="warning" message="L&apos;utilisation des import.* est prohibé - javafx.scene.layout.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="14" column="1" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
 <error line="18" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
-<error line="28" column="50" severity="warning" message="&apos;+&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="29" column="54" severity="warning" message="&apos;+&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="55" severity="warning" message="La ligne excède 100 caractères (trouvé 112)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="27" column="50" severity="warning" message="&apos;+&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="28" column="54" severity="warning" message="&apos;+&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="54" severity="warning" message="La ligne excède 100 caractères (trouvé 112)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\gui\PacmanController.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\gui\PacmanController.java">
 <error line="6" column="1" severity="warning" message="Séparation supplémentaire dans le groupe d&apos;importation avant &apos;model.Direction&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="9" column="1" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
 <error line="13" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
@@ -264,7 +265,7 @@
 <error line="55" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
 <error line="55" severity="warning" message="Javadoc tag &apos;@param&apos; doit être précédé d&apos;une ligne vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\gui\Save.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\gui\Save.java">
 <error line="11" column="1" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
 <error line="21" severity="warning" message="La première phrase de la Javadoc doit se terminer avec un point." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
 <error line="23" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
@@ -292,7 +293,7 @@
 <error line="128" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
 <error line="129" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\gui\SelectView.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\gui\SelectView.java">
 <error line="8" column="27" severity="warning" message="L&apos;utilisation des import.* est prohibé - javafx.scene.layout.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="18" column="1" severity="warning" message="Mauvais ordre lexicographique pour l&apos;import &apos;java.io.File&apos;. Il devrait être avant &apos;model.Sound&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="18" column="1" severity="warning" message="Séparation supplémentaire dans le groupe d&apos;importation avant &apos;java.io.File&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
@@ -305,10 +306,10 @@
 <error line="134" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
 <error line="148" column="9" severity="warning" message="La distance entre la déclaration de la variable &apos;gameView&apos; et sa première utilisation est de 5, alors que le maximum autorisé est de 3. Envisagez de rendre cette variable finale si vous avez encore besoin de stocker sa valeur à l&apos;avance (avant les appels de méthode qui pourrait avoir des effets secondaires sur la valeur d&apos;origine)." source="com.puppycrawl.tools.checkstyle.checks.coding.VariableDeclarationUsageDistanceCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\misc\Debug.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\misc\Debug.java">
 <error line="3" column="1" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\model\Critter.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\model\Critter.java">
 <error line="5" column="1" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
 <error line="12" severity="warning" message="Le résumé Javadoc est manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
 <error line="16" column="42" severity="warning" message="L&apos;abréviation dans le nom &apos;deltaTNanoSeconds&apos; ne doit pas contenir plus de &apos;1&apos; lettres majuscules." source="com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheck"/>
@@ -323,58 +324,49 @@
 <error line="27" column="5" severity="warning" message="&apos;METHOD_DEF&apos; doit être séparé de la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
 <error line="28" column="5" severity="warning" message="&apos;METHOD_DEF&apos; doit être séparé de la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\model\Direction.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\model\Direction.java">
 <error line="3" column="1" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\model\Fruits.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\model\Fruits.java">
 <error line="3" column="1" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\model\Ghost.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\model\Ghost.java">
 <error line="5" column="1" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
 <error line="7" severity="warning" message="La ligne excède 100 caractères (trouvé 102)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="44" column="5" severity="warning" message="&apos;METHOD_DEF&apos; doit être séparé de la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
+<error line="47" column="5" severity="warning" message="&apos;METHOD_DEF&apos; doit être séparé de la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
+<error line="50" column="5" severity="warning" message="&apos;METHOD_DEF&apos; doit être séparé de la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
+<error line="56" column="37" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="58" column="33" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\model\MazeState.java">
-<error line="19" column="1" severity="warning" message="Mauvais ordre lexicographique pour l&apos;import &apos;java.util.*&apos;. Il devrait être avant &apos;javafx.util.Duration&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
-<error line="19" column="1" severity="warning" message="Séparation supplémentaire dans le groupe d&apos;importation avant &apos;java.util.*&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
-<error line="19" column="17" severity="warning" message="L&apos;utilisation des import.* est prohibé - java.util.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
-<error line="21" column="1" severity="warning" message="L&apos;import pour &apos;model.Ghost.*&apos; est dans le mauvais ordre. Il devrait être dans le groupe &apos;STATIC&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
-<error line="21" column="26" severity="warning" message="L&apos;utilisation des import.* est prohibé - model.Ghost.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
-<error line="23" column="1" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
-<error line="53" column="5" severity="warning" message="Chaque déclaration de variable doit faire l&apos;objet d&apos;une instruction à part." source="com.puppycrawl.tools.checkstyle.checks.coding.MultipleVariableDeclarationsCheck"/>
-<error line="56" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
-<error line="124" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
-<error line="128" column="81" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="136" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
-<error line="149" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
-<error line="149" column="5" severity="warning" message="&apos;METHOD_DEF&apos; doit être séparé de la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
-<error line="156" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
-<error line="157" severity="warning" message="La ligne excède 100 caractères (trouvé 123)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="158" column="29" severity="warning" message="WhitespaceAround: &apos;:&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="164" severity="warning" message="La ligne excède 100 caractères (trouvé 117)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="165" column="17" severity="warning" message="Il manque le cas &quot;default&quot; dans le bloc &quot;switch&quot;." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
-<error line="166" column="21" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 20 n&apos;est pas indenté correctement, le niveau attendu est 18." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="167" column="25" severity="warning" message="&apos;for&apos; au niveau d&apos;indentation 24 n&apos;est pas indenté correctement, le niveau attendu est 22." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="168" column="29" severity="warning" message="&apos;if&apos; au niveau d&apos;indentation 28 n&apos;est pas indenté correctement, le niveau attendu est 26." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="169" column="33" severity="warning" message="Le fils de &apos;if&apos; au niveau d&apos;indentation 32 n&apos;est pas indenté correctement, le niveau attendu est 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="170" column="33" severity="warning" message="Le fils de &apos;if&apos; au niveau d&apos;indentation 32 n&apos;est pas indenté correctement, le niveau attendu est 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="171" column="33" severity="warning" message="Le fils de &apos;if&apos; au niveau d&apos;indentation 32 n&apos;est pas indenté correctement, le niveau attendu est 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="172" column="29" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 28 n&apos;est pas indenté correctement, le niveau attendu est 26." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="173" column="25" severity="warning" message="&apos;for rcurly&apos; au niveau d&apos;indentation 24 n&apos;est pas indenté correctement, le niveau attendu est 22." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="174" column="21" severity="warning" message="&apos;block rcurly&apos; au niveau d&apos;indentation 20 n&apos;est pas indenté correctement, le niveau attendu est 18." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="175" column="21" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 20 n&apos;est pas indenté correctement, le niveau attendu est 18." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="176" column="25" severity="warning" message="&apos;for&apos; au niveau d&apos;indentation 24 n&apos;est pas indenté correctement, le niveau attendu est 22." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="177" column="29" severity="warning" message="&apos;if&apos; au niveau d&apos;indentation 28 n&apos;est pas indenté correctement, le niveau attendu est 26." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="178" column="33" severity="warning" message="Le fils de &apos;if&apos; au niveau d&apos;indentation 32 n&apos;est pas indenté correctement, le niveau attendu est 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="179" column="33" severity="warning" message="Le fils de &apos;if&apos; au niveau d&apos;indentation 32 n&apos;est pas indenté correctement, le niveau attendu est 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="180" column="33" severity="warning" message="Le fils de &apos;if&apos; au niveau d&apos;indentation 32 n&apos;est pas indenté correctement, le niveau attendu est 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="181" column="29" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 28 n&apos;est pas indenté correctement, le niveau attendu est 26." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="182" column="25" severity="warning" message="&apos;for rcurly&apos; au niveau d&apos;indentation 24 n&apos;est pas indenté correctement, le niveau attendu est 22." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="183" column="21" severity="warning" message="&apos;block rcurly&apos; au niveau d&apos;indentation 20 n&apos;est pas indenté correctement, le niveau attendu est 18." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="184" column="21" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 20 n&apos;est pas indenté correctement, le niveau attendu est 18." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="185" column="25" severity="warning" message="&apos;for&apos; au niveau d&apos;indentation 24 n&apos;est pas indenté correctement, le niveau attendu est 22." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="186" column="29" severity="warning" message="&apos;if&apos; au niveau d&apos;indentation 28 n&apos;est pas indenté correctement, le niveau attendu est 26." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="187" column="33" severity="warning" message="Le fils de &apos;if&apos; au niveau d&apos;indentation 32 n&apos;est pas indenté correctement, le niveau attendu est 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="188" column="33" severity="warning" message="Le fils de &apos;if&apos; au niveau d&apos;indentation 32 n&apos;est pas indenté correctement, le niveau attendu est 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\model\MazeState.java">
+<error line="20" column="1" severity="warning" message="Mauvais ordre lexicographique pour l&apos;import &apos;java.util.*&apos;. Il devrait être avant &apos;javafx.util.Duration&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="20" column="1" severity="warning" message="Séparation supplémentaire dans le groupe d&apos;importation avant &apos;java.util.*&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="20" column="17" severity="warning" message="L&apos;utilisation des import.* est prohibé - java.util.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="22" column="1" severity="warning" message="L&apos;import pour &apos;model.Ghost.*&apos; est dans le mauvais ordre. Il devrait être dans le groupe &apos;STATIC&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="22" column="26" severity="warning" message="L&apos;utilisation des import.* est prohibé - model.Ghost.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="24" column="1" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+<error line="55" column="5" severity="warning" message="Chaque déclaration de variable doit faire l&apos;objet d&apos;une instruction à part." source="com.puppycrawl.tools.checkstyle.checks.coding.MultipleVariableDeclarationsCheck"/>
+<error line="59" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="134" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="138" column="81" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="146" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="164" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="164" column="5" severity="warning" message="&apos;METHOD_DEF&apos; doit être séparé de la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
+<error line="171" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="172" severity="warning" message="La ligne excède 100 caractères (trouvé 123)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="173" column="29" severity="warning" message="WhitespaceAround: &apos;:&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="178" severity="warning" message="La ligne excède 100 caractères (trouvé 117)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="179" column="17" severity="warning" message="Il manque le cas &quot;default&quot; dans le bloc &quot;switch&quot;." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
+<error line="180" column="21" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 20 n&apos;est pas indenté correctement, le niveau attendu est 18." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="181" column="25" severity="warning" message="&apos;for&apos; au niveau d&apos;indentation 24 n&apos;est pas indenté correctement, le niveau attendu est 22." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="182" column="29" severity="warning" message="&apos;if&apos; au niveau d&apos;indentation 28 n&apos;est pas indenté correctement, le niveau attendu est 26." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="183" column="33" severity="warning" message="Le fils de &apos;if&apos; au niveau d&apos;indentation 32 n&apos;est pas indenté correctement, le niveau attendu est 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="184" column="33" severity="warning" message="&apos;if&apos; au niveau d&apos;indentation 32 n&apos;est pas indenté correctement, le niveau attendu est 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="185" column="37" severity="warning" message="Le fils de &apos;if&apos; au niveau d&apos;indentation 36 n&apos;est pas indenté correctement, le niveau attendu est 34." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="186" column="33" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 32 n&apos;est pas indenté correctement, le niveau attendu est 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="187" column="37" severity="warning" message="Le fils de &apos;else&apos; au niveau d&apos;indentation 36 n&apos;est pas indenté correctement, le niveau attendu est 34." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="188" column="33" severity="warning" message="&apos;else rcurly&apos; au niveau d&apos;indentation 32 n&apos;est pas indenté correctement, le niveau attendu est 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="189" column="33" severity="warning" message="Le fils de &apos;if&apos; au niveau d&apos;indentation 32 n&apos;est pas indenté correctement, le niveau attendu est 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="190" column="29" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 28 n&apos;est pas indenté correctement, le niveau attendu est 26." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="191" column="25" severity="warning" message="&apos;for rcurly&apos; au niveau d&apos;indentation 24 n&apos;est pas indenté correctement, le niveau attendu est 22." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
@@ -388,13 +380,40 @@
 <error line="199" column="29" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 28 n&apos;est pas indenté correctement, le niveau attendu est 26." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="200" column="25" severity="warning" message="&apos;for rcurly&apos; au niveau d&apos;indentation 24 n&apos;est pas indenté correctement, le niveau attendu est 22." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="201" column="21" severity="warning" message="&apos;block rcurly&apos; au niveau d&apos;indentation 20 n&apos;est pas indenté correctement, le niveau attendu est 18." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="208" column="48" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="263" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
-<error line="264" severity="warning" message="La ligne excède 100 caractères (trouvé 120)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="295" column="29" severity="warning" message="WhitespaceAround: &apos;:&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="299" column="5" severity="warning" message="&apos;METHOD_DEF&apos; doit être séparé de la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
+<error line="202" column="21" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 20 n&apos;est pas indenté correctement, le niveau attendu est 18." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="203" column="25" severity="warning" message="&apos;for&apos; au niveau d&apos;indentation 24 n&apos;est pas indenté correctement, le niveau attendu est 22." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="204" column="29" severity="warning" message="&apos;if&apos; au niveau d&apos;indentation 28 n&apos;est pas indenté correctement, le niveau attendu est 26." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="205" column="33" severity="warning" message="Le fils de &apos;if&apos; au niveau d&apos;indentation 32 n&apos;est pas indenté correctement, le niveau attendu est 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="206" column="33" severity="warning" message="Le fils de &apos;if&apos; au niveau d&apos;indentation 32 n&apos;est pas indenté correctement, le niveau attendu est 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="207" column="33" severity="warning" message="Le fils de &apos;if&apos; au niveau d&apos;indentation 32 n&apos;est pas indenté correctement, le niveau attendu est 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="208" column="29" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 28 n&apos;est pas indenté correctement, le niveau attendu est 26." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="209" column="25" severity="warning" message="&apos;for rcurly&apos; au niveau d&apos;indentation 24 n&apos;est pas indenté correctement, le niveau attendu est 22." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="210" column="21" severity="warning" message="&apos;block rcurly&apos; au niveau d&apos;indentation 20 n&apos;est pas indenté correctement, le niveau attendu est 18." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="211" column="21" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 20 n&apos;est pas indenté correctement, le niveau attendu est 18." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="212" column="25" severity="warning" message="&apos;for&apos; au niveau d&apos;indentation 24 n&apos;est pas indenté correctement, le niveau attendu est 22." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="213" column="29" severity="warning" message="&apos;if&apos; au niveau d&apos;indentation 28 n&apos;est pas indenté correctement, le niveau attendu est 26." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="214" column="33" severity="warning" message="Le fils de &apos;if&apos; au niveau d&apos;indentation 32 n&apos;est pas indenté correctement, le niveau attendu est 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="215" column="33" severity="warning" message="&apos;if&apos; au niveau d&apos;indentation 32 n&apos;est pas indenté correctement, le niveau attendu est 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="216" column="37" severity="warning" message="Le fils de &apos;if&apos; au niveau d&apos;indentation 36 n&apos;est pas indenté correctement, le niveau attendu est 34." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="217" column="33" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 32 n&apos;est pas indenté correctement, le niveau attendu est 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="218" column="37" severity="warning" message="Le fils de &apos;else&apos; au niveau d&apos;indentation 36 n&apos;est pas indenté correctement, le niveau attendu est 34." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="219" column="33" severity="warning" message="&apos;else rcurly&apos; au niveau d&apos;indentation 32 n&apos;est pas indenté correctement, le niveau attendu est 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="220" column="33" severity="warning" message="Le fils de &apos;if&apos; au niveau d&apos;indentation 32 n&apos;est pas indenté correctement, le niveau attendu est 30." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="221" column="29" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 28 n&apos;est pas indenté correctement, le niveau attendu est 26." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="222" column="25" severity="warning" message="&apos;for rcurly&apos; au niveau d&apos;indentation 24 n&apos;est pas indenté correctement, le niveau attendu est 22." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="223" column="21" severity="warning" message="&apos;block rcurly&apos; au niveau d&apos;indentation 20 n&apos;est pas indenté correctement, le niveau attendu est 18." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="230" column="48" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="255" column="61" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="256" column="59" severity="warning" message="WhitespaceAround: &apos;{&apos; is not followed by whitespace. Empty blocks                may only be represented as {} when not part of a multi-block statement (4.1.3)" source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="257" column="57" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="294" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="295" severity="warning" message="La ligne excède 100 caractères (trouvé 120)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="329" column="50" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="331" column="79" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="340" column="29" severity="warning" message="WhitespaceAround: &apos;:&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="344" column="5" severity="warning" message="&apos;METHOD_DEF&apos; doit être séparé de la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\model\Mode.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\model\Mode.java">
 <error line="5" column="1" severity="warning" message="Mauvais ordre lexicographique pour l&apos;import &apos;geometry.IntCoordinates&apos;. Il devrait être avant &apos;java.util.Random&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="5" column="1" severity="warning" message="Séparation supplémentaire dans le groupe d&apos;importation avant &apos;geometry.IntCoordinates&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="7" column="1" severity="warning" message="L&apos;import pour &apos;model.Ghost.*&apos; est dans le mauvais ordre. Il devrait être dans le groupe &apos;STATIC&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
@@ -404,33 +423,37 @@
 <error line="12" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
 <error line="12" severity="warning" message="Javadoc tag &apos;@param&apos; doit être précédé d&apos;une ligne vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
 <error line="13" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="28" severity="warning" message="Le résumé Javadoc est manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
-<error line="38" severity="warning" message="Le résumé Javadoc est manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
+<error line="27" severity="warning" message="Le résumé Javadoc est manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
+<error line="37" severity="warning" message="Le résumé Javadoc est manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
+<error line="39" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
 <error line="40" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="41" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="44" column="13" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="45" column="13" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="46" column="13" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="47" column="13" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="48" column="13" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="49" column="13" severity="warning" message="Le fils de &apos;case&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="53" severity="warning" message="Le résumé Javadoc est manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
-<error line="55" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="90" severity="warning" message="Le résumé Javadoc est manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
-<error line="92" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="122" severity="warning" message="Le résumé Javadoc est manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
-<error line="124" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="141" column="57" severity="warning" message="Il y a une espace de trop après &apos;(&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck"/>
-<error line="150" severity="warning" message="La première phrase de la Javadoc doit se terminer avec un point." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
-<error line="153" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="153" severity="warning" message="Javadoc tag &apos;@param&apos; doit être précédé d&apos;une ligne vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
-<error line="154" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="179" column="36" severity="warning" message="Il manque une espace après &apos;,&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
-<error line="182" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
-<error line="199" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
-<error line="206" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
-<error line="206" column="41" severity="warning" message="Parameter name &apos;S&apos; must match pattern &apos;^[a-z]([a-z0-9][a-zA-Z0-9]*)?$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
+<error line="52" severity="warning" message="Le résumé Javadoc est manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
+<error line="54" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="105" severity="warning" message="Le résumé Javadoc est manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
+<error line="107" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="111" severity="warning" message="La ligne excède 100 caractères (trouvé 113)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="157" severity="warning" message="Le résumé Javadoc est manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
+<error line="159" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="188" column="57" severity="warning" message="Il y a une espace de trop après &apos;(&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck"/>
+<error line="205" severity="warning" message="La première phrase de la Javadoc doit se terminer avec un point." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
+<error line="208" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="208" severity="warning" message="Javadoc tag &apos;@param&apos; doit être précédé d&apos;une ligne vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
+<error line="209" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="234" column="36" severity="warning" message="Il manque une espace après &apos;,&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="237" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="254" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="261" column="48" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="262" column="36" severity="warning" message="Il manque une espace après &apos;,&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="264" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="264" column="5" severity="warning" message="&apos;METHOD_DEF&apos; doit être séparé de la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
+<error line="264" column="41" severity="warning" message="Parameter name &apos;S&apos; must match pattern &apos;^[a-z]([a-z0-9][a-zA-Z0-9]*)?$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\model\Mouvement.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\model\Mouvement.java">
 <error line="6" column="1" severity="warning" message="L&apos;import pour &apos;model.Ghost.*&apos; est dans le mauvais ordre. Il devrait être dans le groupe &apos;STATIC&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="6" column="26" severity="warning" message="L&apos;utilisation des import.* est prohibé - model.Ghost.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="7" column="1" severity="warning" message="L&apos;import pour &apos;model.Ghost.CLYDE&apos; est dans le mauvais ordre. Il devrait être dans le groupe &apos;STATIC&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
@@ -445,132 +468,132 @@
 <error line="28" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="30" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="33" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
-<error line="49" column="55" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="50" column="58" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="52" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="52" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="68" column="38" severity="warning" message="Il y a une espace de trop avant &apos;(&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck"/>
-<error line="71" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="71" column="62" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="73" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="73" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="83" column="38" severity="warning" message="Il y a une espace de trop avant &apos;(&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck"/>
-<error line="86" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="86" column="62" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="88" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="88" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="101" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="101" column="61" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="103" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="103" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="116" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="126" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
-<error line="142" column="55" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="143" severity="warning" message="La ligne excède 100 caractères (trouvé 101)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="144" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="144" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="163" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="163" column="62" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="165" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="165" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="178" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="178" column="62" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="180" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="180" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="190" column="38" severity="warning" message="Il y a une espace de trop avant &apos;(&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck"/>
-<error line="193" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="193" column="61" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="195" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="195" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="196" column="54" severity="warning" message="Il y a une espace de trop avant &apos;,&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheck"/>
-<error line="196" column="76" severity="warning" message="Il y a une espace de trop avant &apos;,&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheck"/>
-<error line="208" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="218" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
-<error line="234" column="55" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="235" column="58" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="237" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="237" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="256" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="256" column="62" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="258" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="258" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="271" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="271" column="62" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="273" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="273" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="286" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="288" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="288" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="301" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="311" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
-<error line="327" column="55" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="328" column="58" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="330" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="330" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="348" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="348" column="62" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="350" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="350" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="363" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="363" column="62" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="365" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="365" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="377" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="377" column="62" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="379" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="379" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="390" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="400" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
-<error line="413" column="58" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="415" column="13" severity="warning" message="&apos;{&apos; à la colonne 13 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="415" column="13" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="430" column="13" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="430" column="66" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="432" column="13" severity="warning" message="&apos;{&apos; à la colonne 13 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="432" column="13" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="446" column="13" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="446" column="66" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="448" column="13" severity="warning" message="&apos;{&apos; à la colonne 13 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="448" column="13" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="462" column="13" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="472" column="98" severity="warning" message="Il y a une espace de trop avant &apos;)&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck"/>
-<error line="484" column="58" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="486" column="13" severity="warning" message="&apos;{&apos; à la colonne 13 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="486" column="13" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="500" column="13" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="522" severity="warning" message="La première phrase de la Javadoc doit se terminer avec un point." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
-<error line="524" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="524" severity="warning" message="Javadoc tag &apos;@param&apos; doit être précédé d&apos;une ligne vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
-<error line="525" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="526" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="531" column="5" severity="warning" message="&apos;{&apos; à la colonne 5 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="531" column="5" severity="warning" message="&apos;method def lcurly&apos; au niveau d&apos;indentation 4 n&apos;est pas indenté correctement, le niveau attendu est 6." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="532" column="49" severity="warning" message="Il manque une espace après &apos;,&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
-<error line="532" column="55" severity="warning" message="&apos;||&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="533" column="52" severity="warning" message="Il manque une espace après &apos;,&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
-<error line="534" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="534" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est l&apos;un des suivants : 10, 12." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="536" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est l&apos;un des suivants : 10, 12." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="538" column="49" severity="warning" message="Il manque une espace après &apos;,&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
-<error line="538" column="55" severity="warning" message="&apos;||&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="539" column="52" severity="warning" message="Il manque une espace après &apos;,&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
-<error line="540" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="540" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est l&apos;un des suivants : 10, 12." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="542" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est l&apos;un des suivants : 10, 12." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="557" column="5" severity="warning" message="&apos;method def rcurly&apos; au niveau d&apos;indentation 4 n&apos;est pas indenté correctement, le niveau attendu est 6." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="560" severity="warning" message="La ligne excède 100 caractères (trouvé 108)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="561" column="5" severity="warning" message="&apos;{&apos; à la colonne 5 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="561" column="5" severity="warning" message="&apos;method def lcurly&apos; au niveau d&apos;indentation 4 n&apos;est pas indenté correctement, le niveau attendu est 6." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="564" column="5" severity="warning" message="&apos;method def rcurly&apos; au niveau d&apos;indentation 4 n&apos;est pas indenté correctement, le niveau attendu est 6." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
-<error line="566" severity="warning" message="La première phrase de la Javadoc doit se terminer avec un point." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
-<error line="567" severity="warning" message="La ligne excède 100 caractères (trouvé 105)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="568" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="568" severity="warning" message="Javadoc tag &apos;@param&apos; doit être précédé d&apos;une ligne vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
-<error line="569" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="570" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
-<error line="574" column="47" severity="warning" message="Il y a une espace de trop avant &apos;,&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheck"/>
+<error line="51" column="55" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="52" column="58" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="54" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="54" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="70" column="38" severity="warning" message="Il y a une espace de trop avant &apos;(&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck"/>
+<error line="73" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="73" column="62" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="75" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="75" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="85" column="38" severity="warning" message="Il y a une espace de trop avant &apos;(&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck"/>
+<error line="88" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="88" column="62" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="90" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="90" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="103" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="103" column="61" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="105" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="105" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="118" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="128" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="146" column="55" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="147" severity="warning" message="La ligne excède 100 caractères (trouvé 101)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="148" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="148" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="167" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="167" column="62" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="169" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="169" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="182" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="182" column="62" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="184" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="184" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="194" column="38" severity="warning" message="Il y a une espace de trop avant &apos;(&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck"/>
+<error line="197" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="197" column="61" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="199" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="199" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="200" column="54" severity="warning" message="Il y a une espace de trop avant &apos;,&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheck"/>
+<error line="200" column="76" severity="warning" message="Il y a une espace de trop avant &apos;,&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheck"/>
+<error line="212" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="222" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="240" column="55" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="241" column="58" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="243" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="243" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="262" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="262" column="62" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="264" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="264" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="277" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="277" column="62" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="279" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="279" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="292" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="294" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="294" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="307" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="317" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="335" column="55" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="336" column="58" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="338" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="338" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="356" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="356" column="62" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="358" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="358" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="371" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="371" column="62" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="373" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="373" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="385" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="385" column="62" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="387" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="387" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="398" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est 10." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="408" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="423" column="58" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="425" column="13" severity="warning" message="&apos;{&apos; à la colonne 13 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="425" column="13" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="440" column="13" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="440" column="66" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="442" column="13" severity="warning" message="&apos;{&apos; à la colonne 13 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="442" column="13" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="456" column="13" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="456" column="66" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="458" column="13" severity="warning" message="&apos;{&apos; à la colonne 13 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="458" column="13" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="472" column="13" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="482" column="98" severity="warning" message="Il y a une espace de trop avant &apos;)&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck"/>
+<error line="494" column="58" severity="warning" message="&apos;&amp;&amp;&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="496" column="13" severity="warning" message="&apos;{&apos; à la colonne 13 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="496" column="13" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="510" column="13" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 12 n&apos;est pas indenté correctement, le niveau attendu est 14." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="532" severity="warning" message="La première phrase de la Javadoc doit se terminer avec un point." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
+<error line="534" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="534" severity="warning" message="Javadoc tag &apos;@param&apos; doit être précédé d&apos;une ligne vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
+<error line="535" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="536" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="541" column="5" severity="warning" message="&apos;{&apos; à la colonne 5 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="541" column="5" severity="warning" message="&apos;method def lcurly&apos; au niveau d&apos;indentation 4 n&apos;est pas indenté correctement, le niveau attendu est 6." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="542" column="49" severity="warning" message="Il manque une espace après &apos;,&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="542" column="55" severity="warning" message="&apos;||&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="543" column="52" severity="warning" message="Il manque une espace après &apos;,&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="544" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="544" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est l&apos;un des suivants : 10, 12." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="546" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est l&apos;un des suivants : 10, 12." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="548" column="49" severity="warning" message="Il manque une espace après &apos;,&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="548" column="55" severity="warning" message="&apos;||&apos; devrait être sur une nouvelle ligne." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+<error line="549" column="52" severity="warning" message="Il manque une espace après &apos;,&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="550" column="9" severity="warning" message="&apos;{&apos; à la colonne 9 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="550" column="9" severity="warning" message="&apos;if lcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est l&apos;un des suivants : 10, 12." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="552" column="9" severity="warning" message="&apos;if rcurly&apos; au niveau d&apos;indentation 8 n&apos;est pas indenté correctement, le niveau attendu est l&apos;un des suivants : 10, 12." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="567" column="5" severity="warning" message="&apos;method def rcurly&apos; au niveau d&apos;indentation 4 n&apos;est pas indenté correctement, le niveau attendu est 6." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="570" severity="warning" message="La ligne excède 100 caractères (trouvé 108)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="571" column="5" severity="warning" message="&apos;{&apos; à la colonne 5 devrait être sur la ligne précédente." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="571" column="5" severity="warning" message="&apos;method def lcurly&apos; au niveau d&apos;indentation 4 n&apos;est pas indenté correctement, le niveau attendu est 6." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="574" column="5" severity="warning" message="&apos;method def rcurly&apos; au niveau d&apos;indentation 4 n&apos;est pas indenté correctement, le niveau attendu est 6." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="576" severity="warning" message="La première phrase de la Javadoc doit se terminer avec un point." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
+<error line="577" severity="warning" message="La ligne excède 100 caractères (trouvé 105)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="578" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="578" severity="warning" message="Javadoc tag &apos;@param&apos; doit être précédé d&apos;une ligne vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
+<error line="579" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="580" severity="warning" message="La balise Javadoc doit avoir une description non-vide." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="584" column="47" severity="warning" message="Il y a une espace de trop avant &apos;,&apos;." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\model\PacMan.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\model\PacMan.java">
 <error line="7" severity="warning" message="La première phrase de la Javadoc doit se terminer avec un point." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
 <error line="62" severity="warning" message="Le résumé Javadoc est manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
 <error line="74" column="5" severity="warning" message="Commentaire Javadoc manquant." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
@@ -651,7 +674,7 @@
 <error line="224" severity="warning" message="La ligne excède 100 caractères (trouvé 122)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="232" severity="warning" message="La ligne excède 100 caractères (trouvé 122)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 </file>
-<file name="C:\Workspace\Travail\pacman\src\main\java\model\Sound.java">
+<file name="C:\Users\tahab\Desktop\projet_pacman\Pacman\src\main\java\model\Sound.java">
 <error line="4" column="27" severity="warning" message="L&apos;utilisation des import.* est prohibé - javax.sound.sampled.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="5" column="1" severity="warning" message="Mauvais ordre lexicographique pour l&apos;import &apos;java.io.*&apos;. Il devrait être avant &apos;javax.sound.sampled.*&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="5" column="15" severity="warning" message="L&apos;utilisation des import.* est prohibé - java.io.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
