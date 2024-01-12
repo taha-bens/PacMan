@@ -1,0 +1,13 @@
+*.class
+*.jar
+.gradle/
+.idea/
+.vscode/
+bin/
+build/
+.DS_Store
+Thumbs.db
+.Trashes
+src/main/resources/maze1_save.txt
+src/main/resources/maze2_save.txt
+src/main/resources/maze3_save.txt
