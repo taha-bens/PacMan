@@ -47,6 +47,7 @@ public final class MazeState {
     private int pacgum;
     public boolean vie2;
     public boolean vie1;
+    public boolean isFirst = true;
 
     private final Map<Critter, RealCoordinates> initialPos;
     private final Map<Critter, Direction> initialDir;
@@ -135,6 +136,7 @@ public final class MazeState {
     public int getPacgum() {
         return pacgum;
     }
+    public boolean getIsFirst(){return isFirst;}
 
     public int getPacgumTotal() {
         return this.pacgumTotal;
@@ -292,6 +294,8 @@ public final class MazeState {
 
 
             if (pacgum==pacgumTotal) {
+                pacgum = 0;
+                isFirst = true;
                 GameView.getReload().stop();
                 switch(level){
                     case "1" : mazeLocate = "src/main/resources/maze"+level+".txt"; break;
@@ -375,6 +379,7 @@ public final class MazeState {
     public void setEatSuperPacGum(boolean eatSuperPacGum) {
         this.eatSuperPacGum = eatSuperPacGum;
     }
+    public void setIsFirst (boolean b){isFirst = b;}
 
     private void incrPacgum() {
         pacgum++;
