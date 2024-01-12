@@ -43,7 +43,7 @@ public class MenuView {
                 "-fx-border-width: 5px;"
         );
         jouer.setTextFill(Color.GOLD);
-        jouer.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 27));
+        jouer.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 27));
         jouer.setPrefSize(240, 10);
         jouer.setTranslateX(130);
         jouer.setTranslateY(250);
@@ -67,7 +67,7 @@ public class MenuView {
                         "-fx-border-width: 5px;"
         );
         regles.setTextFill(Color.GOLD);
-        regles.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 27));
+        regles.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 27));
         regles.setPrefSize(240, 10);
         regles.setTranslateX(130);
         regles.setTranslateY(350);
@@ -90,7 +90,7 @@ public class MenuView {
         quit.setStyle("-fx-background-color: #000000;" + "-fx-border-color: #8A2BE2;" + "-fx-border-width: 5px;"
         );
         quit.setTextFill(Color.GOLD);
-        quit.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 27));
+        quit.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 27));
         quit.setPrefSize(240, 10);
         quit.setTranslateX(130);
         quit.setTranslateY(450);

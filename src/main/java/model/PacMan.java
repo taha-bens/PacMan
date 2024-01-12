@@ -75,6 +75,12 @@ public final class PacMan implements Critter {
     }
 
     public void addScore(int score) {
+        if (score == 100){
+            Sound.playFruitSound();
+        }
+        else {
+            Sound.playEatSound();
+        }
         this.score += score;
     }
 

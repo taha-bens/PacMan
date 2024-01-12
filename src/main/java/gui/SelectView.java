@@ -59,7 +59,7 @@ public class SelectView {
 
         //titre
         Label titleLabel = new Label("SELECTEUR DE LABYRINTHE");
-        titleLabel.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 30));
+        titleLabel.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 30));
         titleLabel.setTextFill(Color.GOLD);
         titleLabel.setPrefSize(1080, 50);
         titleLabel.setTranslateX(0);
@@ -98,7 +98,7 @@ public class SelectView {
 
         //labLabel1
         Label labLabel1 = new Label("LABYRINTHE 1");
-        labLabel1.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 20));
+        labLabel1.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 20));
         labLabel1.setTextFill(Color.GOLD);
         labLabel1.setPrefSize(275, 32);
         labLabel1.setTranslateX(105);
@@ -127,7 +127,7 @@ public class SelectView {
 
         //labLabel2
         Label labLabel2 = new Label("LABYRINTHE 2");
-        labLabel2.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 20));
+        labLabel2.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 20));
         labLabel2.setTextFill(Color.GOLD);
         labLabel2.setPrefSize(275, 32);
         labLabel2.setTranslateX(402.5);
@@ -156,7 +156,7 @@ public class SelectView {
 
         //labLabel3
         Label labLabel3 = new Label("LABYRINTHE 3");
-        labLabel3.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 20));
+        labLabel3.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 20));
         labLabel3.setTextFill(Color.GOLD);
         labLabel3.setPrefSize(275, 32);
         labLabel3.setTranslateX(700);
@@ -185,7 +185,7 @@ public class SelectView {
 
         //labLabel4
         Label labLabel4 = new Label("LABYRINTHE 1");
-        labLabel4.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 20));
+        labLabel4.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 20));
         labLabel4.setTextFill(Color.GOLD);
         labLabel4.setPrefSize(400, 32);
         labLabel4.setTranslateX(100);
@@ -214,7 +214,7 @@ public class SelectView {
 
         //labLabel5
         Label labLabel5 = new Label("LABYRINTHE 2");
-        labLabel5.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 20));
+        labLabel5.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 20));
         labLabel5.setTextFill(Color.GOLD);
         labLabel5.setPrefSize(400, 32);
         labLabel5.setTranslateX(575);
@@ -264,7 +264,7 @@ public class SelectView {
                         "-fx-border-color: #8A2BE2;" +
                         "-fx-border-width: 5px;"
         );
-        labCustom.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 20));
+        labCustom.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 20));
         labCustom.setTextFill(Color.GOLD);
         labCustom.setPrefSize(875, 75);
         labCustom.setTranslateX(140);
@@ -290,7 +290,7 @@ public class SelectView {
                         "-fx-border-color: #8A2BE2;" +
                         "-fx-border-width: 5px;"
         );
-        this.singlePLayer.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 20));
+        this.singlePLayer.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 20));
         this.singlePLayer.setTextFill(Color.GOLD);
         this.singlePLayer.setPrefSize(475, 50);
         this.singlePLayer.setTranslateX(65);
@@ -333,7 +333,7 @@ public class SelectView {
         this.multiPLayer.setStyle(
                 "-fx-background-color: #000000;"
         );
-        this.multiPLayer.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 20));
+        this.multiPLayer.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 20));
         this.multiPLayer.setTextFill(Color.GOLD);
         this.multiPLayer.setPrefSize(475, 50);
         this.multiPLayer.setTranslateX(540);
@@ -407,7 +407,7 @@ public class SelectView {
             System.exit(0);
         });
 
-        Sound.SOUND.stopMainMusicLoop();
+        Sound.stopMainMusicLoop();
         gameView.animate(primaryStage); //méthode de la classe "gameView" qui sert à actualiser en continue le jeu
     }
 

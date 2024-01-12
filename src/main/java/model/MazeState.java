@@ -320,7 +320,7 @@ public final class MazeState {
                     primaryStage.setTitle("Pacman");
                     primaryStage.setResizable(true);
 
-                    Sound.SOUND.stopMainMusicLoop();
+                    Sound.stopMainMusicLoop();
                     gameView.animate(primaryStage);
                 }
             }
@@ -368,7 +368,7 @@ public final class MazeState {
     }
 
     public void addScore(int increment) {
-        Sound.SOUND.playEatSound();
+        Sound.playEatSound();
         score += increment;
     }
 
@@ -390,7 +390,7 @@ public final class MazeState {
         lives--;
 
         if (!sp) {
-            Sound.SOUND.stopStartMusic();
+            Sound.stopLaunchMusic();
             GameView.getReload().stop();
 
             Pane gameoverroot = new Pane();
@@ -411,7 +411,7 @@ public final class MazeState {
         } else if (lives == 0) {
 
             this.root.getChildren().remove(l1);
-            Sound.SOUND.stopStartMusic();
+            Sound.stopLaunchMusic();
             GameView.getReload().stop();
             // --- Game Over Scene
             Pane gameoverroot = new Pane();

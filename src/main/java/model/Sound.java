@@ -7,184 +7,302 @@ import java.io.*;
 /**
  * Classe qui gère l'ensemble des sons du jeu
  * @author Julien
- * @version 2.0
  */
 public final class Sound {
 
-    private final AnimationTimer mainMusicLoop = new AnimationTimer() {
-        long last = 0;
-        long soundTimer = 0;
-        @Override
-        public void handle(long now) {
-            if (last == 0) {
-                last = now;
-                return;
-            }
+    /**
+     * Classe qui réprésente des fichiers audio
+     * @author Julien
+     */
+    private static class AudioFile {
 
-            if (soundTimer > 29540000000L) {
-                playMainMusic();
-                soundTimer = 0;
-            }
-            soundTimer += now - last;
-            last = now;
+        private String path;
+        private Clip clip;
+
+        private AudioFile(String path, Clip clip) {
+            this.path = path;
+            this.clip = clip;
         }
-    };
-
-    private Clip mainMusicClip, startMusicClip, eatSoundClip, deathMusicClip;
-
-    private Sound() {
 
     }
 
-    public static final Sound SOUND = new Sound();
+    private static Clip mainMusicClip, launchMusicClip, eatSoundClip, deathMusicClip,
+            fruitClip, sirenClip, energizerSoundClip, retreatingSoundClip;
+    private static AudioFile mainMusic =
+            new AudioFile("src/main/resources/FichierAudio/MainMusic.wav",
+                    Sound.mainMusicClip),
+            launchMusic = new AudioFile("src/main/resources/FichierAudio/GameLaunchMusic.wav",
+                    Sound.launchMusicClip),
+            eatSound = new AudioFile("src/main/resources/FichierAudio/EatSound.wav",
+                    Sound.eatSoundClip),
+            deathMusic = new AudioFile("src/main/resources/FichierAudio/DeathMusic.wav",
+                    Sound.deathMusicClip),
+            fruitSound = new AudioFile("src/main/resources/FichierAudio/FruitSound.wav",
+                    Sound.fruitClip),
+            sirenSound = new AudioFile("src/main/resources/FichierAudio/SirenSound.wav",
+                    Sound.sirenClip),
+            energizerSound = new AudioFile("src/main/resources/FichierAudio/EnergizerSound.wav",
+                    Sound.energizerSoundClip),
+            retreatingSound = new AudioFile("src/main/resources/FichierAudio/RetreatingSound.wav",
+                    Sound.retreatingSoundClip);
+
 
     /**
      * Getter du mainMusicClip
      * @author Julien
      * @return Clip
      */
-    public Clip getMainMusicClip() {
+    public static Clip getMainMusicClip() {
         return mainMusicClip;
     }
 
     /**
-     * Getter du startMusicClip
+     * Getter du launchMusicClip
+     * @author Julien
      * @return Clip
      */
-    public Clip getStartMusicClip() {
-
-        return startMusicClip;
+    public static Clip getLaunchMusicClip() {
+        return Sound.launchMusic.clip;
     }
 
     /**
      * Getter du deathMusicClip
+     * @author Julien
+     * @return Clip
      */
-    public Clip getDeathMusicClip() {
-        return deathMusicClip;
+    public static Clip getDeathMusicClip() {
+        return Sound.deathMusic.clip;
     }
 
     /**
-     * Joue une seule fois la musique du menu principale
+     * Getter du sirenClip
+     * @author Julien
+     * @return Clip
+     */
+    public static Clip getSirenSoundClip() {
+        return Sound.sirenSound.clip;
+    }
+
+    /**
+     * Getter du energizerClip
+     * @author Julien
+     * @return Clip
+     */
+    public static Clip getEnergizerSoundClip() {
+        return Sound.energizerSound.clip;
+    }
+
+    /**
+     * Getter du retreatingSoundClip
+     * @author Julien
+     * @return Clip
+     */
+    public static Clip getRetreatingSoundClip() {
+        return Sound.retreatingSound.clip;
+    }
+
+    /**
+     * Joue n'importe quel son
+     * @author Julien
      * @return void
      */
-    private void playMainMusic() {
+    private static void play(AudioFile file) {
         AudioInputStream audio;
         try {
-            File file = new File("src/main/resources/PacmanMainMusic.wav");
-            audio = AudioSystem.getAudioInputStream(file);
-            mainMusicClip = AudioSystem.getClip();
-            mainMusicClip.open(audio);
+            audio = AudioSystem.getAudioInputStream(new File(file.path));
+            file.clip = AudioSystem.getClip();
+            file.clip.open(audio);
 
         } catch (LineUnavailableException | UnsupportedAudioFileException | IOException e) {
             throw new RuntimeException(e);
         }
-        mainMusicClip.start();
+        file.clip.start();
+    }
+
+    /**
+     * joue n'importe quel son en boucle
+     * @author Julien
+     * @return void
+     */
+    private static void playLoop(AudioFile file){
+        AudioInputStream audio;
+        Clip clip;
+        try {
+            audio = AudioSystem.getAudioInputStream(new File(file.path));
+            file.clip = AudioSystem.getClip();
+            file.clip.open(audio);
+
+        } catch (LineUnavailableException | UnsupportedAudioFileException | IOException e) {
+            throw new RuntimeException(e);
+        }
+        file.clip.start();
+        file.clip.loop(Clip.LOOP_CONTINUOUSLY);
+    }
+
+    /**
+     * Joue une seule fois la musique du menu principale
+     * @author Julien
+     * @return void
+     */
+    public static void playMainMusic() {
+        play(Sound.mainMusic);
     }
 
     /**
      * Joue la musique du menu en boucle
+     * @author Julien
      * @return void
      */
-    public void playMainMusicLoop() {
-        playMainMusic();
-        mainMusicLoop.start();
+    public static void playMainMusicLoop() {
+        playLoop(Sound.mainMusic);
     }
 
     /**
      * Stop la musique du menu
+     * @author Julien
      * @return void
      */
-    public void stopMainMusicLoop() {
-        mainMusicLoop.stop();
-        mainMusicClip.stop();
+    public static void stopMainMusicLoop() {
+        Sound.mainMusic.clip.stop();
     }
 
     /**
      * Joue la musique de début de jeu
+     * @author Julien
      * @return void
      */
-    public void playStartMusic() {
-        AudioInputStream StartAudio;
-        try {
-            File file = new File("src/main/resources/pacman_beginning.wav");
-            StartAudio = AudioSystem.getAudioInputStream(file);
-            startMusicClip = AudioSystem.getClip();
-            startMusicClip.open(StartAudio);
-
-        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
-            throw new RuntimeException(e);
-        }
-        startMusicClip.start();
+    public static void playLaunchMusic() {
+        play(Sound.launchMusic);
     }
 
     /**
      * Stop la musique de début de jeu
+     * @author Julien
      * @return void
      */
-    public void stopStartMusic() {
-        startMusicClip.stop();
+    public static void stopLaunchMusic() {
+        Sound.launchMusic.clip.stop();
     }
 
     /**
      * Joue le son de Pacman qui mange une Pacgum
+     * @author Julien
      * @return void
      */
-    public void playEatSound() {
-        AudioInputStream eatSoundAudio;
-        try {
-            File file = new File("src/main/resources/credit.wav");
-            eatSoundAudio = AudioSystem.getAudioInputStream(file);
-            eatSoundClip = AudioSystem.getClip();
-            eatSoundClip.open(eatSoundAudio);
-
-        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
-            throw new RuntimeException(e);
-        }
-        eatSoundClip.start();
+    public static void playEatSound() {
+        play(Sound.eatSound);
     }
 
     /**
-     * Stop la musique de début de jeu
+     * Stop le son de Pacman qui mange une Pacmgum
+     * @author Julien
      * @return void
      */
-    public void stopEatSound() {
-        eatSoundClip.stop();
+    public static void stopEatSound() {
+        Sound.eatSound.clip.stop();
     }
 
     /**
-     * Joue le son de Pacman qui mange une Pacgum
+     * Joue la musique de mort
+     * @author Julien
      * @return void
      */
-    public void playDeathMusic() {
-        AudioInputStream deathAudio;
-        try {
-            File file = new File("src/main/resources/DeathMusic.wav");
-            deathAudio = AudioSystem.getAudioInputStream(file);
-            deathMusicClip = AudioSystem.getClip();
-            deathMusicClip.open(deathAudio);
-
-        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
-            throw new RuntimeException(e);
-        }
-        deathMusicClip.start();
+    public static void playDeathMusic() {
+        play(Sound.deathMusic);
     }
 
     /**
      * Stop la musique de de mort
+     * @author Julien
      * @return void
      */
-    public void stopDeathMusic() {
-        deathMusicClip.stop();
+    public static void stopDeathMusic() {
+        Sound.deathMusic.clip.stop();
+    }
+
+    /**
+     * Joue le son de Pacman qui mange un fruit
+     * @author Julien
+     * @return void
+     */
+    public static void playFruitSound() {
+        play(Sound.fruitSound);
+    }
+
+    /**
+     * Stop le son de Pacman qui mange un fruit
+     * @author Julien
+     * @return void
+     */
+    public static void stopFruitSound() {
+        Sound.fruitSound.clip.stop();
+    }
+
+    /**
+     * Joue le son de la sirène des fantômes
+     * @author Julien
+     * @return void
+     */
+    public static void playSirenSound() {
+        play(Sound.sirenSound);
+    }
+
+    /**
+     * Stop le son de la sirène des fantômes
+     * @author Julien
+     * @return void
+     */
+    public static void stopSirenSound() {
+        Sound.sirenSound.clip.stop();
+    }
+
+    /**
+     * Joue le son de Pacman en mode Energizer
+     * @author Julien
+     * @return void
+     */
+    public static void playEnergizerSound() {
+        play(Sound.energizerSound);
+    }
+
+    /**
+     * Stop le son Pacman en mode Energizer
+     * @author Julien
+     * @return void
+     */
+    public static void stopEnergizerSound() {
+        Sound.energizerSound.clip.stop();
+    }
+
+    /**
+     * Joue le son des fantômes décédés
+     * @author Julien
+     * @return void
+     */
+    public static void playRetreatingSound() {
+        play(Sound.retreatingSound);
+    }
+
+    /**
+     * Stop le son des fantômes décédés
+     * @author Julien
+     * @return void
+     */
+    public static void stopRetreatingSound() {
+        Sound.retreatingSound.clip.stop();
     }
 
     /**
      * Stop tout les sons du jeu (pour les développeurs)
+     * @author Julien
      * @return void
      */
-    public void stopAllSounds() {
+
+    public static void stopAllSounds() {
         stopMainMusicLoop();
-        stopStartMusic();
+        stopLaunchMusic();
         stopEatSound();
         stopDeathMusic();
+        stopFruitSound();
     }
 }

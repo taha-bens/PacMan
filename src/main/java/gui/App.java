@@ -39,6 +39,6 @@ public class App extends Application {
         primaryStage.getIcons().add(icon);
         primaryStage.setResizable(false);
         primaryStage.show(); //affiche la fenêtre
-        Sound.SOUND.playMainMusicLoop();
+        Sound.playMainMusicLoop();
     }
 }

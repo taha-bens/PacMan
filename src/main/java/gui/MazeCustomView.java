@@ -28,7 +28,7 @@ public class MazeCustomView {
 
         //titre
         Label titleLabel = new Label("CREATION LABYRINTHE");
-        titleLabel.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 30));
+        titleLabel.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 30));
         titleLabel.setTextFill(Color.GOLD);
         titleLabel.setPrefSize(625, 48);
         titleLabel.setTranslateX(175);
@@ -60,7 +60,7 @@ public class MazeCustomView {
                 "-fx-border-width: 5px;"
         );
         retour.setTextFill(Color.GOLD);
-        retour.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 27));
+        retour.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 27));
         retour.setPrefSize(50, 50);
         retour.setTranslateX(50);
         retour.setTranslateY(80);
@@ -76,14 +76,14 @@ public class MazeCustomView {
         });
 
         Label label1 = new Label("* PREREQUIS");
-        label1.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 20));
+        label1.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 20));
         label1.setTextFill(Color.GOLD);
         label1.setPrefSize(690, 32);
         label1.setTranslateX(60);
         label1.setTranslateY(230);
         label1.setAlignment(Pos.CENTER_LEFT);
         Label description1 = new Label("Tous les labyrinthes doivent faire la même taille, 15 de hauteur et 15 de largeur.\nChaque ligne du fichier.txt doit se terminer par un /.\nLes 2 premières lignes et les 2 dernieres lignes doit être rempli pour chaque case de #0 (voir exemple plus bas).\nChaque case du labyrinthe.txt doit contenir 2 choses : 1 variable qui indique la position des murs et une variable pour le contenu de la case.");
-        description1.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 10));
+        description1.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 10));
         description1.setTextFill(Color.GOLD);
         description1.setPrefSize(680, 142);
         description1.setTranslateX(60);
@@ -92,7 +92,7 @@ public class MazeCustomView {
         description1.setWrapText(true);
 
         Label label2 = new Label("POSITIONNEMENT DES MURS");
-        label2.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 20));
+        label2.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 20));
         label2.setTextFill(Color.GOLD);
         label2.setPrefSize(700, 32);
         label2.setTranslateX(50);
@@ -109,7 +109,7 @@ public class MazeCustomView {
                 "v  :  mur Sud\n" +
                 "<  :  mur Ouest\n" +
                 ">  :  mur Est");
-        description2.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 10));
+        description2.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 10));
         description2.setTextFill(Color.GOLD);
         description2.setPrefSize(680, 178);
         description2.setTranslateX(60);
@@ -118,7 +118,7 @@ public class MazeCustomView {
         description2.setWrapText(true);
 
         Label label3 = new Label("CONTENUE D’UNE CASE");
-        label3.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 20));
+        label3.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 20));
         label3.setTextFill(Color.GOLD);
         label3.setPrefSize(700, 32);
         label3.setTranslateX(50);
@@ -128,7 +128,7 @@ public class MazeCustomView {
                 "0  : le contenu de la case est vide\n" +
                 ".  : le contenu de la case est un pac-gum\n" +
                 "*  : le contenu de la case est un super pac-gum");
-        description3.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 10));
+        description3.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 10));
         description3.setTextFill(Color.GOLD);
         description3.setPrefSize(680, 52);
         description3.setTranslateX(60);
@@ -137,7 +137,7 @@ public class MazeCustomView {
         description3.setWrapText(true);
 
         Label label4 = new Label("EXEMPLE:");
-        label4.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 20));
+        label4.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 20));
         label4.setTextFill(Color.GOLD);
         label4.setPrefSize(690, 32);
         label4.setTranslateX(60);
@@ -157,7 +157,7 @@ public class MazeCustomView {
                 "-fx-background-color: #000000;"
         );
         button.setTextFill(Color.GOLD);
-        button.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 27));
+        button.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 27));
         button.setPrefSize(50, 50);
         button.setTranslateX(375);
         button.setTranslateY(770);
