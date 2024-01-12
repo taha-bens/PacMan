@@ -63,7 +63,7 @@ public class FruitsGraphicsFactory {
 
             @Override
             public void update() {
-                IntCoordinates pacPos = PacMan.INSTANCE.getPos().round();
+                IntCoordinates pacPos = PacMan.UN.getPos().round();
                 state.setFruitsGridState(pacPos, true);
                 if (state.getFruitsGridState(fruitsCoord) && !flag) {
                     flag = true;
@@ -74,7 +74,11 @@ public class FruitsGraphicsFactory {
                 if (img.isVisible()) {
                     if (state.getFruitsGridState(fruitsCoord)) {
                         img.setVisible(false);
-                        state.addScore(100);
+
+                        if (pacPos.estEgal(fruitsCoord)) {PacMan.UN.addScore(100);}
+                        else if (PacMan.DEUX.getPos().round().estEgal(fruitsCoord)) {PacMan.DEUX.addScore(100);}
+
+                        //state.addScore(100);
                         timelineFruitDisappear.stop();
                         timelineFruitReset.play();
                     }

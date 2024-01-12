@@ -1,7 +1,11 @@
+f;36710
 kerrian;26690
+;15000
 test;2820
+g;730
 julien;690
 alexis;580
 armand;550
 jenny;130
 pseudo;90
+l;10

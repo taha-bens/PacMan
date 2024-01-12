@@ -20,6 +20,7 @@ public class GameView {
     private final List<GraphicsUpdater> graphicsUpdaters;
 
     private static Label scoreLabel;
+    private static Label scoreLabel2;
 
     private static AnimationTimer reload;
 
@@ -42,7 +43,7 @@ public class GameView {
      * @param root  le nœud racine dans la scène JavaFX dans lequel le jeu sera affiché
      * @param scale le nombre de pixels représentant une unité du labyrinthe
      */
-    public GameView(MazeState maze, Pane root, double scale) {
+    public GameView(MazeState maze, Pane root, double scale, boolean sp) {
         this.maze = maze;
         this.gameRoot = root;
         // pixels per cell
@@ -63,6 +64,7 @@ public class GameView {
                 addGraphics(cellFactory.makeGraphics(maze, new IntCoordinates(x, y)));
             }
         }
+
         for(Critter critter : maze.getCritters()) {
             addGraphics(critterFactory.makeGraphics(maze, critter));
         }
@@ -74,6 +76,16 @@ public class GameView {
         this.gameRoot.getChildren().add(scoreLabel);
         scoreLabel.setTranslateX(50.0);
         scoreLabel.setTranslateY(10.0);
+
+        if (!sp){
+            scoreLabel2 = new Label(String.valueOf(0));
+            scoreLabel2.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 25));
+            scoreLabel2.setTextFill(Color.WHITE);
+            this.gameRoot.getChildren().add(scoreLabel2);
+            scoreLabel2.setTranslateX(50.0);
+            scoreLabel2.setTranslateY(710.0);
+        }
+
     }
 
     public void animate(Stage primaryStage){
@@ -123,13 +135,20 @@ public class GameView {
                         long timerNet = timerBrut / 1000000000;
                         int intTimerNet = (int) timerNet;
                         var deltaT = now - last;
-                        maze.update(deltaT, primaryStage);
+                        maze.update(deltaT, primaryStage, MazeState.getSp());
 
-                        PacMan.INSTANCE.updatePacman(maze.getConfig());
+                        PacMan.UN.updatePacman(maze.getConfig());
+
+                        if (!MazeState.getSp()){
+                            PacMan.DEUX.updatePacman(maze.getConfig());
+                            scoreLabel2.setText(String.valueOf(PacMan.DEUX.getScore()));
+
+                        }
                         Mouvement.start(intTimerNet, maze);
-                        Mode.mode(intTimerNet, maze);
+                        if (MazeState.getSp()) {Mode.mode(intTimerNet, maze);}
 
-                        scoreLabel.setText(String.valueOf(maze.getScore()));
+                        scoreLabel.setText(String.valueOf(PacMan.UN.getScore()));
+
                         for (var updater : graphicsUpdaters) {
                             updater.update();
                         }

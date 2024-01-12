@@ -9,24 +9,26 @@ import static model.Ghost.CLYDE;
 public class Mouvement {
 
     public static void start(int timer, MazeState maze) {
-        if (BLINKY.getPos().estEgal(new RealCoordinates(7, 6)) && timer < 2) {
-            blinkyStart1();
-        }
+        if (MazeState.getSp()){
+            if (BLINKY.getPos().estEgal(new RealCoordinates(7, 6)) && timer < 2) {
+                blinkyStart1();
+            }
 
-        if ((timer > 2) && PINKY.getPos().round().estEgal(new IntCoordinates(7, 7))) {
-            pinkyStart();
-        }
+            if ((timer > 2) && PINKY.getPos().round().estEgal(new IntCoordinates(7, 7))) {
+                pinkyStart();
+            }
 
-        if ((maze.getPacgum() > maze.getPacgumTotal() / 4) &&
-                INKY.getPos().round().estEgal(new IntCoordinates(6, 7)))
-        {
-            inkyStart();
-        }
+            if ((maze.getPacgum() > maze.getPacgumTotal() / 4) &&
+                    INKY.getPos().round().estEgal(new IntCoordinates(6, 7)))
+            {
+                inkyStart();
+            }
 
-        if ((maze.getPacgum() > maze.getPacgumTotal() / 2) &&
-                CLYDE.getPos().round().estEgal(new IntCoordinates(8, 7)))
-        {
-            clydeStart();
+            if ((maze.getPacgum() > maze.getPacgumTotal() / 2) &&
+                    CLYDE.getPos().round().estEgal(new IntCoordinates(8, 7)))
+            {
+                clydeStart();
+            }
         }
     }
 

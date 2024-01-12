@@ -1,25 +1,26 @@
 package gui;
 
-import javafx.application.Platform;
-import javafx.scene.paint.Paint;
-import model.*;
 import config.MazeConfig;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.scene.image.Image;
-import javafx.scene.Scene;
-import javafx.stage.FileChooser;
-import javafx.stage.FileChooser.*;
-import javafx.stage.Stage;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
-import java.io.File;
+import javafx.scene.text.Font;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
+import javafx.stage.Stage;
+import model.MazeState;
+import model.Sound;
 
 import java.awt.*;
 import java.io.File;
@@ -92,7 +93,7 @@ public class SelectView {
         lab1.setTranslateY(290);
         lab1.setOnAction(event -> {
             SetMazeLocate("src/main/resources/maze1.txt");
-            SetScene(primaryStage, "1");
+            SetScene(primaryStage, "1", true);
         });
 
         //labLabel1
@@ -121,7 +122,7 @@ public class SelectView {
         lab2.setTranslateY(290);
         lab2.setOnAction(event -> {
             SetMazeLocate("src/main/resources/maze2.txt");
-            SetScene(primaryStage, "2");
+            SetScene(primaryStage, "2", true);
         });
 
         //labLabel2
@@ -150,7 +151,7 @@ public class SelectView {
         lab3.setTranslateY(290);
         lab3.setOnAction(event -> {
             SetMazeLocate("src/main/resources/maze3.txt");
-            SetScene(primaryStage, "3");
+            SetScene(primaryStage, "3", true);
         });
 
         //labLabel3
@@ -178,7 +179,8 @@ public class SelectView {
         lab4.setTranslateX(100);
         lab4.setTranslateY(275);
         lab4.setOnAction(event -> {
-            System.out.println("Labyrinthe 4");
+            SetMazeLocate("src/main/resources/maze4.txt");
+            SetScene(primaryStage, "4", false);
         });
 
         //labLabel4
@@ -191,7 +193,7 @@ public class SelectView {
         labLabel4.setAlignment(Pos.CENTER);
 
         //lab4Image
-        ImageView lab4Image = new ImageView(new Image("default_background.png"));
+        ImageView lab4Image = new ImageView(new Image("maze4_background.png"));
         lab4Image.setFitWidth(400);
         lab4Image.setFitHeight(215);
         lab4Image.setLayoutX(100);
@@ -206,7 +208,8 @@ public class SelectView {
         lab5.setTranslateX(575);
         lab5.setTranslateY(275);
         lab5.setOnAction(event -> {
-            System.out.println("Labyrinthe 5");
+            SetMazeLocate("src/main/resources/maze5.txt");
+            SetScene(primaryStage, "5", false);
         });
 
         //labLabel5
@@ -219,7 +222,7 @@ public class SelectView {
         labLabel5.setAlignment(Pos.CENTER);
 
         //lab5Image
-        ImageView lab5Image = new ImageView(new Image("default_background.png"));
+        ImageView lab5Image = new ImageView(new Image("maze5_background.png"));
         lab5Image.setFitWidth(400);
         lab5Image.setFitHeight(215);
         lab5Image.setLayoutX(575);
@@ -276,7 +279,7 @@ public class SelectView {
             File selectedFile = fileChooser.showOpenDialog(null);
             if (selectedFile != null) {
                 SetMazeLocate(selectedFile.getAbsolutePath());
-                SetScene(primaryStage, selectedFile.toPath().toString());
+                SetScene(primaryStage, selectedFile.toPath().toString(), true);
             }
         });
 
@@ -386,15 +389,15 @@ public class SelectView {
         this.selectRoot.getChildren().add(labCustom);
     }
 
-    public void SetScene(Stage primaryStage, String level){
+    public void SetScene(Stage primaryStage, String level, boolean sp){
         Pane root = new Pane(); //organisateur de la fenêtre (stage)
         Scene gameScene = new Scene(root); //scène (comme caneva dans python tkinter)
         PacmanController pacmanController = new PacmanController();
         gameScene.setOnKeyPressed(pacmanController::keyPressedHandler); //ajoute l'event pression sur la scene
         gameScene.setOnKeyReleased(pacmanController::keyReleasedHandler); //ajoute l'event relachement sur la scene
 
-        MazeState maze = new MazeState(MazeConfig.makeMazeFINAL(mazeLocate), 50.0, root, level, primaryStage, 0, 3); //données du labyrinthe
-        GameView gameView = new GameView(maze, root, 50.0); //apparance graphique du précédent labyrinthe
+        MazeState maze = new MazeState(MazeConfig.makeMazeFINAL(mazeLocate, sp), 50.0, root, level, primaryStage, 0, 3, sp); //données du labyrinthe
+        GameView gameView = new GameView(maze, root, 50.0, sp); //apparance graphique du précédent labyrinthe
 
         primaryStage.setScene(gameScene);
         primaryStage.setTitle("Pacman");
