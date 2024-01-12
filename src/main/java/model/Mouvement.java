@@ -10,12 +10,19 @@ public class Mouvement {
 
     public static void start(int timer, MazeState maze) {
         if (MazeState.getSp()){
-            if (BLINKY.getPos().estEgal(new RealCoordinates(7, 6)) && timer < 2) {
+            if (BLINKY.getPos().estEgal(new RealCoordinates(7, 6)) && timer < 4) {
                 blinkyStart1();
             }
-
-            if ((timer > 2) && PINKY.getPos().round().estEgal(new IntCoordinates(7, 7))) {
-                pinkyStart();
+            if (maze.getIsFirst()){
+                if ((timer > 2) && PINKY.getPos().round().estEgal(new IntCoordinates(7, 7))) {
+                    pinkyStart();
+                    maze.setIsFirst(false);
+                }
+            }
+            else {
+                if (PINKY.getPos().round().estEgal(new IntCoordinates(7, 7))) {
+                    pinkyStart();
+                }
             }
 
             if ((maze.getPacgum() > maze.getPacgumTotal() / 4) &&
@@ -23,7 +30,6 @@ public class Mouvement {
             {
                 inkyStart();
             }
-
             if ((maze.getPacgum() > maze.getPacgumTotal() / 2) &&
                     CLYDE.getPos().round().estEgal(new IntCoordinates(8, 7)))
             {

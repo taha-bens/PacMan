@@ -138,7 +138,6 @@ public class GameView {
                         maze.update(deltaT, primaryStage, MazeState.getSp());
 
                         PacMan.UN.updatePacman(maze.getConfig());
-
                         if (!MazeState.getSp()){
                             PacMan.DEUX.updatePacman(maze.getConfig());
                             scoreLabel2.setText(String.valueOf(PacMan.DEUX.getScore()));
@@ -152,7 +151,6 @@ public class GameView {
                         for (var updater : graphicsUpdaters) {
                             updater.update();
                         }
-
                         timerBrut += now - last;
                     }
                 }
