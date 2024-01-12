@@ -103,7 +103,7 @@ public class CellGraphicsFactory {
                     (pos.x() == 8 && pos.y() == 7)
             ) {
                 northWall.setFill(Color.BLACK);
-            } else if (pos.x() == 7 && pos.y() == 6) {
+            } else if (MazeState.getSp() && pos.x() == 7 && pos.y() == 6) {
                 northWall.setFill(Color.rgb(255, 217, 179));
             } else {
                 northWall.setFill(Color.BLUEVIOLET);

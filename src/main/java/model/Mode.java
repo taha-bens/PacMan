@@ -13,7 +13,7 @@ public class Mode {
      * @param maze
      */
     public static void mode(int timer, MazeState maze) {
-        if (!PacMan.INSTANCE.isEnergized()) {
+        if (!PacMan.UN.isEnergized()) {
             if (Mode.isScatter(timer)) {
                 Mode.scatterMode(maze);
             } else {
@@ -210,25 +210,25 @@ public class Mode {
      */
     public static IntCoordinates chaseObjectif(Ghost valeur) {
         if (valeur == BLINKY) {
-            return PacMan.INSTANCE.getPos().round();
+            return PacMan.UN.getPos().round();
 
         } else if (valeur == PINKY) {
-            return PacMan.INSTANCE.devantPacman();
+            return PacMan.UN.devantPacman();
 
         } else if (valeur == CLYDE) {
-            if (CLYDE.getPos().round().minus(PacMan.INSTANCE.getPos().round()) > 4) {
-                return PacMan.INSTANCE.getPos().round();
+            if (CLYDE.getPos().round().minus(PacMan.UN.getPos().round()) > 4) {
+                return PacMan.UN.getPos().round();
 
             } else {
                 return new IntCoordinates(0, 13);
             }
         } else if (valeur == INKY) {
-            IntCoordinates devantPac = PacMan.INSTANCE.devantPacman();
+            IntCoordinates devantPac = PacMan.UN.devantPacman();
             int vx = devantPac.x() - BLINKY.getPos().round().x();
             int vy = devantPac.y() - BLINKY.getPos().round().y();
             return new IntCoordinates(
-                    PacMan.INSTANCE.getPos().round().x() + vx,
-                    PacMan.INSTANCE.getPos().round().y() + vy
+                    PacMan.UN.getPos().round().x() + vx,
+                    PacMan.UN.getPos().round().y() + vy
             );
         }
         return new IntCoordinates(0,12);

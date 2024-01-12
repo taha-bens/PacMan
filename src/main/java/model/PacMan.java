@@ -15,11 +15,14 @@ public final class PacMan implements Critter {
     private RealCoordinates pos;
     private boolean energized;
 
+    private int score;
+
     private PacMan() {
 
     }
 
-    public static final PacMan INSTANCE = new PacMan();
+    public static final PacMan UN = new PacMan();
+    public static final PacMan DEUX = new PacMan();
 
     @Override
     public RealCoordinates getPos() {
@@ -71,125 +74,135 @@ public final class PacMan implements Critter {
         this.energized = energized;
     }
 
+    public void addScore(int score) {
+        this.score += score;
+    }
+
+    public int getScore() {
+        return this.score;
+    }
+
+    public void setScore(int score) {this.score = score;}
+
     public void updatePacman(MazeConfig config) {
-        if (PacMan.INSTANCE.getDirection() == Direction.EAST) {
-            if (Math.ceil(PacMan.INSTANCE.getPos().getX()) - PacMan.INSTANCE.getPos().getX() < 0.1  &&
-                    PacMan.INSTANCE.getNextDirection() != Direction.NONE)
+        if (this.getDirection() == Direction.EAST) {
+            if (Math.ceil(PacMan.UN.getPos().getX()) - this.getPos().getX() < 0.1  &&
+                    this.getNextDirection() != Direction.NONE)
             {
-                if (PacMan.INSTANCE.getNextDirection() == Direction.NORTH ||
-                        PacMan.INSTANCE.getNextDirection() == Direction.SOUTH)
+                if (this.getNextDirection() == Direction.NORTH ||
+                        this.getNextDirection() == Direction.SOUTH)
                 {
                     IntCoordinates co = new IntCoordinates(
-                            (int) Math.ceil(PacMan.INSTANCE.getPos().getX()),
-                            (int) PacMan.INSTANCE.getPos().getY()
+                            (int) Math.ceil(this.getPos().getX()),
+                            (int) this.getPos().getY()
                     );
 
-                    if (PacMan.INSTANCE.getNextDirection() == Direction.NORTH &&
+                    if (this.getNextDirection() == Direction.NORTH &&
                             !(config.getCell(co).northWall()))
                     {
-                        PacMan.INSTANCE.setPos(new RealCoordinates(co.x(), co.y() - 0.001));
-                        PacMan.INSTANCE.setDirection(Direction.NORTH);
-                        PacMan.INSTANCE.setNextDirection(Direction.NONE);
+                        this.setPos(new RealCoordinates(co.x(), co.y() - 0.001));
+                        this.setDirection(Direction.NORTH);
+                        this.setNextDirection(Direction.NONE);
                     }
 
-                    if (PacMan.INSTANCE.getNextDirection() == Direction.SOUTH &&
+                    if (this.getNextDirection() == Direction.SOUTH &&
                             !(config.getCell(co).southWall()))
                     {
-                        PacMan.INSTANCE.setPos(new RealCoordinates(co.x(), co.y() + 0.001));
-                        PacMan.INSTANCE.setDirection(Direction.SOUTH);
-                        PacMan.INSTANCE.setNextDirection(Direction.NONE);
+                        this.setPos(new RealCoordinates(co.x(), co.y() + 0.001));
+                        this.setDirection(Direction.SOUTH);
+                        this.setNextDirection(Direction.NONE);
                     }
                 }
             }
         }
 
-        if (PacMan.INSTANCE.getDirection() == Direction.WEST) {
-            if (PacMan.INSTANCE.getPos().getX() - Math.floor(PacMan.INSTANCE.getPos().getX()) < 0.1 &&
-                    PacMan.INSTANCE.getNextDirection() != Direction.NONE)
+        if (this.getDirection() == Direction.WEST) {
+            if (this.getPos().getX() - Math.floor(this.getPos().getX()) < 0.1 &&
+                    this.getNextDirection() != Direction.NONE)
             {
-                if (PacMan.INSTANCE.getNextDirection() == Direction.NORTH ||
-                        PacMan.INSTANCE.getNextDirection() == Direction.SOUTH)
+                if (this.getNextDirection() == Direction.NORTH ||
+                        this.getNextDirection() == Direction.SOUTH)
                 {
                     IntCoordinates co = new IntCoordinates(
-                            (int) Math.floor(PacMan.INSTANCE.getPos().getX()),
-                            (int) PacMan.INSTANCE.getPos().getY()
+                            (int) Math.floor(this.getPos().getX()),
+                            (int) this.getPos().getY()
                     );
 
-                    if (PacMan.INSTANCE.getNextDirection() == Direction.NORTH &&
+                    if (this.getNextDirection() == Direction.NORTH &&
                             !(config.getCell(co).northWall()))
                     {
-                        PacMan.INSTANCE.setPos(new RealCoordinates(co.x(), co.y() - 0.001));
-                        PacMan.INSTANCE.setDirection(Direction.NORTH);
-                        PacMan.INSTANCE.setNextDirection(Direction.NONE);
+                        this.setPos(new RealCoordinates(co.x(), co.y() - 0.001));
+                        this.setDirection(Direction.NORTH);
+                        this.setNextDirection(Direction.NONE);
                     }
-                    if (PacMan.INSTANCE.getNextDirection() == Direction.SOUTH &&
+                    if (this.getNextDirection() == Direction.SOUTH &&
                             !(config.getCell(co).southWall()))
                     {
-                        PacMan.INSTANCE.setPos(new RealCoordinates(co.x()  , co.y() + 0.001));
-                        PacMan.INSTANCE.setDirection(Direction.SOUTH);
-                        PacMan.INSTANCE.setNextDirection(Direction.NONE);
+                        this.setPos(new RealCoordinates(co.x()  , co.y() + 0.001));
+                        this.setDirection(Direction.SOUTH);
+                        this.setNextDirection(Direction.NONE);
                     }
                 }
             }
         }
 
-        if (PacMan.INSTANCE.getDirection() == Direction.SOUTH) {
-            if (Math.ceil(PacMan.INSTANCE.getPos().getY()) - PacMan.INSTANCE.getPos().getY() < 0.1 &&
-                    PacMan.INSTANCE.getNextDirection() != Direction.NONE)
+        if (this.getDirection() == Direction.SOUTH) {
+            if (Math.ceil(this.getPos().getY()) - this.getPos().getY() < 0.1 &&
+                    this.getNextDirection() != Direction.NONE)
             {
-                if (PacMan.INSTANCE.getNextDirection() == Direction.EAST ||
-                        PacMan.INSTANCE.getNextDirection() == Direction.WEST)
+                if (this.getNextDirection() == Direction.EAST ||
+                        this.getNextDirection() == Direction.WEST)
                 {
                     IntCoordinates co = new IntCoordinates(
-                            (int) PacMan.INSTANCE.getPos().getX(),
-                            (int) Math.ceil(PacMan.INSTANCE.getPos().getY())
+                            (int) this.getPos().getX(),
+                            (int) Math.ceil(this.getPos().getY())
                     );
 
-                    if (PacMan.INSTANCE.getNextDirection() == Direction.EAST &&
+                    if (this.getNextDirection() == Direction.EAST &&
                             !(config.getCell(co).eastWall()))
                     {
-                        PacMan.INSTANCE.setPos(new RealCoordinates(co.x() + 0.001, co.y()));
-                        PacMan.INSTANCE.setDirection(Direction.EAST);
-                        PacMan.INSTANCE.setNextDirection(Direction.NONE);
+                        this.setPos(new RealCoordinates(co.x() + 0.001, co.y()));
+                        this.setDirection(Direction.EAST);
+                        this.setNextDirection(Direction.NONE);
                     }
 
-                    if (PacMan.INSTANCE.getNextDirection() == Direction.WEST &&
+                    if (this.getNextDirection() == Direction.WEST &&
                             !(config.getCell(co).westWall()))
                     {
-                        PacMan.INSTANCE.setPos(new RealCoordinates(co.x() - 0.001, co.y()));
-                        PacMan.INSTANCE.setDirection(Direction.WEST);
-                        PacMan.INSTANCE.setNextDirection(Direction.NONE);
+                        this.setPos(new RealCoordinates(co.x() - 0.001, co.y()));
+                        this.setDirection(Direction.WEST);
+                        this.setNextDirection(Direction.NONE);
                     }
                 }
             }
         }
 
-        if (PacMan.INSTANCE.getDirection() == Direction.NORTH) {
-            if (PacMan.INSTANCE.getPos().getY() - Math.floor(PacMan.INSTANCE.getPos().getY()) < 0.1 &&
-                    PacMan.INSTANCE.getNextDirection() != Direction.NONE)
+        if (this.getDirection() == Direction.NORTH) {
+            if (this.getPos().getY() - Math.floor(this.getPos().getY()) < 0.1 &&
+                    this.getNextDirection() != Direction.NONE)
             {
-                if (PacMan.INSTANCE.getNextDirection() == Direction.EAST ||
-                        PacMan.INSTANCE.getNextDirection() == Direction.WEST)
+                if (this.getNextDirection() == Direction.EAST ||
+                        this.getNextDirection() == Direction.WEST)
                 {
                     IntCoordinates co = new IntCoordinates(
-                            (int) PacMan.INSTANCE.getPos().getX(),
-                            (int) Math.floor(PacMan.INSTANCE.getPos().getY())
+                            (int) this.getPos().getX(),
+                            (int) Math.floor(this.getPos().getY())
                     );
 
-                    if (PacMan.INSTANCE.getNextDirection() == Direction.WEST &&
+                    if (this.getNextDirection() == Direction.WEST &&
                             !(config.getCell(co).westWall()))
                     {
-                        PacMan.INSTANCE.setPos(new RealCoordinates(co.x() - 0.001, co.y()));
-                        PacMan.INSTANCE.setDirection(Direction.WEST);
-                        PacMan.INSTANCE.setNextDirection(Direction.NONE);
+                        this.setPos(new RealCoordinates(co.x() - 0.001, co.y()));
+                        this.setDirection(Direction.WEST);
+                        this.setNextDirection(Direction.NONE);
                     }
 
-                    if (PacMan.INSTANCE.getNextDirection() == Direction.EAST &&
+                    if (this.getNextDirection() == Direction.EAST &&
                             !(config.getCell(co).eastWall()))
                     {
-                        PacMan.INSTANCE.setPos(new RealCoordinates(co.x() + 0.001, co.y()));
-                        PacMan.INSTANCE.setDirection(Direction.EAST);
-                        PacMan.INSTANCE.setNextDirection(Direction.NONE);
+                        this.setPos(new RealCoordinates(co.x() + 0.001, co.y()));
+                        this.setDirection(Direction.EAST);
+                        this.setNextDirection(Direction.NONE);
                     }
                 }
             }
@@ -201,38 +214,38 @@ public final class PacMan implements Critter {
      * @return
      */
     public IntCoordinates devantPacman() {
-        if (PacMan.INSTANCE.getDirection() == Direction.NORTH) {
-            if (PacMan.INSTANCE.getPos().round().y() - 2 < 2) {
-                return new IntCoordinates(PacMan.INSTANCE.getPos().round().x(), 2);
+        if (PacMan.UN.getDirection() == Direction.NORTH) {
+            if (PacMan.UN.getPos().round().y() - 2 < 2) {
+                return new IntCoordinates(PacMan.UN.getPos().round().x(), 2);
             } else {
-                return new IntCoordinates(PacMan.INSTANCE.getPos().round().x(), PacMan.INSTANCE.getPos().round().y() - 2);
+                return new IntCoordinates(PacMan.UN.getPos().round().x(), PacMan.UN.getPos().round().y() - 2);
             }
         }
 
-        if (PacMan.INSTANCE.getDirection() == Direction.SOUTH) {
-            if (PacMan.INSTANCE.getPos().round().y() + 2 > 12) {
-                return new IntCoordinates(PacMan.INSTANCE.getPos().round().x(), 12);
+        if (PacMan.UN.getDirection() == Direction.SOUTH) {
+            if (PacMan.UN.getPos().round().y() + 2 > 12) {
+                return new IntCoordinates(PacMan.UN.getPos().round().x(), 12);
             } else {
-                return new IntCoordinates(PacMan.INSTANCE.getPos().round().x(), PacMan.INSTANCE.getPos().round().y() + 2);
+                return new IntCoordinates(PacMan.UN.getPos().round().x(), PacMan.UN.getPos().round().y() + 2);
             }
         }
 
-        if (PacMan.INSTANCE.getDirection() == Direction.WEST) {
-            if (PacMan.INSTANCE.getPos().round().x() - 2 < 0) {
-                return new IntCoordinates(0, PacMan.INSTANCE.getPos().round().y());
+        if (PacMan.UN.getDirection() == Direction.WEST) {
+            if (PacMan.UN.getPos().round().x() - 2 < 0) {
+                return new IntCoordinates(0, PacMan.UN.getPos().round().y());
             } else {
-                return new IntCoordinates(PacMan.INSTANCE.getPos().round().x() - 2, PacMan.INSTANCE.getPos().round().y());
+                return new IntCoordinates(PacMan.UN.getPos().round().x() - 2, PacMan.UN.getPos().round().y());
             }
         }
 
-        if (PacMan.INSTANCE.getDirection() == Direction.EAST) {
-            if (PacMan.INSTANCE.getPos().round().x() + 2 > 14) {
-                return new IntCoordinates(14, PacMan.INSTANCE.getPos().round().y());
+        if (PacMan.UN.getDirection() == Direction.EAST) {
+            if (PacMan.UN.getPos().round().x() + 2 > 14) {
+                return new IntCoordinates(14, PacMan.UN.getPos().round().y());
             } else {
-                return new IntCoordinates(PacMan.INSTANCE.getPos().round().x() + 2, PacMan.INSTANCE.getPos().round().y());
+                return new IntCoordinates(PacMan.UN.getPos().round().x() + 2, PacMan.UN.getPos().round().y());
             }
         } else {
-            return PacMan.INSTANCE.getPos().round();
+            return PacMan.UN.getPos().round();
         }
     }
 }

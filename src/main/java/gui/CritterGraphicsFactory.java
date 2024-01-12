@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import model.*;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import static model.Ghost.*;
@@ -26,11 +27,12 @@ public final class CritterGraphicsFactory {
     public CritterGraphicsFactory(double scale) {
         this.scale = scale;
         paths = Map.of(
-                PacMan.INSTANCE, "pacman/PacmanL1.png",
+                PacMan.UN, "pacman/PacmanL1.png",
                 BLINKY, "red/RedL1.png",
                 CLYDE, "orange/OrangeL1.png",
                 INKY, "cyan/CyanL1.png",
-                PINKY, "pink/PinkL1.png"
+                PINKY, "pink/PinkL1.png",
+                PacMan.DEUX, "mspacman/msPacmanL1.png"
         );
     }
 
@@ -39,13 +41,21 @@ public final class CritterGraphicsFactory {
     }
 
     public GraphicsUpdater makeGraphics(MazeState maze, Critter critter) {
-        String url = (critter instanceof PacMan) ? "gif/pacman/PacmanL.gif" :
-                switch ((Ghost) critter) {
-                    case BLINKY -> "gif/red/BlinkyL.gif";
-                    case CLYDE -> "gif/orange/ClydeL.gif";
-                    case INKY -> "gif/cyan/InkyL.gif";
-                    case PINKY -> "gif/pink/PinkyL.gif";
-                };
+        String url = null;
+        if (critter == PacMan.UN) {url = "gif/pacman/PacmanL.gif";}
+                else if (critter == PacMan.DEUX) {url = "gif/mspacman/msPacmanL.gif";}
+                else {
+            switch ((Ghost) critter) {
+                case BLINKY -> url = "gif/red/BlinkyL.gif";
+                case CLYDE -> url = "gif/orange/ClydeL.gif";
+                case INKY -> url = "gif/cyan/InkyL.gif";
+                case PINKY -> url = "gif/pink/PinkyL.gif";
+            };
+        }
+
+
+        ImageView empty = new ImageView(makeImage("1x1_empty.png"));
+
         ImageView image = new ImageView(makeImage(url));
 
         ImageView friB = new ImageView(makeImage("gif/frightened/frightenedBlue.gif"));
@@ -55,6 +65,12 @@ public final class CritterGraphicsFactory {
         ImageView pacR = new ImageView(makeImage("gif/pacman/PacmanR.gif"));
         ImageView pacD = new ImageView(makeImage("gif/pacman/PacmanD.gif"));
         ImageView pacL = new ImageView(makeImage("gif/pacman/PacmanL.gif"));
+
+        ImageView mspacU = new ImageView(makeImage("gif/mspacman/msPacmanU.gif"));
+        ImageView mspacR = new ImageView(makeImage("gif/mspacman/msPacmanR.gif"));
+        ImageView mspacD = new ImageView(makeImage("gif/mspacman/msPacmanD.gif"));
+        ImageView mspacL = new ImageView(makeImage("gif/mspacman/msPacmanL.gif"));
+
 
         ImageView binU = new ImageView(makeImage("gif/red/BlinkyU.gif"));
         ImageView binR = new ImageView(makeImage("gif/red/BlinkyR.gif"));
@@ -107,28 +123,37 @@ public final class CritterGraphicsFactory {
 
             @Override
             public void update() {
-                if (critter instanceof PacMan) {
-                    setSprites(PacMan.INSTANCE, image, pacU, pacR, pacD, pacL);
-                } else {
-                    if (!((Ghost) critter).isFrightened()) {
-                        tml.stop();
-                        switch ((Ghost) critter) {
-                            case BLINKY -> setSprites(critter, image, binU, binR, binD, binL);
-                            case CLYDE -> setSprites(critter, image, clyU, clyR, clyD, clyL);
-                            case INKY -> setSprites(critter, image, inkU, inkR, inkD, inkL);
-                            case PINKY -> setSprites(critter, image, pinU, pinR, pinD, pinL);
+                if (critter.getPos()!=null) {
+                    if (critter instanceof PacMan){
+                        if (((PacMan) critter).equals(PacMan.UN)) {
+                            setSprites(PacMan.UN, image, pacU, pacR, pacD, pacL);
+                        } else if (!MazeState.getSp() && ((PacMan) critter).equals(PacMan.DEUX)) {
+                            setSprites(PacMan.DEUX, image, mspacU, mspacR, mspacD, mspacL);
                         }
                     } else {
-                        if (maze.getEatSuperPacGum() || tml.getStatus() == Animation.Status.STOPPED) {
-                            tml.playFromStart();
+                        if (!((Ghost) critter).isFrightened()) {
+                            tml.stop();
+                            switch ((Ghost) critter) {
+                                case BLINKY -> setSprites(critter, image, binU, binR, binD, binL);
+                                case CLYDE -> setSprites(critter, image, clyU, clyR, clyD, clyL);
+                                case INKY -> setSprites(critter, image, inkU, inkR, inkD, inkL);
+                                case PINKY -> setSprites(critter, image, pinU, pinR, pinD, pinL);
+                            }
+                        } else {
+                            if (maze.getEatSuperPacGum() || tml.getStatus() == Animation.Status.STOPPED) {
+                                tml.playFromStart();
+                            }
+                        }
+                        if (((Ghost) critter).isDead()){
+                            setSprites(critter, image, deadU, deadR, deadD, deadL);
                         }
                     }
-                    if (((Ghost) critter).isDead()){
-                        setSprites(critter, image, deadU, deadR, deadD, deadL);
-                    }
+                    image.setTranslateX((critter.getPos().x() + (1 - size) / 2) * scale);
+                    image.setTranslateY((critter.getPos().y() + (1 - size) / 2) * scale);
                 }
-                image.setTranslateX((critter.getPos().x() + (1 - size) / 2) * scale);
-                image.setTranslateY((critter.getPos().y() + (1 - size) / 2) * scale);
+                else {
+                    setSprites(critter, image, empty, empty, empty, empty);
+                }
             }
 
             @Override
@@ -148,7 +173,7 @@ public final class CritterGraphicsFactory {
      * @param west
      */
     private void setSprites(Critter critter, ImageView image, ImageView north, ImageView east, ImageView south, ImageView west) {
-        if (critter instanceof PacMan && critter.getDirection() == Direction.NONE) {
+        if (critter instanceof PacMan && critter.getPos()!=null && critter.getDirection() == Direction.NONE) {
             switch (critter.getPreviousDir()) {
                 case NORTH -> image.setImage(north.getImage());
                 case EAST -> image.setImage(east.getImage());
