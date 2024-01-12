@@ -71,7 +71,7 @@ public class GameView {
 
 
         scoreLabel = new Label(String.valueOf(0));
-        scoreLabel.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 25));
+        scoreLabel.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 25));
         scoreLabel.setTextFill(Color.WHITE);
         this.gameRoot.getChildren().add(scoreLabel);
         scoreLabel.setTranslateX(50.0);
@@ -79,7 +79,7 @@ public class GameView {
 
         if (!sp){
             scoreLabel2 = new Label(String.valueOf(0));
-            scoreLabel2.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 25));
+            scoreLabel2.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 25));
             scoreLabel2.setTextFill(Color.WHITE);
             this.gameRoot.getChildren().add(scoreLabel2);
             scoreLabel2.setTranslateX(50.0);
@@ -89,22 +89,23 @@ public class GameView {
     }
 
     public void animate(Stage primaryStage){
-        Sound.SOUND.playStartMusic();
+        Sound.playLaunchMusic();
 
         reload = new AnimationTimer(){
             long last = 0;
             static long timerBrut = 0;
             boolean startFreezeBoolean = true;
             boolean deathFreezeBoolean = true;
+
             @Override
             public void handle(long now) {
                 if (isDead) {
                     if (deathFreezeBoolean) {
-                        Sound.SOUND.playDeathMusic();
+                        Sound.playDeathMusic();
                     }
                     deathFreezeBoolean = false;
-                    if (Sound.SOUND.getDeathMusicClip().getMicrosecondPosition() ==
-                            Sound.SOUND.getDeathMusicClip().getMicrosecondLength()) {
+                    if (Sound.getDeathMusicClip().getMicrosecondPosition() ==
+                            Sound.getDeathMusicClip().getMicrosecondLength()) {
                         maze.playerLost(primaryStage);
                         isDead = false;
                         deathFreezeBoolean = true;
@@ -121,8 +122,59 @@ public class GameView {
                         last = now;
                         return;
                     }
-                    if (Sound.SOUND.getStartMusicClip().getMicrosecondPosition() ==
-                            Sound.SOUND.getStartMusicClip().getMicrosecondLength()) {
+                    if (Sound.getLaunchMusicClip().getMicrosecondPosition() ==
+                            Sound.getLaunchMusicClip().getMicrosecondLength()) {
+
+                        boolean oneDeadGhost =  false;
+                        boolean oneFrightenedGhost = false;
+
+                        if (MazeState.getSp()) {
+                            for (Critter critter : maze.getCritters()) {
+                                if (!(critter instanceof PacMan)) {
+                                    if (((Ghost) critter).isDead()) {
+                                        oneDeadGhost = true;
+                                    } else if (((Ghost) critter).isFrightened()) {
+                                        oneFrightenedGhost = true;
+                                    }
+                                }
+                            }
+                            if (oneDeadGhost) {
+                                try {
+                                    if (Sound.getRetreatingSoundClip().
+                                            getMicrosecondPosition() ==
+                                            Sound.getRetreatingSoundClip().
+                                                    getMicrosecondLength()) {
+                                        Sound.playRetreatingSound();
+                                    }
+
+                                } catch (Exception e) {
+                                    Sound.playRetreatingSound();
+                                }
+                            } else if (oneFrightenedGhost) {
+                                try {
+                                    if (Sound.getEnergizerSoundClip().
+                                            getMicrosecondPosition() ==
+                                            Sound.getEnergizerSoundClip().
+                                                    getMicrosecondLength()) {
+                                        Sound.playEnergizerSound();
+                                    }
+
+                                } catch (Exception e) {
+                                    Sound.playEnergizerSound();
+                                }
+                            } else {
+                                try {
+                                    if (Sound.getSirenSoundClip().getMicrosecondPosition() ==
+                                            Sound.getSirenSoundClip().getMicrosecondLength()) {
+                                        Sound.playSirenSound();
+                                    }
+
+                                } catch (Exception e) {
+                                    Sound.playSirenSound();
+                                }
+                            }
+                        }
+
                         if (!maze.vie2 && maze.getLives() == 2) {
                             timerBrut = 0;
                             maze.vie2 = true;

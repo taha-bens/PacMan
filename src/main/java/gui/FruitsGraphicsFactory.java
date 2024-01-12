@@ -25,7 +25,7 @@ public class FruitsGraphicsFactory {
 
     public FruitsGraphicsFactory(double scale) {
         this.scale = scale;
-        paths = Map.of(Fruits.CHERRY, "Cherry.png");
+        paths = Map.of(Fruits.CHERRY, "Fruits/Cherry.png");
     }
 
     public Image makeImage(String url){

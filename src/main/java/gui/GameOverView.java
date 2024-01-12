@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -16,6 +17,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.regex.Pattern;
+
+import model.Sound;
 
 public class GameOverView {
 
@@ -51,7 +54,7 @@ public class GameOverView {
 
         Label titleLabel = new Label("ScoreBoard");
         titleLabel.setTextFill(Color.GOLD);
-        titleLabel.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 27));
+        titleLabel.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 27));
         titleLabel.setPrefSize(500, 30);
         titleLabel.setTranslateX(0);
         titleLabel.setTranslateY(10);
@@ -63,14 +66,14 @@ public class GameOverView {
         TextField textField = new TextField();
         textField.setPromptText("Pseudo");
         textField.setStyle("-fx-alignment: CENTER;");
-        textField.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 27));
+        textField.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 27));
         textField.setPrefSize(300, 30);
         textField.setTranslateX(100);
         textField.setTranslateY(470);
 
         Label playerScoreLabel = new Label("Votre Score : " + playerScore);
         playerScoreLabel.setTextFill(Color.GOLD);
-        playerScoreLabel.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 20));
+        playerScoreLabel.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 20));
         playerScoreLabel.setPrefSize(500, 30);
         playerScoreLabel.setTranslateX(0);
         playerScoreLabel.setTranslateY(425);
@@ -82,7 +85,7 @@ public class GameOverView {
                 "-fx-border-width: 5px;");
         ok.setTextFill(Color.GOLD);
         ok.setPrefSize(100, 30);
-        ok.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 27));
+        ok.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 27));
         ok.setTranslateX(200);
         ok.setTranslateY(530);
         String finalLevel = level;
@@ -95,7 +98,6 @@ public class GameOverView {
                         .compile("[^a-zA-Z0-9]")
                         .matcher(textField.getText().toLowerCase())
                         .replaceAll(""); //Remplace tous les caractères spéciaux par ""
-                System.out.println("Pseudo : " + pseudo);
                 textField.clear();
 
                 // --- inscription dans le fichier de sauvegarde
@@ -150,7 +152,7 @@ public class GameOverView {
 
         Label pseudoTitleLabel = new Label("Pseudo");
         pseudoTitleLabel.setTextFill(Color.GOLD);
-        pseudoTitleLabel.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 27));
+        pseudoTitleLabel.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 27));
         grid.add(pseudoTitleLabel, 0, 0);
         pseudoTitleLabel.setStyle("-fx-border-color: #FFD700; -fx-border-width: 1px;");
         pseudoTitleLabel.setPrefSize(250, 30);
@@ -158,7 +160,7 @@ public class GameOverView {
 
         Label scoreTitleLabel = new Label("Score");
         scoreTitleLabel.setTextFill(Color.GOLD);
-        scoreTitleLabel.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 27));
+        scoreTitleLabel.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 27));
         grid.add(scoreTitleLabel, 1, 0);
         scoreTitleLabel.setStyle("-fx-border-color: #FFD700; -fx-border-width: 1px;");
         scoreTitleLabel.setPrefSize(250, 30);
@@ -172,7 +174,7 @@ public class GameOverView {
 
             Label pseudoLabel = new Label(pseudoText);
             pseudoLabel.setTextFill(Color.GOLD);
-            pseudoLabel.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 27));
+            pseudoLabel.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 27));
             pseudoLabel.setStyle("-fx-border-color: #FFD700; -fx-border-width: 1px;");
             pseudoLabel.setPrefSize(250, 30);
             pseudoLabel.setAlignment(Pos.CENTER);
@@ -180,7 +182,7 @@ public class GameOverView {
 
             Label scoreLabel = new Label(scoreText);
             scoreLabel.setTextFill(Color.GOLD);
-            scoreLabel.setFont(Font.loadFont("file:src/main/resources/ARCADE_I.TTF", 27));
+            scoreLabel.setFont(Font.loadFont("file:src/main/resources/Police/ARCADE_I.TTF", 27));
             scoreLabel.setStyle("-fx-border-color: #FFD700; -fx-border-width: 1px;");
             scoreLabel.setPrefSize(250, 30);
             scoreLabel.setAlignment(Pos.CENTER);
@@ -218,6 +220,8 @@ public class GameOverView {
         Scene menuScene = new Scene(menuroot, 500, 600);
 
         primaryStage.setScene(menuScene);
+        menuScene.setFill(Paint.valueOf("#000000"));
+        Sound.playMainMusicLoop();
         primaryStage.setTitle("Pacman - Menu");
         primaryStage.setResizable(false);
     }
