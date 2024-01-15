@@ -1,4 +1,3 @@
-
 ![Logo](src/main/resources/projet_icone.png)
 
 ## 📕 Présentation du projet
@@ -45,3 +44,7 @@ Ce Pacman est un jeu d'arcade programmé en Java 17 avec JavaFX. Le projet est c
 - [@cellier](https://gaufre.informatique.univ-paris-diderot.fr/cellier)
 - [@dufosse](https://gaufre.informatique.univ-paris-diderot.fr/dufosse)
 - [@hem](https://gaufre.informatique.univ-paris-diderot.fr/hem)
+- 
+## Vidéo (présentation du projet)
+
+https://up75-my.sharepoint.com/:v:/g/personal/alexis_dufosse_etu_u-paris_fr/EVhM2WwtLGZBnXHxtdWZlfUBici3c8bvjcDOqmcU3kNYVg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=oQJKAv
